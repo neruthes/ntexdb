@@ -1,0 +1,112 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[papersize={54mm,90mm},hmargin=6mm,vmargin=8mm]{geometry}
+\usepackage{calc}
+\usepackage{amsmath,xltxtra,xunicode}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage{wasysym,oz,pxfonts,txfonts}
+
+
+\usepackage{xeCJK}
+\XeTeXlinebreaklocale "zh" 
+\XeTeXlinebreakskip = 0pt plus 1pt 
+
+% =========================================
+\usepackage{listings}
+\usepackage{tabu}
+\usepackage{longtable}
+\usepackage{makecell}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{fontawesome5}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\setmainfont{JetBrains Mono NL}
+\setromanfont{Noto Serif}
+\setsansfont{Liberation Mono}
+\setmonofont{JetBrains Mono NL}
+\setCJKmainfont{Noto Sans CJK JP}
+\setCJKromanfont{Noto Serif CJK JP}
+\setCJKsansfont{Noto Sans CJK JP}
+\setCJKmonofont{Noto Sans CJK JP}
+\title{Business Card}
+\author{Neruthes}
+\date{}
+\pagestyle{plain}
+% =========================================
+
+% =========================================
+% START CORPORATION CONFIG
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\baselineskip}{22pt}
+% END CORPORATION CONFIG
+% =========================================
+
+% =========================================
+% START COMMON STYLESHEET
+% Table
+\tabulinesep=2pt
+\tabcolsep=4pt
+\renewcommand\theadalign{l}
+\renewcommand\theadfont{\sffamily\bfseries}
+% Font Size
+
+% END COMMON STYLESHEET
+% =========================================
+
+\graphicspath{ {/home/neruthes/DEV/ntexcollection/pic/} }
+
+
+\begin{document}
+    \pagestyle{empty}
+    \ttfamily
+    \normalsize
+    \setlength{\parskip}{4pt}
+    \setlength{\baselineskip}{18pt}
+    \baselineskip=18pt
+    % \setlength{\tabulinesep}{3pt}
+
+    \begingroup
+
+        \hspace{1mm}
+        \vspace{20mm}
+
+        \noindent\makebox[\textwidth][c]{
+            \begin{minipage}{28mm}
+                \includegraphics[width=28mm, height=28mm]{neruthes-force-circle-for-square.png}
+            \end{minipage}
+        }
+
+    \endgroup
+
+    \pagebreak
+
+    \ttfamily
+
+    \begin{tabu} {X}
+        {\vspace{44pt}} \\
+        {\LARGE\bfseries\fontspec{Realtime Rounded} NERUTHES} \\
+    \end{tabu}
+
+    % \vspace{24pt}
+    \vfill
+
+    \small
+    % \tabulinesep=3pt
+    \tabulinesep=6pt
+    \newcommand{\makelinegroup}[2]{{\ttfamily\bfseries\scriptsize\textcolor{NavyBlue}{#1}}\newline{#2}}
+    \begin{tabu} {X}
+        \makelinegroup{OPENPGP}{0x5200DF38} \\
+        \makelinegroup{EMAIL}{i@neruthes.xyz} \\
+        \makelinegroup{WEBSITE}{neruthes.xyz} \\
+        \makelinegroup{TELEGRAM}{@neruthes} \\
+    \end{tabu}
+
+\end{document}
+
+

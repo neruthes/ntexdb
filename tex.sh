@@ -1,10 +1,14 @@
 #!/bin/bash
 
-TYPE=$1
-HINT=$2
+FilePath=$1
+BaseName=$(basename $FilePath)
+TYPE_SLASH=${FilePath/$BaseName/}
 
-mkdir -p _dist/tex-tmp
-xelatex -output-directory=_dist/tex-tmp $TYPE/$HINT*.tex
+echo "FilePath=$FilePath"
+echo "BaseName=$BaseName"
+echo "TYPE_SLASH=$TYPE_SLASH"
 
-mkdir -p _dist/$TYPE
-mv _dist/tex-tmp/*.pdf _dist/$TYPE/
+xelatex -output-directory=_dist/tex-tmp $FilePath*
+
+mkdir -p _dist/$TYPE_SLASH
+mv _dist/tex-tmp/*.pdf _dist/$TYPE_SLASH
