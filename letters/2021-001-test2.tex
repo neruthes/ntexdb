@@ -1,0 +1,54 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper,12pt]{article}
+
+
+\newcommand{\recipientaddress}{
+    \begin{minipage}{37.99mm}
+        \begin{FlushRight}
+            \sffamily
+            \mdseries
+            \footnotesize
+            \setlength{\baselineskip}{14pt}
+            \setlength{\parskip}{0pt}
+
+            Αγία Σοφία
+            
+            Κωνσταντινούπολη
+            
+            \scshape Senatus Populusque
+            
+            Romanus
+
+        \end{FlushRight}
+    \end{minipage}
+}
+
+% \input{/home/neruthes/DEV/ntexlibs/lib/letterhead1.tex}
+\input{/home/neruthes/DEV/ntexlibs/lib/letterhead2.tex}
+
+% \usepackage{showframe}
+\usepackage{lipsum}
+
+\begin{document}
+    \pagestyle{plain}
+    \rmfamily\normalsize
+    \setlength{\parskip}{13pt}
+    \setlength{\baselineskip}{17pt}
+
+    \normalsize
+
+    Αγαπητέ Χρήστος,
+
+    \lipsum[1]
+
+    \lipsum[2]
+
+    Amen,\newline
+    Νερυτηες
+
+    XX Αύγουστος MMXXI
+
+
+\end{document}
