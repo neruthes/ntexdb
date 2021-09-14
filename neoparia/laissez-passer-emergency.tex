@@ -20,6 +20,7 @@
 \usepackage{listings}
 \usepackage{paralist}
 \usepackage{enumerate}
+\usepackage{enumitem}
 \usepackage{tocloft}
 \usepackage{longtable}
 \usepackage{tabu}
@@ -33,9 +34,10 @@
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{ragged2e}
+\usepackage{tcolorbox}
 \setmainfont{Lab Mono}
-\setromanfont{Noto Serif}
-\setsansfont{Liberation Mono}
+\setromanfont{Tinos}
+\setsansfont{Seravek}
 \setmonofont{Lab Mono}
 \setCJKmainfont{Noto Sans CJK SC}
 \setCJKromanfont{Noto Serif CJK SC}
@@ -90,87 +92,122 @@
     \atxy{-35pt}{820pt}{\includegraphics[scale=0.322]{neoparia/N-PageBorder.eps}}
     % \atxy{-35pt}{820pt}{\includegraphics[scale=0.161]{neoparia/N-PageBorder.png}}
 
-    \begin{minipage}[t][110mm][t]{83mm}
-            \fontspec{Seravek Medium}\Large
+    \begin{minipage}[t][111mm][t]{174mm}
+        \begin{tcolorbox}[height=110mm,width=84mm,nobeforeafter,colframe=blue,colback=white,boxrule=0.5pt]
+                \fontspec{Seravek Medium}\Large
+                % \fontspec{Myriad Pro Semibold}\Large
+                % \fontspec{JetBrains Mono NL Bold}\large
 
-            \hspace{60mm}
+                \hspace{60mm}
 
-            {\hfill{\includegraphics[scale=0.25]{neoparia/emblem/Generic-Black.eps}}\hfill}
+                {\hfill{\includegraphics[scale=0.25]{neoparia/emblem/Generic-Black.eps}}\hfill}
+                
+                {\hfill{NEOPARIA DEMOKRATIA}\hfill}
+
+                % {\hfill{ΝΕΟΠΑΡΙΑ ΔΕΜΟΚΡΑΤΙΑ}\hfill}
+
+                {\hfill{EMERGENCY LAISSEZ-PASSER}\hfill}
+
+                \vspace{3mm}
+
+                % \baselineskip=10pt
+                \setlength{\tabulinesep}{9pt}
+                \setlength{\tabcolsep}{0pt}
+                \setlength{\baselineskip}{10pt}
+                \begin{tabu} {XXX}
+                    % \makecell[l]{\lpcell{TYPE}{PE}} & \makecell[l]{\lpcell{COUNTRY CODE}{NEO}} & {} \\
+                    \lpcell{TYPE}{PE} & \lpcell{COUNTRY CODE}{NEO} & \lpcell{DOCUMENT NO}{{\color{red}LP1053022}} \\
+                    \tabucline[1pt on 1pt off 4pt]{1-3}
+                    % \hline
+                \end{tabu}
+                \begin{tabu} {X}
+                    \lpcell{NAME}{ABE, YUKI} \\
+                    \tabucline[1pt on 1pt off 4pt]{1}
+                    % \hline
+                \end{tabu}
+                \begin{tabu} {XXX}
+                    \lpcell{DATE OF BIRTH}{2010 AUG 15} &
+                        \lpcell{HAPLOGROUPS}{Mt-? / Y-?} &
+                        \lpcell{NATIONALITY}{UNKNOWN} \\
+                    \tabucline[1pt on 1pt off 4pt]{1-3}
+                    \lpcell{DATE OF ISSUE}{2021 SEP 08} &
+                        \lpcell{DATE OF EXPIRY}{2022 SEP 08} &
+                        \lpcell{PLACE OF ISSUE}{KABUL} \\
+                    \tabucline[1pt on 1pt off 4pt]{1-3}
+                \end{tabu}
+                \begin{tabu} {X}
+                    \lpcell{REMARKS}{(NONE)} \\
+                    \tabucline[1pt on 1pt off 4pt]{1}
+                    % \hline
+                \end{tabu}
+
+        \end{tcolorbox}\hfill%
+        \begin{tcolorbox}[height=110mm,width=84mm,nobeforeafter,colframe=blue,colback=white,boxrule=0.5pt]
+            \raggedright
+            {\hfill{\ttfamily OBSERVATIONS}\hfill}
+
+            \begin{enumerate}[noitemsep,leftmargin=16pt]
+                \item This laissez-passer is issued as a primary travel document en lieu de passeport.
+                \item This is not a proof of the citizenship of Neoparia for the bearer.
+                \item This laissez-passer is issued by \textbf{Alexandros Stamatis} (Special Diplomatic Delegate of Afghanistan Affairs at Kabul).
+                \item This laissez-passer is not a permit for entering Neoparia.
+            \end{enumerate}
+
+            % \makeboxbtmline\hfill Page 01
+        \end{tcolorbox}
+    \end{minipage}
+
+    \vspace{4mm}
+
+    \begin{minipage}[t][111mm][t]{174mm}
+        \begin{tcolorbox}[height=110mm,width=84mm,nobeforeafter,colframe=blue,colback=white,boxrule=0.5pt]
+            {\hfill{\ttfamily VISA}\hfill}
+
+            \vspace{20pt}
+            % \rotatebox[origin=cc]{0}{
+                \begin{tcolorbox}[boxsep=0mm,height=50mm,width=66mm,nobeforeafter,colframe=red,colback=white,boxrule=0.8pt]
+                    \begin{minipage}[t][44mm][t]{58mm}
+                        \color{red}\sffamily\large
+
+                        {\hfill{\ttfamily NEOPARIA DEMOKRATIA}\hfill}
+                        \vspace{12pt}
+                    
+                        % \centering{\huge\fontspec{Seravek Bold} VISA}
+                        % \vspace{12pt}
+
+                        {\hfill{\ttfamily\huge VISA}\hfill}
+                        \vspace{12pt}
+
+                        Permitted for SINGLE ENTRY.
+
+                        Valid till \underline{\hspace{20pt}\fontspec{Black Jack}\color{black}2023-12-31\hspace{20pt}}.
+                    \end{minipage}
+                \end{tcolorbox}
+            % }
+
+            % \makeboxbtmline\hfill Page 02
+        \end{tcolorbox}\hfill%
+        \begin{tcolorbox}[height=110mm,width=84mm,nobeforeafter,colframe=blue,colback=white,boxrule=0.5pt]
+            {\hfill{\ttfamily VISA}\hfill}
             
-            {\hfill{NEOPARIA DEMOKRATIA}\hfill}
+            % \vfill
+            % \makeboxbtmline\hfill Page 03
+        \end{tcolorbox}
+    \end{minipage}
 
-            {\hfill{EMERGENCY LAISSEZ-PASSER}\hfill}
+    \vspace{4mm}
 
-            \vspace{3mm}
-
-            % \baselineskip=10pt
-            \setlength{\tabulinesep}{9pt}
-            \setlength{\tabcolsep}{0pt}
-            \setlength{\baselineskip}{10pt}
-            \begin{tabu} {XXX}
-                % \makecell[l]{\lpcell{TYPE}{PE}} & \makecell[l]{\lpcell{COUNTRY CODE}{NEO}} & {} \\
-                \lpcell{TYPE}{PE} & \lpcell{COUNTRY CODE}{NEO} & \lpcell{DOCUMENT NO}{{\color{red}LP1053022}} \\
-                \tabucline[1pt on 1pt off 4pt]{1-3}
-                % \hline
-            \end{tabu}
-            \begin{tabu} {X}
-                \lpcell{NAME}{ABE, YUKI} \\
-                \tabucline[1pt on 1pt off 4pt]{1}
-                % \hline
-            \end{tabu}
-            \begin{tabu} {XXX}
-                \lpcell{DATE OF BIRTH}{2010 AUG 15} &
-                    \lpcell{HAPLOGROUPS}{Mt-? / Y-?} &
-                    \lpcell{NATIONALITY}{UNKNOWN} \\
-                \tabucline[1pt on 1pt off 4pt]{1-3}
-                \lpcell{DATE OF ISSUE}{2021 SEP 08} &
-                    \lpcell{DATE OF EXPIRY}{2022 SEP 08} &
-                    \lpcell{PLACE OF ISSUE}{KABUL} \\
-                \tabucline[1pt on 1pt off 4pt]{1-3}
-            \end{tabu}
-            \begin{tabu} {X}
-                \lpcell{REMARKS}{(NONE)} \\
-                \tabucline[1pt on 1pt off 4pt]{1}
-                % \hline
-            \end{tabu}
-
-    \end{minipage}\hfill%
-    \fbox{\begin{minipage}[t][110mm][t]{83mm}
-        \raggedright
-        OBSERVATIONS
-
-        \begin{enumerate}
-            \item This laissez-passer is issued as a primary travel document en lieu de passeport.
-            \item The government of Neoparia Demokratia does not testify the citizenship of the bearer.
-            \item This laissez-passer is issued by (consul-general at Kabul) Alexandros Stamatis.
-        \end{enumerate}
-
-        \makeboxbtmline\hfill Page 01
-    \end{minipage}}
-
-    \vspace{2mm}
-
-    \fbox{\begin{minipage}[t][110mm][t]{83mm}
-        VISA
-
-        \makeboxbtmline\hfill Page 02
-    \end{minipage}}\hfill%
-    \fbox{\begin{minipage}[t][110mm][t]{83mm}
-        VISA
+    \begin{minipage}[t][27mm][t]{174mm}
+        \begin{tcolorbox}[height=25mm,width=84mm,nobeforeafter,colframe=blue,colback=white,boxrule=0.5pt]
+            \raggedright
+            The Department of Diplomacy of Neoparia Demokratia requests all foreign governments and civil/military authorities
+                to allow the bearer of this travel document to pass freely.
+        \end{tcolorbox}\hfill%
+        \begin{tcolorbox}[height=25mm,width=84mm,nobeforeafter,colframe=blue,colback=white,boxrule=0.5pt]
+            Signature of the Bearer:
+        \end{tcolorbox}
         
-        \makeboxbtmline\hfill Page 03
-    \end{minipage}}
-
-    \vspace{2mm}
-
-    \fbox{\begin{minipage}[t][25mm][t]{83mm}
-        \raggedright
-        The Department of Diplomacy of Neoparia Demokratia requests all foreign governments and civil/military authorities
-            to allow the bearer of this travel document to pass freely.
-    \end{minipage}}\hfill%
-    \fbox{\begin{minipage}[t][25mm][t]{83mm}
-        Signature of the Bearer:
-    \end{minipage}}
+    \end{minipage}
 
 
 
