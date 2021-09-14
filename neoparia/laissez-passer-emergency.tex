@@ -3,7 +3,7 @@
 
 \documentclass[a4paper,10pt]{article}
 
-\usepackage[a4paper,hmargin=15mm,vmargin=15mm]{geometry}
+\usepackage[a4paper,hmargin=18mm,vmargin=18mm]{geometry}
 \usepackage{calc}
 \usepackage{amsmath,xltxtra,xunicode}
 \usepackage{titlesec}
@@ -16,21 +16,27 @@
 \XeTeXlinebreakskip = 0pt plus 1pt 
 
 % =========================================
+\usepackage{everypage}
 \usepackage{listings}
+\usepackage{paralist}
+\usepackage{enumerate}
+\usepackage{tocloft}
 \usepackage{longtable}
 \usepackage{tabu}
 \usepackage{makecell}
+\usepackage{graphicx}
+\graphicspath{ {/home/neruthes/DEV/ntexlibs/pic/} }
 \usepackage[dvipsnames]{xcolor}
-\usepackage[contents=SPECIMEN,color=gray]{background}
+% \usepackage[contents=\includegraphics{N-PageBorder.svg},color=gray]{background}
 \usepackage{tikz}
 \usepackage{fontawesome5}
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{ragged2e}
-\setmainfont{JetBrains Mono NL}
+\setmainfont{Lab Mono}
 \setromanfont{Noto Serif}
 \setsansfont{Liberation Mono}
-\setmonofont{JetBrains Mono NL}
+\setmonofont{Lab Mono}
 \setCJKmainfont{Noto Sans CJK SC}
 \setCJKromanfont{Noto Serif CJK SC}
 \setCJKsansfont{Noto Sans CJK SC}
@@ -59,25 +65,43 @@
 % END COMMON STYLESHEET
 % =========================================
 
-\graphicspath{ {/home/neruthes/DEV/ntexlibs/pic/} }
+\def\PageTopMargin{15mm}
+\def\PageLeftMargin{15mm}
+\newcommand\atxy[3]{%
+ \AddEverypageHook{\smash{\hspace*{\dimexpr-\PageLeftMargin-\hoffset+#1\relax}%
+  \raisebox{\dimexpr\PageTopMargin+\voffset-#2\relax}{#3}}}}
+% VERIFIED THAT SETTING \hoffset AND \voffset DO NOT BREAK SOLUTION.
+%\hoffset=0.4in
+%\voffset=0.2in
 
 \newcommand{\lpcell}[2]{\setlength{\baselineskip}{10pt}{\lpcellTagline{#1}}\newline{\lpcellContent{#2}}}
 \newcommand{\lpcellTagline}[1]{\setlength{\baselineskip}{8pt}\fontspec{Seravek Bold}\footnotesize\color{blue}#1}
 % \newcommand{\lpcellContent}[1]{\setlength{\baselineskip}{14pt}\fontspec{Justice}\small\color{black}#1}
 \newcommand{\lpcellContent}[1]{\setlength{\baselineskip}{14pt}\fontspec{Lab Mono}\small\color{black}#1}
 
+\newcommand{\makeboxbtmline}[0]{\vfill{\ttfamily\color{red}LP1053022}}
+
 \begin{document}
     \pagestyle{empty}
     \raggedright
     \raggedbottom
-    % Cover page
-    
-    \begin{minipage}[t][120mm][t]{75mm}
+
+
+    \atxy{-35pt}{820pt}{\includegraphics[scale=0.322]{neoparia/N-PageBorder.eps}}
+    % \atxy{-35pt}{820pt}{\includegraphics[scale=0.161]{neoparia/N-PageBorder.png}}
+
+    \begin{minipage}[t][110mm][t]{83mm}
             \fontspec{Seravek Medium}\Large
+
+            \hspace{60mm}
+
+            {\hfill{\includegraphics[scale=0.25]{neoparia/emblem/Generic-Black.eps}}\hfill}
             
             {\hfill{NEOPARIA DEMOKRATIA}\hfill}
 
             {\hfill{EMERGENCY LAISSEZ-PASSER}\hfill}
+
+            \vspace{3mm}
 
             % \baselineskip=10pt
             \setlength{\tabulinesep}{9pt}
@@ -85,7 +109,7 @@
             \setlength{\baselineskip}{10pt}
             \begin{tabu} {XXX}
                 % \makecell[l]{\lpcell{TYPE}{PE}} & \makecell[l]{\lpcell{COUNTRY CODE}{NEO}} & {} \\
-                \lpcell{TYPE}{PE} & \lpcell{COUNTRY CODE}{NEO} & \lpcell{DOCUMENT NO}{{\color{red}123456789}} \\
+                \lpcell{TYPE}{PE} & \lpcell{COUNTRY CODE}{NEO} & \lpcell{DOCUMENT NO}{{\color{red}LP1053022}} \\
                 \tabucline[1pt on 1pt off 4pt]{1-3}
                 % \hline
             \end{tabu}
@@ -105,17 +129,48 @@
                 \tabucline[1pt on 1pt off 4pt]{1-3}
             \end{tabu}
             \begin{tabu} {X}
-                \lpcell{REMARKS}{HELLO WORLD} \\
+                \lpcell{REMARKS}{(NONE)} \\
                 \tabucline[1pt on 1pt off 4pt]{1}
                 % \hline
             \end{tabu}
 
-
     \end{minipage}\hfill%
-    \begin{minipage}[t][120mm][t]{75mm}
-    % \pagecolor{cyan}
-    Hello world
-    \end{minipage}
+    \fbox{\begin{minipage}[t][110mm][t]{83mm}
+        \raggedright
+        OBSERVATIONS
+
+        \begin{enumerate}
+            \item This laissez-passer is issued as a primary travel document en lieu de passeport.
+            \item The government of Neoparia Demokratia does not testify the citizenship of the bearer.
+            \item This laissez-passer is issued by (consul-general at Kabul) Alexandros Stamatis.
+        \end{enumerate}
+
+        \makeboxbtmline\hfill Page 01
+    \end{minipage}}
+
+    \vspace{2mm}
+
+    \fbox{\begin{minipage}[t][110mm][t]{83mm}
+        VISA
+
+        \makeboxbtmline\hfill Page 02
+    \end{minipage}}\hfill%
+    \fbox{\begin{minipage}[t][110mm][t]{83mm}
+        VISA
+        
+        \makeboxbtmline\hfill Page 03
+    \end{minipage}}
+
+    \vspace{2mm}
+
+    \fbox{\begin{minipage}[t][25mm][t]{83mm}
+        \raggedright
+        The Department of Diplomacy of Neoparia Demokratia requests all foreign governments and civil/military authorities
+            to allow the bearer of this travel document to pass freely.
+    \end{minipage}}\hfill%
+    \fbox{\begin{minipage}[t][25mm][t]{83mm}
+        Signature of the Bearer:
+    \end{minipage}}
 
 
 
