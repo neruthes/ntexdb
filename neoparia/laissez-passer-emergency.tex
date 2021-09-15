@@ -25,11 +25,12 @@
 \usepackage{longtable}
 \usepackage{tabu}
 \usepackage{makecell}
-\usepackage{graphicx}
-\graphicspath{ {/home/neruthes/DEV/ntexlibs/pic/} }
 \usepackage[dvipsnames]{xcolor}
-% \usepackage[contents=\includegraphics{N-PageBorder.svg},color=gray]{background}
+\usepackage{graphicx}
 \usepackage{tikz}
+\usepackage{eso-pic}
+\graphicspath{ {/home/neruthes/DEV/ntexlibs/pic} }
+% \usepackage[contents=\includegraphics{N-PageBorder.svg},color=gray]{background}
 \usepackage{fontawesome5}
 \usepackage{multirow}
 \usepackage{multicol}
@@ -85,10 +86,20 @@
 
 \begin{document}
     \pagestyle{empty}
+    \AddToShipoutPictureFG*{%
+        \put(-43.5mm,0mm){%
+            {\includegraphics[width=\paperheight,height=\paperheight]{neoparia/pattern/EP-4-black_20p.png}}%
+        }%
+    }
+    \AddToShipoutPictureBG*{%
+        \put(0mm,2mm){%
+            {\includegraphics[width=\paperwidth]{neoparia/N-PageBorder.eps}}%
+        }%
+    }
     \raggedright
     \raggedbottom
 
-    \atxy{-35pt}{820pt}{\includegraphics[scale=0.322]{neoparia/N-PageBorder.eps}}
+    % \atxy{-35pt}{820pt}{\includegraphics[scale=0.322]{neoparia/N-PageBorder.eps}}
     % \atxy{-35pt}{820pt}{\includegraphics[scale=0.161]{neoparia/N-PageBorder.png}}
 
     \begin{minipage}[t][111mm][t]{174mm}

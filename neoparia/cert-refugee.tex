@@ -11,9 +11,9 @@
 \usepackage{wasysym,oz,pxfonts,txfonts}
 
 
-\usepackage{xeCJK}
-\XeTeXlinebreaklocale "zh" 
-\XeTeXlinebreakskip = 0pt plus 1pt 
+% \usepackage{xeCJK}
+% \XeTeXlinebreaklocale "zh" 
+% \XeTeXlinebreakskip = 0pt plus 1pt 
 
 % =========================================
 \usepackage{everypage}
@@ -26,11 +26,12 @@
 \usepackage{tabu}
 \usepackage{makecell}
 \usepackage{graphicx}
-\graphicspath{ {/home/neruthes/DEV/ntexlibs/pic/} }
-\usepackage[dvipsnames]{xcolor}
-% \usepackage[contents=\includegraphics{N-PageBorder.svg},color=gray]{background}
 \usepackage{tikz}
+\usepackage{eso-pic}
+\graphicspath{ {/home/neruthes/DEV/ntexlibs/pic} }
 \usepackage{fontawesome5}
+\usepackage{xcolor}
+% \usepackage[contents=\includegraphics{neoparia/pattern/EP-4-black.png},color=gray]{background}
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{ragged2e}
@@ -39,10 +40,10 @@
 \setromanfont{Charter}
 \setsansfont{Seravek}
 \setmonofont{JetBrains Mono}
-\setCJKmainfont{Noto Sans CJK SC}
-\setCJKromanfont{Noto Serif CJK SC}
-\setCJKsansfont{Noto Sans CJK SC}
-\setCJKmonofont{Noto Sans CJK SC}
+% \setCJKmainfont{Noto Sans CJK SC}
+% \setCJKromanfont{Noto Serif CJK SC}
+% \setCJKsansfont{Noto Sans CJK SC}
+% \setCJKmonofont{Noto Sans CJK SC}
 \title{Neoparia Commonwealth - Emergency Laissez-Passer}
 \author{Neruthes}
 \date{}
@@ -68,21 +69,27 @@
 % =========================================
 
 \newcommand{\lpcell}[2]{\setlength{\baselineskip}{10pt}{\lpcellTagline{#1}}\newline{\lpcellContent{#2}}}
-\newcommand{\lpcellTagline}[1]{\setlength{\baselineskip}{8pt}\fontspec{Seravek Bold}\footnotesize\color{NavyBlue}#1}
+\newcommand{\lpcellTagline}[1]{\setlength{\baselineskip}{8pt}\fontspec{Seravek Bold}\footnotesize\color{black}#1}
 \newcommand{\lpcellContent}[1]{\setlength{\baselineskip}{14pt}\ttfamily\small\color{black}#1}
 
 \newcommand{\makeboxbtmline}[0]{\vfill{\ttfamily\color{red}LP1053022}}
 
 \begin{document}
     \pagestyle{empty}
+    \AddToShipoutPictureFG*{%
+        \put(-0.2\paperwidth,-60mm){%
+            {\includegraphics[width=1.4\paperwidth,height=1.4\paperwidth]{neoparia/pattern/EP-4-black_20p.png}}%
+        }%
+    }
 
     % 1234
 
-    % {\hfill\begin{minipage}[t][114mm][t]{160mm}
-        \begin{tcolorbox}[height=117mm,width=82mm,left=2mm,right=2mm,nobeforeafter,colframe=NavyBlue,colback=white,boxrule=0.5pt]
-            % \begin{minipage}[t][110mm][t]{74mm}
+    % {\hfill\begin{minipage}[t][114mm][t]{160mm}%
+        \begin{tcolorbox}[standard jigsaw,height=117mm,width=82mm,left=2mm,right=2mm,nobeforeafter,colframe=black,opacityback=0,boxrule=0.5pt]
+        % \fbox{%
+            \begin{minipage}[t][110mm][t]{74mm}%
                 \fontspec{Seravek Medium}\normalsize
-                \hspace{1mm}
+                % \hspace{1mm}
 
                 {\hfill{\includegraphics[scale=0.21]{neoparia/emblem/Generic-Black.eps}}\hfill}
                 
@@ -106,7 +113,7 @@
                 \begin{tabu} {XXX}
                     \lpcell{DATE OF BIRTH}{1983-06-21} &
                         \lpcell{HAPLOGROUPS}{Mt-? / Y-?} &
-                        \lpcell{NATIONALITY}{USA} \\
+                        \lpcell{NATIONALITY}{XXX} \\
                     \tabucline[1pt on 1pt off 4pt]{1-3}
 
                     \lpcell{DATE OF ISSUE}{2021-09-08} &
@@ -121,15 +128,23 @@
                     % \hline
                 \end{tabu}
 
-            % \end{minipage}
+            \end{minipage}%
         \end{tcolorbox}\hfill%
-        \begin{tcolorbox}[height=117mm,width=82mm,left=2mm,right=2mm,nobeforeafter,colframe=NavyBlue,colback=white,boxrule=0.5pt]
-            % \begin{minipage}[t][110mm][t]{74mm}
+        % }\hfill%
+        \begin{tcolorbox}[standard jigsaw,height=117mm,width=82mm,left=2mm,right=2mm,nobeforeafter,colframe=black,opacityback=0,boxrule=0.5pt]
+        % \fbox{%
+            \begin{minipage}[t][110mm][t]{74mm}%
 
-                Hello world!
+                NOTES
 
-            % \end{minipage}
-        \end{tcolorbox}
+                % \begin{enumerate}
+                    % \item This certificate is not a travel document.
+                    % \item This certificate is not a domestic identification document.
+                % \end{enumerate}
+
+            \end{minipage}%
+        \end{tcolorbox}%
+        % }%
     % \end{minipage}\hfill}
 
 
