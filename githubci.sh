@@ -1,18 +1,11 @@
 #!/bin/bash
 
-### Install dependencies
+echo "Welcome to <githubci.sh> script."
 
-yes | apt install latex-cjk-all texlive-full
+mkdir -p _dist
 
+# rsync -av rsync://ndvs1.wan.neruthes.xyz/githubdist/ntexdb/ _dist/ --exclude={'tex-tmp','.git'}
 
-### Real compilation
+wget https://githubdist.neruthes.xyz/ntexdb/dist.tar.xz
 
-function normalBuild() {
-    for FileName in $(ls $1); do
-        bash tex.sh $1/$FileName       
-    done
-}
-
-for FileType in letters office; do
-    normalBuild $FileType
-done
+tar -pxvf dist.tar.xz
