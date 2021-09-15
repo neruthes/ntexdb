@@ -36,7 +36,7 @@
 \usepackage{ragged2e}
 \usepackage{tcolorbox}
 \setmainfont{Lab Mono}
-\setromanfont{Tinos}
+\setromanfont{Charter}
 \setsansfont{Seravek}
 \setmonofont{Lab Mono}
 \setCJKmainfont{Noto Sans CJK SC}
@@ -77,9 +77,9 @@
 %\voffset=0.2in
 
 \newcommand{\lpcell}[2]{\setlength{\baselineskip}{10pt}{\lpcellTagline{#1}}\newline{\lpcellContent{#2}}}
-\newcommand{\lpcellTagline}[1]{\setlength{\baselineskip}{8pt}\fontspec{Seravek Bold}\footnotesize\color{blue}#1}
+\newcommand{\lpcellTagline}[1]{\setlength{\baselineskip}{8pt}\fontspec{Seravek Bold}\footnotesize\color{NavyBlue}#1}
 % \newcommand{\lpcellContent}[1]{\setlength{\baselineskip}{14pt}\fontspec{Justice}\small\color{black}#1}
-\newcommand{\lpcellContent}[1]{\setlength{\baselineskip}{14pt}\fontspec{Lab Mono}\small\color{black}#1}
+\newcommand{\lpcellContent}[1]{\setlength{\baselineskip}{14pt}\ttfamily\small\color{black}#1}
 
 \newcommand{\makeboxbtmline}[0]{\vfill{\ttfamily\color{red}LP1053022}}
 
@@ -88,12 +88,11 @@
     \raggedright
     \raggedbottom
 
-
     \atxy{-35pt}{820pt}{\includegraphics[scale=0.322]{neoparia/N-PageBorder.eps}}
     % \atxy{-35pt}{820pt}{\includegraphics[scale=0.161]{neoparia/N-PageBorder.png}}
 
     \begin{minipage}[t][111mm][t]{174mm}
-        \begin{tcolorbox}[height=110mm,width=84mm,nobeforeafter,colframe=blue,colback=white,boxrule=0.5pt]
+        \begin{tcolorbox}[height=110mm,width=85mm,left=2mm,right=2mm,nobeforeafter,colframe=NavyBlue,colback=white,boxrule=0.5pt]
                 \fontspec{Seravek Medium}\Large
                 % \fontspec{Myriad Pro Semibold}\Large
                 % \fontspec{JetBrains Mono NL Bold}\large
@@ -142,70 +141,93 @@
                 \end{tabu}
 
         \end{tcolorbox}\hfill%
-        \begin{tcolorbox}[height=110mm,width=84mm,nobeforeafter,colframe=blue,colback=white,boxrule=0.5pt]
-            \raggedright
-            {\hfill{\ttfamily OBSERVATIONS}\hfill}
+        \begin{tcolorbox}[height=110mm,width=85mm,left=2mm,right=2mm,nobeforeafter,colframe=NavyBlue,colback=white,boxrule=0.5pt]
+            \begin{minipage}[t][100mm][t]{78.75mm}
+                \raggedright
+                {\hfill{\ttfamily OBSERVATIONS}\hfill}
 
-            \begin{enumerate}[noitemsep,leftmargin=16pt]
-                \item This laissez-passer is issued as a primary travel document en lieu de passeport.
-                \item This is not a proof of the citizenship of Neoparia for the bearer.
-                \item This laissez-passer is issued by \textbf{Alexandros Stamatis} (Special Diplomatic Delegate of Afghanistan Affairs at Kabul).
-                \item This laissez-passer is not a permit for entering Neoparia.
-            \end{enumerate}
+                \fontspec{Justice}
+                \begin{enumerate}[noitemsep,leftmargin=16pt]
+                    \item This laissez-passer is issued as a primary travel document en lieu de passeport.
+                    \item This is not a proof of Neoparia citizenship for the bearer.
+                    \item This laissez-passer is issued by {Alexandros Stamatis}
+                        (Special Diplomatic Delegate of Afghanistan Affairs at Kabul).
+                    \item This laissez-passer itself is not a permit for entering Neoparia.
+                    \item Freedom of movement within Neoparia may be subject to limitations,
+                        unless Neoparia citizenship is confirmed,
+                        or refugee status is granted.
+                    \item =========== THE END ===========
+                \end{enumerate}
+            \end{minipage}
 
-            % \makeboxbtmline\hfill Page 01
+            \makeboxbtmline\ttfamily\hfill Page 01
         \end{tcolorbox}
     \end{minipage}
 
     \vspace{4mm}
 
     \begin{minipage}[t][111mm][t]{174mm}
-        \begin{tcolorbox}[height=110mm,width=84mm,nobeforeafter,colframe=blue,colback=white,boxrule=0.5pt]
-            {\hfill{\ttfamily VISA}\hfill}
+        \begin{tcolorbox}[height=110mm,width=85mm,left=2mm,right=2mm,nobeforeafter,colframe=NavyBlue,colback=white,boxrule=0.5pt]
+            \begin{minipage}[t][100mm][t]{78.75mm}
+                {\hfill{\ttfamily VISA}\hfill}
 
-            \vspace{20pt}
-            % \rotatebox[origin=cc]{0}{
-                \begin{tcolorbox}[boxsep=0mm,height=50mm,width=66mm,nobeforeafter,colframe=red,colback=white,boxrule=0.8pt]
-                    \fbox{\begin{minipage}[t][44mm][t]{58mm}
-                        \color{red}\sffamily\large
+                \vspace{20pt}
+                \hfill\rotatebox[origin=cc]{3}{
+                    \begin{tcolorbox}[boxsep=0mm,height=44mm,width=66mm,nobeforeafter,colframe=red,colback=white,boxrule=1.3pt]%
+                        % \fbox{
+                            \begin{minipage}{57mm}
+                                \color{red}\sffamily\large
+                                \center
 
-                        {\hfill{\ttfamily NEOPARIA DEMOKRATIA}\hfill}
-                        \vspace{12pt}
-                    
-                        % \centering{\huge\fontspec{Seravek Bold} VISA}
-                        % \vspace{12pt}
 
-                        {\hfill{\ttfamily\huge VISA}\hfill}
-                        \vspace{12pt}
+                                \vspace{5pt}
+                                {NEOPARIA DEMOKRATIA}
+                                \vspace{7pt}
+                            
+                                {\sffamily\huge\fontspec{Liberation Serif}\bfseries ENTRY PERMIT}
+                                \vspace{5pt}
 
-                        Permitted for SINGLE ENTRY.
 
-                        Valid till \underline{\hspace{20pt}\fontspec{Black Jack}\color{black}2023-12-31\hspace{20pt}}.
-                    \end{minipage}}
-                \end{tcolorbox}
-            % }
+                                {VALID FOR SINGLE ENTRY}
 
-            % \makeboxbtmline\hfill Page 02
+                                {Final entry \underline{\hspace{20pt}\fontspec{Black Jack}\color{blue}2023-12-31\hspace{20pt}}}
+
+                                \vspace{8pt}
+                                {\small Officer Signature}
+
+                                \vspace{4pt}
+                                {\fontspec{Black Jack}\color{blue}Alexandros Stamatis}
+                            \end{minipage}
+                        % }
+                    \end{tcolorbox}
+                }
+
+            \end{minipage}
+            \makeboxbtmline\ttfamily\hfill Page 02
         \end{tcolorbox}\hfill%
-        \begin{tcolorbox}[height=110mm,width=84mm,nobeforeafter,colframe=blue,colback=white,boxrule=0.5pt]
-            {\hfill{\ttfamily VISA}\hfill}
+        \begin{tcolorbox}[height=110mm,width=85mm,left=2mm,right=2mm,nobeforeafter,colframe=NavyBlue,colback=white,boxrule=0.5pt]
+            \begin{minipage}[t][100mm][t]{78.75mm}
+                {\hfill{\ttfamily VISA}\hfill}
             
-            % \vfill
-            % \makeboxbtmline\hfill Page 03
+            \end{minipage}
+            \makeboxbtmline\ttfamily\hfill Page 03
         \end{tcolorbox}
     \end{minipage}
 
     \vspace{4mm}
 
     \begin{minipage}[t][27mm][t]{174mm}
-        \begin{tcolorbox}[height=25mm,width=84mm,nobeforeafter,colframe=blue,colback=white,boxrule=0.5pt]
+        \begin{minipage}[t][25mm][t]{84mm}
             \raggedright
-            The Department of Diplomacy of Neoparia Demokratia requests all foreign governments and civil/military authorities
-                to allow the bearer of this travel document to pass freely.
-        \end{tcolorbox}\hfill%
-        \begin{tcolorbox}[height=25mm,width=84mm,nobeforeafter,colframe=blue,colback=white,boxrule=0.5pt]
+            The Department of Diplomacy of Neoparia Demokratia requests all civil and military authorities
+                of foreign countries to allow the bearer of this travel document to pass freely, and afford assistance in case of need.
+        \end{minipage}\hfill%
+        \begin{minipage}[t][25mm][t]{84mm}
             Signature of the Bearer:
-        \end{tcolorbox}
+            
+            \vspace{8pt}{\huge\fontspec{NTest_002}Abe Yuki}\newline
+            \underline{\footnotesize\hspace{160pt}}
+        \end{minipage}
         
     \end{minipage}
 

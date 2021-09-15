@@ -1,0 +1,146 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[b6paper,10pt]{article}
+
+\usepackage[b6paper,landscape,hmargin=5mm,tmargin=6mm,bmargin=0mm]{geometry}
+\usepackage{calc}
+\usepackage{amsmath,xltxtra,xunicode}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage{wasysym,oz,pxfonts,txfonts}
+
+
+\usepackage{xeCJK}
+\XeTeXlinebreaklocale "zh" 
+\XeTeXlinebreakskip = 0pt plus 1pt 
+
+% =========================================
+\usepackage{everypage}
+\usepackage{listings}
+\usepackage{paralist}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{tocloft}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{makecell}
+\usepackage{graphicx}
+\graphicspath{ {/home/neruthes/DEV/ntexlibs/pic/} }
+\usepackage[dvipsnames]{xcolor}
+% \usepackage[contents=\includegraphics{N-PageBorder.svg},color=gray]{background}
+\usepackage{tikz}
+\usepackage{fontawesome5}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{ragged2e}
+\usepackage{tcolorbox}
+\setmainfont{JetBrains Mono}
+\setromanfont{Charter}
+\setsansfont{Seravek}
+\setmonofont{JetBrains Mono}
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKromanfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+\title{Neoparia Commonwealth - Emergency Laissez-Passer}
+\author{Neruthes}
+\date{}
+\pagestyle{plain}
+% =========================================
+
+% =========================================
+% START CORPORATION CONFIG
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+\setlength{\baselineskip}{12pt}
+% END CORPORATION CONFIG
+% =========================================
+
+% =========================================
+% START COMMON STYLESHEET
+% Table
+\renewcommand\theadalign{l}
+\renewcommand\theadfont{\sffamily\bfseries}
+% Font Size
+
+% END COMMON STYLESHEET
+% =========================================
+
+\newcommand{\lpcell}[2]{\setlength{\baselineskip}{10pt}{\lpcellTagline{#1}}\newline{\lpcellContent{#2}}}
+\newcommand{\lpcellTagline}[1]{\setlength{\baselineskip}{8pt}\fontspec{Seravek Bold}\footnotesize\color{NavyBlue}#1}
+\newcommand{\lpcellContent}[1]{\setlength{\baselineskip}{14pt}\ttfamily\small\color{black}#1}
+
+\newcommand{\makeboxbtmline}[0]{\vfill{\ttfamily\color{red}LP1053022}}
+
+\begin{document}
+    \pagestyle{empty}
+
+    % 1234
+
+    {\hfill\begin{minipage}[t][114mm][t]{160mm}
+        \begin{tcolorbox}[height=113mm,width=77mm,left=2mm,right=2mm,nobeforeafter,colframe=NavyBlue,colback=white,boxrule=0.5pt]
+            \begin{minipage}[t][110mm][t]{70mm}
+                \fontspec{Seravek Medium}\normalsize
+                \hspace{1mm}
+
+                {\hfill{\includegraphics[scale=0.21]{neoparia/emblem/Generic-Black.eps}}\hfill}
+                
+                {\hfill{NEOPARIA DEMOKRATIA}\hfill}
+
+                % {\hfill{ΝΕΟΠΑΡΙΑ ΔΕΜΟΚΡΑΤΙΑ}\hfill}
+
+                {\hfill{CERTIFICATE OF REFUGEE STATUS}\hfill}
+
+                \vspace{1mm}
+
+                \setlength{\tabulinesep}{9pt}
+                \setlength{\tabcolsep}{0pt}
+                \setlength{\baselineskip}{10pt}
+                \begin{tabu} {X}
+                    \lpcell{NAME}{SNOWDEN, EDWARD} \\
+                    \tabucline[1pt on 1pt off 4pt]{1}
+                    % \hline
+                \end{tabu}
+
+                \begin{tabu} {XXX}
+                    \lpcell{DATE OF BIRTH}{1983 JUN 21} &
+                        \lpcell{HAPLOGROUPS}{Mt-? / Y-?} &
+                        \lpcell{NATIONALITY}{UNKNOWN} \\
+                    \tabucline[1pt on 1pt off 4pt]{1-3}
+
+                    \lpcell{DATE OF ISSUE}{2021 SEP 08} &
+                        \lpcell{DATE OF EXPIRY}{2022 SEP 08} &
+                        \lpcell{PLACE OF ISSUE}{Arkturus} \\
+                    \tabucline[1pt on 1pt off 4pt]{1-3}
+                \end{tabu}
+
+                \begin{tabu} {X}
+                    \lpcell{REMARKS}{(NONE)} \\
+                    \tabucline[1pt on 1pt off 4pt]{1}
+                    % \hline
+                \end{tabu}
+
+            \end{minipage}
+        \end{tcolorbox}\hfill%
+        \begin{tcolorbox}[height=113mm,width=77mm,left=2mm,right=2mm,nobeforeafter,colframe=NavyBlue,colback=white,boxrule=0.5pt]
+            \begin{minipage}[t][110mm][t]{70mm}
+
+                Hello world
+
+                \begin{tabu} {X}
+                    \lpcell{REMARKS}{(NONE)} \\
+                    \tabucline[1pt on 1pt off 4pt]{1}
+                    % \hline
+                \end{tabu}
+            
+            \end{minipage}
+        \end{tcolorbox}
+    \end{minipage}\hfill}
+
+    \pagebreak
+
+    1234
+
+
+\end{document}
