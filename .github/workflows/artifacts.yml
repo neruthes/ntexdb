@@ -28,5 +28,13 @@ jobs:
       # Upload Artifacts
       - uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
-          path: _dist/*/*.pdf
+          name: neoparia
+          path: _dist/neoparia/*.pdf
+      - uses: actions/upload-artifact@v2
+        with:
+          name: office
+          path: _dist/office/*.pdf
+      - uses: actions/upload-artifact@v2
+        with:
+          name: letters
+          path: _dist/letters/*.pdf
