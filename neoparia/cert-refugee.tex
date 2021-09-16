@@ -25,12 +25,12 @@
 \usepackage{longtable}
 \usepackage{tabu}
 \usepackage{makecell}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{eso-pic}
 \graphicspath{ {/home/neruthes/DEV/ntexlibs/pic} }
 \usepackage{fontawesome5}
-\usepackage{xcolor}
 % \usepackage[contents=\includegraphics{neoparia/pattern/EP-4-black.png},color=gray]{background}
 \usepackage{multirow}
 \usepackage{multicol}
@@ -44,7 +44,7 @@
 % \setCJKromanfont{Noto Serif CJK SC}
 % \setCJKsansfont{Noto Sans CJK SC}
 % \setCJKmonofont{Noto Sans CJK SC}
-\title{Neoparia Commonwealth - Emergency Laissez-Passer}
+\title{Neoparia Demokatia - Certificate of Refugee Status}
 \author{Neruthes}
 \date{}
 \pagestyle{plain}
@@ -77,15 +77,15 @@
 \begin{document}
     \pagestyle{empty}
     \AddToShipoutPictureFG*{%
-        \put(-0.2\paperwidth,-60mm){%
-            {\includegraphics[width=1.4\paperwidth,height=1.4\paperwidth]{neoparia/pattern/EP-4-black_20p.png}}%
+        \put(-1\paperwidth,-10mm){%
+            {\includegraphics[width=3\paperwidth,height=3\paperwidth]{neoparia/pattern/EP6-blue_20p.tile.png}}%
         }%
     }
 
     % 1234
 
     % {\hfill\begin{minipage}[t][114mm][t]{160mm}%
-        \begin{tcolorbox}[standard jigsaw,height=117mm,width=82mm,left=2mm,right=2mm,nobeforeafter,colframe=black,opacityback=0,boxrule=0.5pt]
+        \begin{tcolorbox}[standard jigsaw,height=117mm,width=82mm,left=2mm,right=2mm,nobeforeafter,colframe=NavyBlue,colback=white,boxrule=0.5pt]
         % \fbox{%
             \begin{minipage}[t][110mm][t]{74mm}%
                 \fontspec{Seravek Medium}\normalsize
@@ -131,16 +131,18 @@
             \end{minipage}%
         \end{tcolorbox}\hfill%
         % }\hfill%
-        \begin{tcolorbox}[standard jigsaw,height=117mm,width=82mm,left=2mm,right=2mm,nobeforeafter,colframe=black,opacityback=0,boxrule=0.5pt]
+        \begin{tcolorbox}[standard jigsaw,height=117mm,width=82mm,left=2mm,right=2mm,nobeforeafter,colframe=NavyBlue,colback=white,boxrule=0.5pt]
         % \fbox{%
             \begin{minipage}[t][110mm][t]{74mm}%
+                \raggedright
 
                 NOTES
 
-                % \begin{enumerate}
-                    % \item This certificate is not a travel document.
-                    % \item This certificate is not a domestic identification document.
-                % \end{enumerate}
+                \begin{enumerate}[noitemsep,leftmargin=15pt]
+                    \item This certificate is not a travel document.
+                    \item This certificate is not a domestic identification document.
+                    \item This certificate is an intermediate material for applying for travel documents.
+                \end{enumerate}
 
             \end{minipage}%
         \end{tcolorbox}%

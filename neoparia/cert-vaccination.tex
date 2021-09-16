@@ -1,0 +1,192 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[b6paper,10pt]{article}
+
+\usepackage[b6paper,landscape,hmargin=8mm,tmargin=8mm,bmargin=0mm]{geometry}
+\usepackage{calc}
+\usepackage{amsmath,xltxtra,xunicode}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage{wasysym,oz,pxfonts,txfonts}
+
+
+% \usepackage{xeCJK}
+% \XeTeXlinebreaklocale "zh" 
+% \XeTeXlinebreakskip = 0pt plus 1pt 
+
+% =========================================
+\usepackage{everypage}
+\usepackage{listings}
+\usepackage{paralist}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{tocloft}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{makecell}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{eso-pic}
+\graphicspath{ {/home/neruthes/DEV/ntexlibs/pic} }
+\usepackage{fontawesome5}
+% \usepackage[contents=\includegraphics{neoparia/pattern/EP-4-black.png},color=gray]{background}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{ragged2e}
+\usepackage{tcolorbox}
+\setmainfont{JetBrains Mono}
+\setromanfont{Charter}
+\setsansfont{Seravek}
+\setmonofont{Courier New Bold}
+% \setCJKmainfont{Noto Sans CJK SC}
+% \setCJKromanfont{Noto Serif CJK SC}
+% \setCJKsansfont{Noto Sans CJK SC}
+% \setCJKmonofont{Noto Sans CJK SC}
+\title{Neoparia Demokatia - Certificate of Vaccination}
+\author{Neruthes}
+\date{}
+\pagestyle{plain}
+% =========================================
+
+% =========================================
+% START CORPORATION CONFIG
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+\setlength{\baselineskip}{12pt}
+% END CORPORATION CONFIG
+% =========================================
+
+% =========================================
+% START COMMON STYLESHEET
+% Table
+\renewcommand\theadalign{l}
+\renewcommand\theadfont{\sffamily\bfseries}
+% Font Size
+
+% END COMMON STYLESHEET
+% =========================================
+
+\newcommand{\lpcell}[2]{\setlength{\baselineskip}{10pt}{\lpcellTagline{#1}}\newline{\lpcellContent{#2}}}
+\newcommand{\lpcellTagline}[1]{\setlength{\baselineskip}{8pt}\fontspec{Seravek Bold}\footnotesize\color{black}#1}
+\newcommand{\lpcellContent}[1]{\setlength{\baselineskip}{14pt}\ttfamily\small\color{black}#1}
+
+\colorlet{SoftYellow}{yellow!60!}
+
+\begin{document}
+    \pagestyle{empty}
+    \pagecolor{SoftYellow}
+    \AddToShipoutPictureFG*{%
+        \put(-10mm,-10mm){%
+            {\includegraphics[width=3.6\paperwidth]{neoparia/pattern/EP6-yellow_20p.tile.png}}%
+        }%
+    }
+    \setlength{\tabulinesep}{4pt}
+    \setlength{\tabcolsep}{6pt}
+    \setlength{\baselineskip}{10pt}
+
+    % 1234
+
+    % {\hfill\begin{minipage}[t][114mm][t]{160mm}%
+        % \begin{tcolorbox}[standard jigsaw,height=117mm,width=82mm,left=2mm,right=2mm,nobeforeafter,colframe=black,colback=SoftYellow,boxrule=0.5pt]
+        \begin{minipage}[b][110mm][t]{77mm}
+            \fontspec{Seravek Medium}\large
+            \RaggedRight
+
+            {\hfill{\includegraphics[scale=0.25]{neoparia/emblem/Generic-Black.eps}}\hfill}
+            
+            {\hfill{NEOPARIA DEMOKRATIA}\hfill}
+
+            % {\hfill{ΝΕΟΠΑΡΙΑ ΔΕΜΟΚΡΑΤΙΑ}\hfill}
+
+            {\hfill{CERTIFICATE OF VACCINATION}\hfill}
+
+            \vspace{5mm}
+
+            \ttfamily
+            \newcommand{\bearerinfotablerow}[2]{
+                {\sffamily\bfseries\small{#1}} & {\hspace{12pt}\ttfamily\normalsize\color{Sepia}#2} \\
+                % \hline
+            }
+            \tabcolsep=0pt
+            \begin{tabu} {lX}
+                % \hline
+                \bearerinfotablerow{Name}{NERUTHES}
+                \bearerinfotablerow{Document No}{G00018523}
+                \bearerinfotablerow{Date of Birth}{1995-09-15}
+                \bearerinfotablerow{Date of Print}{2021-09-15}
+            \end{tabu}
+
+            \vspace{5mm}
+
+            {\rmfamily\itshape\small
+                This is to certify that this person has been successfully vaccined for the following diseases
+                    at government-approved medical institutions with government approved vaccine doses.\\
+                Authenticate via online APIs if necessary.
+
+            }
+
+            % \vspace{5mm}
+            \vfill
+
+            {\fontspec{OCR-B 10 BT}\large\color{Sepia}
+                {<<NEONERUTHES<<<<<<<<<<<<<<<<}\\
+                {G00018523<950915<210915<NEO<C}\\
+                {1300000000378123998712<SIRIUS}
+            }
+
+            % \vspace{5mm}
+
+            % \sffamily\small
+            % NOTES
+
+            % \begin{enumerate}[noitemsep,leftmargin=12pt]
+                % \item This certificate is printed at the self-service terminal.
+            % \end{enumerate}
+            
+            
+
+        \end{minipage}\hfill%
+        % \end{tcolorbox}\hfill%
+        % }\hfill%
+        % \begin{tcolorbox}[standard jigsaw,height=117mm,width=82mm,left=2mm,right=2mm,nobeforeafter,colframe=black,colback=SoftYellow,boxrule=0.5pt]
+        \begin{minipage}[b][110mm][t]{77mm}
+            \raggedright
+
+            \ttfamily
+            \begin{tabu} {|X|l|}
+                \hline
+                \textbf{\sffamily Type} & \textbf{\sffamily Date} \\
+                \hline
+                \textcolor{Sepia}{Small Pox} & \textcolor{Sepia}{2018-01-01} \\
+                \hline
+                \textcolor{Sepia}{COVID-19} & \textcolor{Sepia}{2021-09-01} \\
+                \hline
+                \textcolor{Sepia}{N/A} & \textcolor{Sepia}{N/A} \\ \hline
+                \textcolor{Sepia}{N/A} & \textcolor{Sepia}{N/A} \\ \hline
+                \textcolor{Sepia}{N/A} & \textcolor{Sepia}{N/A} \\ \hline
+                \textcolor{Sepia}{N/A} & \textcolor{Sepia}{N/A} \\ \hline
+                \textcolor{Sepia}{N/A} & \textcolor{Sepia}{N/A} \\ \hline
+                \textcolor{Sepia}{N/A} & \textcolor{Sepia}{N/A} \\ \hline
+                \textcolor{Sepia}{N/A} & \textcolor{Sepia}{N/A} \\ \hline
+                \textcolor{Sepia}{N/A} & \textcolor{Sepia}{N/A} \\ \hline
+                \textcolor{Sepia}{N/A} & \textcolor{Sepia}{N/A} \\ \hline
+                \textcolor{Sepia}{N/A} & \textcolor{Sepia}{N/A} \\ \hline
+                \textcolor{Sepia}{N/A} & \textcolor{Sepia}{N/A} \\ \hline
+                \textcolor{Sepia}{N/A} & \textcolor{Sepia}{N/A} \\ \hline
+                \textcolor{Sepia}{N/A} & \textcolor{Sepia}{N/A} \\ \hline
+                \textcolor{Sepia}{N/A} & \textcolor{Sepia}{N/A} \\ \hline
+                \textcolor{Sepia}{N/A} & \textcolor{Sepia}{N/A} \\ \hline
+                \textcolor{Sepia}{N/A} & \textcolor{Sepia}{N/A} \\ \hline
+            \end{tabu}
+
+            \vfill
+
+
+        \end{minipage}%
+        % \end{tcolorbox}%
+    % \end{minipage}\hfill}
+
+
+\end{document}
