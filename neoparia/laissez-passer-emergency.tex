@@ -68,15 +68,6 @@
 % END COMMON STYLESHEET
 % =========================================
 
-\def\PageTopMargin{15mm}
-\def\PageLeftMargin{15mm}
-\newcommand\atxy[3]{%
- \AddEverypageHook{\smash{\hspace*{\dimexpr-\PageLeftMargin-\hoffset+#1\relax}%
-  \raisebox{\dimexpr\PageTopMargin+\voffset-#2\relax}{#3}}}}
-% VERIFIED THAT SETTING \hoffset AND \voffset DO NOT BREAK SOLUTION.
-%\hoffset=0.4in
-%\voffset=0.2in
-
 \newcommand{\lpcell}[2]{\setlength{\baselineskip}{10pt}{\lpcellTagline{#1}}\newline{\lpcellContent{#2}}}
 \newcommand{\lpcellTagline}[1]{\setlength{\baselineskip}{8pt}\fontspec{Seravek Bold}\footnotesize\color{NavyBlue}#1}
 % \newcommand{\lpcellContent}[1]{\setlength{\baselineskip}{14pt}\fontspec{Justice}\small\color{black}#1}
@@ -100,8 +91,6 @@
     \raggedright
     \raggedbottom
 
-    % \atxy{-35pt}{820pt}{\includegraphics[scale=0.322]{neoparia/N-PageBorder.eps}}
-    % \atxy{-35pt}{820pt}{\includegraphics[scale=0.161]{neoparia/N-PageBorder.png}}
 
     \begin{minipage}[t][111mm][t]{174mm}
         \begin{tcolorbox}[height=110mm,width=85mm,left=2mm,right=2mm,nobeforeafter,colframe=NavyBlue,colback=white,boxrule=0.5pt]

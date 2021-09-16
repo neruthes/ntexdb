@@ -1,0 +1,134 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[a4paper,hmargin=18mm,vmargin=18mm]{geometry}
+\usepackage{calc}
+\usepackage{amsmath,xltxtra,xunicode}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage{wasysym,oz,pxfonts,txfonts}
+
+
+\usepackage{xeCJK}
+\XeTeXlinebreaklocale "zh" 
+\XeTeXlinebreakskip = 0pt plus 1pt 
+
+% =========================================
+\usepackage{everypage}
+\usepackage{listings}
+\usepackage{paralist}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{tocloft}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{makecell}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{eso-pic}
+\graphicspath{ {/home/neruthes/DEV/ntexlibs/pic} }
+% \usepackage[contents=\includegraphics{N-PageBorder.svg},color=gray]{background}
+\usepackage{fontawesome5}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{ragged2e}
+\usepackage{tcolorbox}
+\setmainfont{JetBrains Mono NL}
+\setromanfont{Charter}
+\setsansfont{Seravek}
+\setmonofont{JetBrains Mono NL}
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKromanfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+\title{Neoparia Demokatia - Emergency Laissez-Passer}
+\author{Neruthes}
+\date{}
+\pagestyle{plain}
+% =========================================
+
+% =========================================
+% START CORPORATION CONFIG
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+\setlength{\baselineskip}{12pt}
+% END CORPORATION CONFIG
+% =========================================
+
+% =========================================
+% START COMMON STYLESHEET
+% Table
+\renewcommand\theadalign{l}
+\renewcommand\theadfont{\sffamily\bfseries}
+% Font Size
+
+% END COMMON STYLESHEET
+% =========================================
+
+
+\newcommand{\makeboxbtmline}[0]{\vfill{\ttfamily\color{red}LP1053022}}
+
+\begin{document}
+    \pagestyle{empty}
+    \AddToShipoutPictureFG{%
+        \put(-43.5mm,0mm){%
+            {\includegraphics[width=900mm,height=900mm]{neoparia/pattern/EP9-blue_20p.tile.png}}%
+        }%
+    }
+    \AddToShipoutPictureBG{%
+        \put(0mm,2mm){%
+            {\includegraphics[width=\paperwidth]{neoparia/N-PageBorder.blue.png}}%
+        }%
+    }
+    \raggedright
+    \raggedbottom
+
+
+
+    {\hfill{\includegraphics[scale=0.3]{neoparia/emblem/Generic-Black.eps}}\hfill}
+    
+    \sffamily\bfseries\large
+    {\hfill{\fontspec{Seravek Medium}NEOPARIA DEMOKRATIA}\hfill}
+
+    % {\hfill{ΝΕΟΠΑΡΙΑ ΔΕΜΟΚΡΑΤΙΑ}\hfill}
+
+    {\hfill{纽巴尼亚共和国驻南洋民国大使馆}\hfill}
+
+    {\hfill{对外联络办公室}\hfill}
+
+    \vspace{16pt}
+    \hrule
+    \vspace{16pt}
+
+
+    {\hfill{\huge\bfseries{中秋贺信}}\hfill}
+
+    \vspace{8pt}
+    
+
+    \tabcolsep=0pt
+    \ttfamily\mdseries\normalsize
+    \begin{tabu} {ll}
+        {收件} & {\hspace{6pt}南洋民国外交部} \\
+        {日期} & {\hspace{6pt}2021-09-16} \\
+        {编号} & {\hspace{6pt}1001453} \\
+    \end{tabu}
+
+    \vspace{8pt}
+    \rmfamily\normalsize\mdseries
+
+    南洋民国外交部：\vspace{8pt}
+
+    \parindent=2em
+
+    逢此中秋佳节，我馆祝贵国人民单抽出奇迹，逐月快乐。
+    
+    \parindent=0pt
+
+    \vspace{8pt}此致。
+
+
+\end{document}

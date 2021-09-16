@@ -3,7 +3,7 @@
 
 \documentclass[b6paper,10pt]{article}
 
-\usepackage[b6paper,landscape,hmargin=8mm,tmargin=8mm,bmargin=0mm]{geometry}
+\usepackage[b6paper,landscape,hmargin=8mm,tmargin=7mm,bmargin=0mm]{geometry}
 \usepackage{calc}
 \usepackage{amsmath,xltxtra,xunicode}
 \usepackage{titlesec}
@@ -79,17 +79,17 @@
     \pagestyle{empty}
     \pagecolor{SoftYellow}
     \AddToShipoutPictureFG*{%
-        \put(50mm,25mm){%
-            \rotatebox[origin=cc]{-3}{\begin{tcolorbox}[standard jigsaw,width=36mm,height=24mm,colframe=red!70!SoftYellow,colback=SoftYellow,bean arc]
-                \color{red!70!SoftYellow}\sffamily
+        \put(50mm,26mm){%
+            \rotatebox[origin=cc]{-3}{\begin{tcolorbox}[standard jigsaw,width=36mm,height=22mm,colframe=red!70!SoftYellow,colback=SoftYellow,bean arc]
+                \color{red!70!SoftYellow}\fontspec{Seravek Medium}
                 \footnotesize
                 \center
 
-                DEPARTMENT OF\\HEALTHCARE\vspace{4pt}
+                {\fontspec{Courier New Bold}\normalsize 2021 09 15}\vspace{5pt}
 
                 {\Large\sffamily\bfseries CERTIFIED}\vspace{2pt}
 
-                {\fontspec{Courier New Bold} 2021 09 15}
+                DEPARTMENT OF\\HEALTHCARE
             \end{tcolorbox}}
         }%
     }
@@ -111,10 +111,8 @@
             \RaggedRight
 
             {\hfill{\includegraphics[scale=0.25]{neoparia/emblem/Generic-Black.eps}}\hfill}
-            
-            {\hfill{NEOPARIA DEMOKRATIA}\hfill}
 
-            % {\hfill{ΝΕΟΠΑΡΙΑ ΔΕΜΟΚΡΑΤΙΑ}\hfill}
+            {\hfill{NEOPARIA DEMOKRATIA}\hfill}
 
             {\hfill{CERTIFICATE OF VACCINATION}\hfill}
 
@@ -123,7 +121,6 @@
             \ttfamily
             \newcommand{\bearerinfotablerow}[2]{
                 {\sffamily\bfseries\small{#1}} & {\hspace{12pt}\ttfamily\normalsize\color{Sepia}#2} \\
-                % \hline
             }
             \tabcolsep=0pt
             \begin{tabu} {lX}
@@ -143,21 +140,6 @@
             }
 
             \vspace{6mm}
-
-            % {\fontspec{Libre Barcode 39 Extended}\Huge\color{Sepia}
-            %     {*10378123998712*}
-            % }\vspace{1pt}
-
-            % {\begin{minipage}[t][40mm][t]{55mm}
-            %     {\rmfamily\itshape\small
-            %         This is to certify that this person has been successfully vaccined for the following diseases
-            %             at government-approved medical institutions with government approved vaccine doses.\\
-            %         Authenticate via online APIs if necessary.
-            %     }
-            % \end{minipage}\hfill%
-            % \begin{minipage}[t][40mm][t]{20mm}
-            %     {\color{Sepia}\qrcode[version=4,height=17mm]{10378123998712}}
-            % \end{minipage}}
 
             {\color{Sepia}\qrcode[version=4,height=17mm]{10378123998712}}
 
