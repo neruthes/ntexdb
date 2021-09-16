@@ -26,6 +26,7 @@
 \usepackage{tabu}
 \usepackage{makecell}
 \usepackage[dvipsnames]{xcolor}
+\usepackage{qrcode}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{eso-pic}
@@ -78,6 +79,21 @@
     \pagestyle{empty}
     \pagecolor{SoftYellow}
     \AddToShipoutPictureFG*{%
+        \put(50mm,25mm){%
+            \rotatebox[origin=cc]{-3}{\begin{tcolorbox}[standard jigsaw,width=36mm,height=24mm,colframe=red!70!SoftYellow,colback=SoftYellow,bean arc]
+                \color{red!70!SoftYellow}\sffamily
+                \footnotesize
+                \center
+
+                DEPARTMENT OF\\HEALTHCARE\vspace{4pt}
+
+                {\Large\sffamily\bfseries CERTIFIED}\vspace{2pt}
+
+                {\fontspec{Courier New Bold} 2021 09 15}
+            \end{tcolorbox}}
+        }%
+    }
+    \AddToShipoutPictureFG*{%
         \put(-10mm,-10mm){%
             {\includegraphics[width=3.6\paperwidth]{neoparia/pattern/EP6-yellow_20p.tile.png}}%
         }%
@@ -102,7 +118,7 @@
 
             {\hfill{CERTIFICATE OF VACCINATION}\hfill}
 
-            \vspace{5mm}
+            \vspace{3mm}
 
             \ttfamily
             \newcommand{\bearerinfotablerow}[2]{
@@ -118,34 +134,40 @@
                 \bearerinfotablerow{Date of Print}{2021-09-15}
             \end{tabu}
 
-            \vspace{5mm}
+            \vspace{3mm}
 
             {\rmfamily\itshape\small
                 This is to certify that this person has been successfully vaccined for the following diseases
-                    at government-approved medical institutions with government approved vaccine doses.\\
-                Authenticate via online APIs if necessary.
+                at government-approved medical institutions with government approved vaccine doses.\\
 
             }
 
-            % \vspace{5mm}
+            \vspace{6mm}
+
+            % {\fontspec{Libre Barcode 39 Extended}\Huge\color{Sepia}
+            %     {*10378123998712*}
+            % }\vspace{1pt}
+
+            % {\begin{minipage}[t][40mm][t]{55mm}
+            %     {\rmfamily\itshape\small
+            %         This is to certify that this person has been successfully vaccined for the following diseases
+            %             at government-approved medical institutions with government approved vaccine doses.\\
+            %         Authenticate via online APIs if necessary.
+            %     }
+            % \end{minipage}\hfill%
+            % \begin{minipage}[t][40mm][t]{20mm}
+            %     {\color{Sepia}\qrcode[version=4,height=17mm]{10378123998712}}
+            % \end{minipage}}
+
+            {\color{Sepia}\qrcode[version=4,height=17mm]{10378123998712}}
+
             \vfill
 
             {\fontspec{OCR-B 10 BT}\large\color{Sepia}
                 {<<NEONERUTHES<<<<<<<<<<<<<<<<}\\
                 {G00018523<950915<210915<NEO<C}\\
-                {1300000000378123998712<SIRIUS}
-            }
-
-            % \vspace{5mm}
-
-            % \sffamily\small
-            % NOTES
-
-            % \begin{enumerate}[noitemsep,leftmargin=12pt]
-                % \item This certificate is printed at the self-service terminal.
-            % \end{enumerate}
-            
-            
+                {10378123998712<SIRIUS<<<<<<<<}
+            }\vspace{1pt}
 
         \end{minipage}\hfill%
         % \end{tcolorbox}\hfill%
