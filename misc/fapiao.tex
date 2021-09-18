@@ -1,0 +1,104 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a5paper,10pt]{article}
+
+\usepackage[a5paper,landscape,textwidth=54em,tmargin=7mm,bmargin=0mm]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{calc}
+\usepackage{amsmath,xltxtra,xunicode}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage{wasysym,oz,pxfonts,txfonts}
+
+
+\usepackage{xeCJK}
+\XeTeXlinebreaklocale "zh" 
+\XeTeXlinebreakskip = 0pt plus 1pt 
+
+% =========================================
+\usepackage{everypage}
+\usepackage{listings}
+\usepackage{paralist}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{tocloft}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{makecell}
+\usepackage{qrcode}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{eso-pic}
+\graphicspath{ {/home/neruthes/DEV/ntexlibs/pic} }
+\usepackage{fontawesome5}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{ragged2e}
+\usepackage{tcolorbox}
+\setmainfont{JetBrains Mono}
+\setromanfont{Times New Roman}
+\setsansfont{Seravek}
+\setmonofont{Courier Prime}
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKromanfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+\newcommand{\kaifamily}[0]{\CJKfontspec{FandolKai}}
+
+\title{Fapiao}
+\author{Neruthes}
+\date{2021-09-17}
+\pagestyle{plain}
+% =========================================
+
+% =========================================
+% START CORPORATION CONFIG
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+\setlength{\baselineskip}{12pt}
+% END CORPORATION CONFIG
+% =========================================
+
+% =========================================
+% START COMMON STYLESHEET
+% Table
+\renewcommand\theadalign{l}
+\renewcommand\theadfont{\sffamily\bfseries}
+% Font Size
+
+% END COMMON STYLESHEET
+% =========================================
+
+\colorlet{FapiaoYellow}{orange!66!black}
+\tabulinesep=5pt
+
+\begin{document}
+    \begin{minipage}{54em}
+        \CJKfontspec{FandolKai}
+        \color{FapiaoYellow}
+        % % \kaifamily
+        % 测试文本
+
+        \begin{tabu} {|X[c,1.25]|X[31.5]|X[c,1.25]|X[20]|}
+            \hline
+            {\vspace{0.1ex}购\newline 买\newline 方} & {%
+                {名称：\hspace{4.5em}}{\color{NavyBlue}\ttfamily 123331212312}\newline
+                {纳税人识别号：\hspace{0.5em}}{\color{NavyBlue}\ttfamily 123331212312}\newline
+                {地址、电话：\hspace{1.5em}}{\color{NavyBlue}\ttfamily 123331212312}\newline
+                {开户行及账号：\hspace{0.5em}}{\color{NavyBlue}\ttfamily 123331212312}%
+            } &%
+            {\vspace{0.1ex}密\newline 码\newline 区} & {
+                % \color{NavyBlue}
+                \ttfamily%
+                {\color{NavyBlue} 1237784652473834783}\newline%
+                {\color{NavyBlue} 1237784652473834783}\newline%
+                {\color{NavyBlue} 1237784652473834783}\newline%
+                {\color{NavyBlue} 1237784652473834783}%
+            } \\
+            % 购买方 & 购买方 & 购买方 & 购买方 \\
+            \hline
+        \end{tabu}
+    \end{minipage}
+\end{document}
