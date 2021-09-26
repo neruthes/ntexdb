@@ -123,6 +123,14 @@
         \hline
     \end{tabu}\par
 }}
+\newcommand{\tripNote}[1]{{
+    % 1=content
+    \begin{tabu} {|lX|}
+        \hline
+        {\faIcon{pen-nib}} & {#1} \\
+        \hline
+    \end{tabu}
+}}
 
 % Trip Commands End
 % =================================================
@@ -154,9 +162,9 @@
     \subsection{2021/09/27 MON}
     \tripAir{CA1919}{2021-09-27 MON}{Beijing - PEK T3}{1200}{Guangzhou - CAN T1}{1530}{一点小小的注释}
 
-    % \fbox{
-    %     什么嘛，吾射不亦精乎！\hfill
-    % }
+    \tripNote{
+        什么嘛，吾射不亦精乎！\hfill
+    }
 
 
 \end{document}
