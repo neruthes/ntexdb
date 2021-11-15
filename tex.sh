@@ -12,3 +12,5 @@ xelatex -output-directory=_dist/tex-tmp $FilePath
 
 mkdir -p _dist/$TYPE_SLASH
 mv _dist/tex-tmp/*.pdf _dist/$TYPE_SLASH
+
+realpath "_dist/${FilePath/.tex/.pdf}"
