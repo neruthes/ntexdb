@@ -1,0 +1,201 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[a4paper,hmargin=25mm,tmargin=30mm,bmargin=20mm]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{calc}
+\usepackage{amsmath,xltxtra,xunicode}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage{wasysym,oz,pxfonts,txfonts}
+
+
+\usepackage{xeCJK}
+\XeTeXlinebreaklocale "zh" 
+\XeTeXlinebreakskip = 0pt plus 1pt 
+
+% =========================================
+\usepackage{everypage}
+\usepackage{listings}
+\usepackage{paralist}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{tocloft}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{makecell}
+\usepackage{qrcode}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{eso-pic}
+\graphicspath{ {/home/neruthes/DEV/ntexlibs/pic} }
+\usepackage{fontawesome5}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{ragged2e}
+\usepackage{tcolorbox}
+\usepackage{textcase}
+
+\usepackage[sfdefault]{inter}
+\usepackage[OT1]{fontenc}
+% \renewcommand*\familydefault{\ttdefault}
+
+% \setmainfont{IBM Plex Serif}
+% \setromanfont{IBM Plex Serif}
+% \setmainfont{QTBodini}
+% \setromanfont{QTBodini}
+% \setsansfont{Americane}
+% \setmonofont{CMU Typewriter Text}
+\setmonofont{Justice}
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKromanfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+
+\title{}
+\author{}
+\date{}
+\pagestyle{plain}
+% =========================================
+
+% =========================================
+% START CORPORATION CONFIG
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+\setlength{\baselineskip}{12pt}
+% END CORPORATION CONFIG
+% =========================================
+
+% =========================================
+% START COMMON STYLESHEET
+% Table
+\renewcommand\theadalign{l}
+\renewcommand\theadfont{\sffamily\bfseries}
+% Font Size
+
+% END COMMON STYLESHEET
+% =========================================
+
+
+
+
+\newcommand{\tval}[1]{{\hspace{14pt}\ttfamily\upshape\mdseries\normalsize\textcolor{red!90!black}{#1}}}
+
+\newcommand{\makebondbody}[2]{
+    \color{blue!12!black!80!white}
+    % $1=bond_sn $2=paper_part
+    \begin{minipage}{\textwidth}
+        \center
+
+        \baselineskip=27pt
+        {\color{blue!12!black!80!white}\Huge\ttfamily\bfseries\fontspec[LetterSpace=6]{Elsie Black}TREASURURY\linebreak BOND}
+        \vspace{15pt}
+
+        {{\ttfamily\large\color{red!90!black}[ S/N #1 ]}}
+        % \vspace{10pt}
+
+        % {#1}
+    \end{minipage}
+    \vspace{40pt}
+
+    \rmfamily
+
+    \tabulinesep=11pt
+    % \tabcolsep=0pt
+
+    \begin{minipage}{\linewidth}
+        \center
+        
+        \large
+
+        {{\includegraphics[width=42mm]{neruthes-grandseal-core.png}}}
+        \vspace{30pt}
+
+        {\Huge\fontspec{Realtime Rounded}\bfseries NERUTHES}
+        \vspace{25pt}
+
+        \sffamily\normalsize
+        \baselineskip=16pt
+        \MakeUppercase{for value received}\par
+        \MakeUppercase{promises to pay to the bearer}\par
+        \MakeUppercase{the sum of}
+
+        \vspace{45pt}
+        {\underline{\hspace{0.4\linewidth}}}
+        \vspace{45pt}
+
+
+        
+        \sffamily\small
+        \tabcolsep=0pt
+        \tabulinesep=12pt
+        % \fontspec{Erato}
+        \begin{tabu} {lXlX}
+            \hline
+            {DATE OF ISSUE} & {\tval{2021 December 31}} & {DATE OF DUE} & {\tval{2022 December 31}} \\
+            \hline
+            {INTEREST RATE} & {\tval{[0.00\% Monthly]}} & {CURRENCY} & {\tval{Renminbi (RMB)}} \\
+            \hline
+        \end{tabu}
+    \end{minipage}
+    \vspace{25pt}
+
+
+    \sffamily
+    \tabcolsep=5pt
+    \begin{tabu} {X[c]X[c]}
+        {} & {} \\
+        {} & {} \\
+        {} & {} \\
+        % {\hrule} & {\hrule} \\
+        % \hline
+        {\hrule\vspace{5pt} SIGNATURE} & {\hrule\vspace{5pt} STAMP} \\
+    \end{tabu}
+
+}
+
+
+
+
+
+
+\begin{document}
+\raggedright
+\raggedbottom
+\pagestyle{empty}
+
+
+\AddToShipoutPictureBG{%
+	\put(1mm,1.41mm){%
+		% {\includegraphics[width=\paperwidth]{neoparia/N-PageBorder.png}}%
+		{\includegraphics[width=\paperwidth-2mm]{neoparia/N-PageBorder.eps}}%
+	}%
+}
+% \AddToShipoutPictureBG{%
+% 	\put(-43.5mm,0mm){%
+% 		{\includegraphics[width=3\paperwidth]{neoparia/pattern/EP6-black_20p.tile.png}}%
+% 	}%
+% }
+\AddToShipoutPictureBG*{%
+    \put(-43.5mm,0mm){%
+        % {\includegraphics[width=\paperheight,height=\paperheight]{neoparia/pattern/EP-4-blue_20p.png}}%
+        {\includegraphics[width=\paperheight,height=\paperheight]{neoparia/pattern/EP-4-black_20p.png}}%
+    }%
+}
+
+
+
+\newcommand{\makebond}[1]{
+    \makebondbody{#1}{}
+}
+
+
+
+\makebond{320220001}
+
+
+
+\end{document}
