@@ -1,0 +1,255 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[a4paper,hmargin=23mm,tmargin=24mm,bmargin=22mm]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{calc}
+\usepackage{amsmath,xltxtra,xunicode}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage{wasysym,oz,pxfonts,txfonts}
+\usepackage{listings,paralist,enumitem}
+\usepackage{tabu}
+
+
+% Fonts
+\usepackage[sfdefault]{inter}
+% \usepackage{courier}
+\usepackage{xeCJK}
+\setmonofont{JetBrains Mono NL}
+\setCJKromanfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+
+
+% Metadata
+\title{Wishnet: Reservse Web Protocol}
+\author{Neruthes}
+\date{2022-02-05 (version 0.1.0-pre1)}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\setlength{\tabulinesep}{5pt}
+
+
+
+
+
+
+
+\newcommand{\inlinecode}[1]{
+    {\fbox{\small\ttfamily{#1}}}
+}
+
+% Code blocks
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    % numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+
+
+
+
+\begin{document}
+\rmfamily
+
+
+\begin{minipage}{\linewidth}
+    \maketitle
+
+    \sffamily
+    \tableofcontents
+\end{minipage}
+\vspace{30pt}
+\hrule
+\vspace{1pt}
+
+
+
+
+
+\section{Preface}
+
+在这个时代，科学上网处于某种暧昧的地位。政治气候上，这属于舆论管理；司法实践上，这属于国际互联网信道管理。
+本文探讨一种新型思路，对科学上网问题提供一种补充，规避科学上网实践牵扯到国际互联网信道问题。
+
+
+
+\section{法理辨析}
+
+关于国际互联网信道的定义，目前尚无正式的立法解释、司法解释。
+这种模糊为公安机关、检察机关、基层法院提供了过大的自由裁量空间。
+社会上一般认为，光缆、卫星信号才能构成国际互联网信道。
+但是，在目前的司法实践中，使用 PPTP、L2TP、IPSec、Shadowsocks 等技术实现的 TCP/UDP 网络流量代理，可以被认定为国际互联网信道。
+
+所以，某些信息的传达需要以另类的手段完成，境内设备和用户不能主动发起「虚拟信道」的创建。
+
+
+
+\section{参与方面}
+
+Wishnet 的工作方式需要多方协作。
+
+\begin{compactitem}
+	\item 请求者 Wisher
+	\item 服务者 Dawei
+\end{compactitem}
+
+\subsection{请求者 Wisher}
+
+请求者（Wisher）类似于传统 web 意义上的客户端（client）。但不同之处在于，请求者不会主动发起网络连接，只会公示自己的信息需求，期待服务者上传。
+
+\subsection{服务者 Dawei}
+
+服务者（Dawei）类似于传统 web 意义上的服务端（server）。但不同之处在于，服务者并非被动接受连入的网络连接，而是会主动查询请求者的信息需求，并尝试满足。
+
+
+
+
+\section{信息需求的发布}
+
+本章节介绍一种在 HTTP/HTTPS 协议栈上发布信息需求的方案。在此之外，也可以设计在其他协议栈（例如 rsyncd）上发布信息需求的方案。
+
+请求者需要开设一个 HTTP 服务器。
+
+\subsection{基本信息 Meta}
+
+请求路径：\inlinecode{GET /meta.json}。
+
+本文件包含请求者的一些基本信息。
+
+内容样例：
+
+\begin{lstlisting}
+{
+  // 一些基本信息
+  "meta": {
+    "hostname": "wishnet.example.com"
+  },
+  // 一些策略要求
+  "policy": {
+    "submitsPerMinute": 30
+  }
+}
+\end{lstlisting}
+
+
+\subsection{需求目录 Catalog}
+
+请求路径：\inlinecode{GET /catalog.json}。
+
+本文件为所有需求的目录。
+
+内容样例：
+
+\begin{lstlisting}
+[
+  // 数组中每个条目就是一个信息需求描述
+  {
+    // 唯一识别符
+    "uuid": "c7c363d7-6e42-499e-9bbb-054ecceaf14c",
+    // 信息被服务者获取的时间不早于某个阈值
+    "after": "2021-01-01T12:00:00.000Z",
+    // 规则描述
+    "match": [
+      // 一个规则
+      {
+        // 匹配模式：URL 字符串匹配
+        "mode": "url-substring",
+        // 以特定字符串开头和结尾，null 表示无约束
+        "begin": "https://twitter.com/neruthes/status/",
+        "end": null
+      },
+      // 另一个规则
+      {
+        // 匹配模式：URL 正则表达式
+        "mode": "url-regexp",
+        "regexp": "/^https\\:\\/\\/twitter.com\\/neruthes\\/status/\w+"
+      }
+    ]
+  }
+]
+\end{lstlisting}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{服务者的上传服务}
+
+本章节介绍一种在 HTTP/HTTPS 协议栈上发布信息需求的方案。在此之外，也可以设计在其他协议栈（例如 sftp、ssh、smtp）上发布信息需求的方案。
+
+\subsection{提交数据}
+
+请求路径：\inlinecode{POST /api/submit/(uuid)}。
+
+通过 HTTP/HTTPS 提交数据，需要携带这些 header：
+
+\begin{lstlisting}
+// 原始的 URL
+Wishnet-Raw-URI: https://twitter.com/neruthes/status/1489603911795482630
+// 服务者缓存到这份资源的时间
+Wishnet-Fetch-Date: Sat, 05 Feb 2022 13:56:43 GMT
+// 原始的 MIME type
+Wishnet-Content-Type: text/html
+// 使用服务者的公钥，对 request body 做一份数字签名
+Wishnet-Signature: iHUEARMIAB0WIQT6W9hcOY4NkrKGQ7U27uwNvkiaTQUCYf6EIQAKCRA27uwNvkia
+    TVwUAP9OpFSWphREgoTNsW2t0ot1ga97jBDDxwM4PYia4KR3BAEAuFtVL7rd0nG6
+    8ymIfzwXtpxfurq7VeM8NMNK1PM7aPI=
+    =zAry
+\end{lstlisting}
+
+HTTP request body 即为服务者当时获取的 HTTP response body。
+
+
+
+
+\section{请求者的信息管理策略}
+// TODO
+
+\subsection{多用户问题}
+\subsection{面向用户的信息呈现}
+\subsubsection{作为一个 Web Archive 服务}
+\subsubsection{作为一个 HTTP Proxy 服务}
+\subsection{阅读状态管理}
+\subsection{老旧数据的备份与清理}
+\subsection{服务者可靠性问题}
+\subsubsection{公钥白名单模式}
+\subsubsection{反向 DNS 域名白名单模式}
+
+\section{信息需求目录的自动化生成}
+// TODO
+
+\section{服务者的工作策略}
+// TODO
+
+
+\end{document}
