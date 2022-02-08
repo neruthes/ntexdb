@@ -1,0 +1,44 @@
+\documentclass[a5paper,12pt]{article}
+\usepackage[papersize={150mm,400mm},hmargin=10mm,tmargin=10mm,bmargin=0mm]{geometry}
+\usepackage{xeCJK}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\input{/home/neruthes/DEV/ntexlibs/lib/libtrip.tex}
+\input{/home/neruthes/DEV/ntexlibs/lib/libtrip.extra.tex}
+
+\title{Example Travel Plan}
+\author{Neruthes}
+\date{2022-02-13 SUN}
+
+
+\begin{document}
+    \sffamily
+    \maketitle
+
+    \section*{2022-06-01 SUN}
+    \tripAir[
+        code=MU3389,
+        date=2021-09-24 FRI,
+        dep=广州白云 CAN T1,
+        depTime=12:00,
+        arr=上海浦东 PVG T1,
+        arrTime=14:00
+    ]{This is a line of note.}
+
+    \tripTrain[
+        code=G2012,
+        date=2021-09-24 FRI,
+        dep=广州东,
+        depTime=12:00,
+        arr=上海虹桥,
+        arrTime=14:00
+    ]{这里是一行注释。}
+
+    \section*{2022-06-05 THU}
+    \tripEvent[
+        % date=2022-06-05 THU,
+        time=10:00,
+        addr=1 Infinite Loop\, Cupertino\, CA 95014
+    ]{WWDC 2022}
+
+\end{document}
