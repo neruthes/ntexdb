@@ -1,0 +1,133 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[a4paper,hmargin=10mm,vmargin=10mm]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{calc}
+\usepackage{amsmath,xltxtra,xunicode}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage{wasysym,oz,pxfonts,txfonts}
+
+
+\usepackage{xeCJK}
+\XeTeXlinebreaklocale "zh" 
+\XeTeXlinebreakskip = 0pt plus 1pt 
+
+% =========================================
+\usepackage{svg}
+\usepackage{listings}
+\usepackage{listings}
+\usepackage{rotating}
+\usepackage{paralist}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{tocloft}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{makecell}
+\usepackage{qrcode}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{eso-pic}
+\graphicspath{ {/home/neruthes/DEV/ntexlibs/pic} }
+\usepackage{fontawesome5}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{ragged2e}
+\usepackage{tcolorbox}
+\setmainfont{JetBrains Mono}
+\setromanfont{Liberation Serif}
+\setsansfont{Inter}
+\setmonofont{JetBrains Mono NL}
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKromanfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+\newcommand{\kaifamily}[0]{\CJKfontspec{FandolKai}}
+
+\pagestyle{plain}
+% =========================================
+
+% =========================================
+% START CORPORATION CONFIG
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+\setlength{\baselineskip}{12pt}
+% END CORPORATION CONFIG
+% =========================================
+
+% =========================================
+% START COMMON STYLESHEET
+% Table
+% Font Size
+
+% END COMMON STYLESHEET
+% =========================================
+
+
+\newcommand{\hongbaosides}[0]{
+    \put(6mm,15mm){%
+        % BACK
+        \begin{tcolorbox}[height=110mm,width=79mm,left=2mm,right=2mm,nobeforeafter,colframe=white,colback=red!88!orange,boxrule=0pt,arc=0mm]
+            \center
+            \color{white}
+            \color{white!25!yellow!80!orange}
+            \ttfamily\mdseries\small
+            % \fontspec{Myriad Pro}
+
+            \vspace{85mm}
+            Copyright \copyright{} 2014-2022 Neruthes.\\
+            All rights reserved.
+        \end{tcolorbox}%
+    }%
+    \put(85.2mm,15mm){%
+        % FRONT
+        \begin{tcolorbox}[height=110mm,width=80mm,left=2mm,right=2mm,nobeforeafter,colframe=white,colback=red!88!orange,boxrule=0pt,arc=0mm]
+            \center
+            
+            \vspace{22mm}
+            \includesvg[width=60mm]{kotomatsu-wb/svg/kwb-1.svg}
+        \end{tcolorbox}%
+    }%
+    \put(85.2mm,4.8mm){%
+        % BOTTOM
+        \begin{tcolorbox}[height=10mm,width=80mm,left=2mm,right=2mm,nobeforeafter,colframe=white,colback=red!88!orange,boxrule=0pt,arc=0mm]
+        \end{tcolorbox}%
+    }%
+    \put(85.2mm,125.2mm){%
+        % TOP
+        \begin{tcolorbox}[height=33mm,width=80mm,left=2mm,right=2mm,nobeforeafter,colframe=white,colback=red!88!orange,boxrule=0pt,arc=0mm]
+        \end{tcolorbox}%
+    }%
+    \put(165.4mm,15mm){%
+        % RIGHT SIDE
+        \begin{tcolorbox}[height=110mm,width=10mm,left=2mm,right=2mm,nobeforeafter,colframe=white,colback=red!88!orange,boxrule=0pt,arc=0mm]
+        \end{tcolorbox}%
+    }%
+}
+
+
+
+\begin{document}
+\pagestyle{empty}
+
+\AddToShipoutPictureFG*{%
+	\put(30mm,0mm){%
+		\hongbaosides%
+	}%
+    % \begin{rotate}{180}%
+        % \put(25mm,145mm){%
+            % \hongbaosides%
+        % }%
+    % \end{rotate}%
+}
+
+{\color{white}Hello world}
+
+
+
+\end{document}

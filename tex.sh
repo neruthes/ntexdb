@@ -8,7 +8,7 @@ TYPE_SLASH="${FilePath/$BaseName/}"
 # echo "BaseName=$BaseName"
 # echo "TYPE_SLASH=$TYPE_SLASH"
 
-xelatex -output-directory=_dist/tex-tmp "$FilePath"
+xelatex -output-directory=_dist/tex-tmp --shell-escape "$FilePath"
 
 mkdir -p "_dist/$TYPE_SLASH"
 mv _dist/tex-tmp/*.pdf "_dist/$TYPE_SLASH"
