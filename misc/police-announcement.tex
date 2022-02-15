@@ -1,0 +1,63 @@
+\documentclass[a5paper,12pt]{article}
+
+\usepackage[papersize={120mm,200mm},textwidth=23em,tmargin=19mm,bmargin=0mm]{geometry}
+\usepackage[PunctStyle=plain]{xeCJK}
+% \xeCJKsetup{CJKglue=\hskip 0pt}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\setsansfont{Liberation Sans}
+\setromanfont{Liberation Serif}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKromanfont{Noto Serif CJK SC}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\graphicspath{{/home/neruthes/DEV/ntexdb/.tmp-pic}}
+\usepackage{svg}
+
+
+\title{}
+\author{}
+\date{}
+
+
+\begin{document}
+\sffamily
+\pagecolor{NavyBlue!40!blue}
+\color{white}
+\parindent=0pt
+
+
+
+\begin{minipage}{\linewidth}
+    \Huge
+    \sffamily
+    \bfseries
+    \center
+    
+    \parskip=6pt
+
+    \includesvg[width=0.2\linewidth]{2022-02/nypd.svg}\vspace{12pt}
+
+    {警 情 通 报}
+\end{minipage}
+
+\vspace{2.5em}
+
+\rmfamily
+\normalsize
+\baselineskip=20pt
+
+2022 年 02 月 14 日，NYPD 接市民举报，境外公众人物孙某晨，以预售虚拟货币 AirCoin（空气币）对境内外集资诈骗。
+我局已经取得了立案证据，即日依法立案侦察。
+初步认定该案件涉案金额 25 美分，案件侦办进展将及时公示。
+
+\vspace{2.5em}
+% \small
+\sffamily\bfseries
+\raggedright
+\hspace{15em}NYPD\\
+\hspace{15em}Feb 14, 2022\\
+
+
+\end{document}
