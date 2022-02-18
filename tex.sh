@@ -52,7 +52,12 @@ saveFileToNasOSS "$REALPATH"
 
 case "$TOIMG" in
     jpg|png)
-        pdftoimg "$REALPATH" "/tmp/$(basename "$REALPATH").$TOIMG" >/dev/null 2>&1
-        echo "Made image:" "/tmp/$(basename "$REALPATH").$TOIMG"
+        IMGPATH="/tmp/$(basename "$REALPATH").$TOIMG"
+        if [[ -e "$IMGPATH" ]]; then
+            rm "$IMGPATH" 2>/dev/null
+        fi
+        pdftoimg "$REALPATH" "$IMGPATH" >/dev/null 2>&1
+        echo "Made image:" "$IMGPATH"
+        saveFileToNasOSS "$IMGPATH"
         ;;
 esac
