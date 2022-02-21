@@ -48,7 +48,7 @@ mv _dist/tex-tmp/*.pdf "_dist/$TYPE_SLASH"
 REALPATH=$(realpath "_dist/${FilePath/.tex/.pdf}")
 du -h "$REALPATH"
 
-saveFileToNasOSS "$REALPATH"
+OSS_SUBDIR=ntexdb/ saveFileToNasOSS "$REALPATH" -p
 
 case "$TOIMG" in
     jpg|png)
