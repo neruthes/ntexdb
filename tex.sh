@@ -14,6 +14,10 @@ while [[ $# -gt 0 ]]; do
         TOIMG="jpg"
         shift # past argument
         ;;
+    --oss)
+        TONASOOS="y"
+        shift # past argument
+        ;;
     -*|--*)
         echo "Unknown option $1"
         exit 1
@@ -46,9 +50,14 @@ mkdir -p "_dist/$TYPE_SLASH"
 mv _dist/tex-tmp/*.pdf "_dist/$TYPE_SLASH"
 
 REALPATH=$(realpath "_dist/${FilePath/.tex/.pdf}")
+
+echo -e "\nDocument Size:"
 du -h "$REALPATH"
 
-OSS_SUBDIR=ntexdb/ saveFileToNasOSS "$REALPATH" -p
+if [[ $TONASOOS == y ]]; then
+    echo -e "\nDocument URLs:"
+    OSS_SUBDIR=ntexdb/ saveFileToNasOSS "$REALPATH" -p
+fi
 
 case "$TOIMG" in
     jpg|png)
@@ -58,6 +67,9 @@ case "$TOIMG" in
         fi
         pdftoimg "$REALPATH" "$IMGPATH" >/dev/null 2>&1
         echo "Made image:" "$IMGPATH"
-        saveFileToNasOSS "$IMGPATH"
+        if [[ $TONASOOS == y ]]; then
+            echo -e "\nImage URLs:"
+            OSS_SUBDIR=ntexdb-img/ saveFileToNasOSS "$IMGPATH"
+        fi
         ;;
 esac
