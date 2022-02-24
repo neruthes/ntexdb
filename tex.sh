@@ -18,6 +18,10 @@ while [[ $# -gt 0 ]]; do
         TONASOOS="y"
         shift # past argument
         ;;
+    --range=*)
+        PAGES_RANGE="${1/--range=/}"
+        shift # past argument
+        ;;
     -*|--*)
         echo "Unknown option $1"
         exit 1
@@ -50,15 +54,24 @@ mkdir -p "_dist/$TYPE_SLASH"
 mv _dist/tex-tmp/*.pdf "_dist/$TYPE_SLASH"
 
 REALPATH=$(realpath "_dist/${FilePath/.tex/.pdf}")
+PDFFN="$(basename "$REALPATH")"
 
 echo -e "\nDocument Size:"
 du -h "$REALPATH"
 
+
+### --oss
 if [[ $TONASOOS == y ]]; then
+    TMPFILE=/tmp/9915e62e-3d15-41cd-9d67-008487ec22ee
     echo -e "\nDocument URLs:"
-    OSS_SUBDIR=ntexdb/ saveFileToNasOSS "$REALPATH" -p
+    OSS_SUBDIR=ntexdb/ saveFileToNasOSS "$REALPATH" -p > $TMPFILE
+    cat $TMPFILE
+    echo "$TYPE_SLASH$PDFFN  $(grep "oss.udon.pw:2096/p/" $TMPFILE)" >> .osslist
+    sort -u .osslist -o .osslist
+    rm $TMPFILE
 fi
 
+### --jpg | --png
 case "$TOIMG" in
     jpg|png)
         IMGPATH="/tmp/$(basename "$REALPATH").$TOIMG"
@@ -73,3 +86,11 @@ case "$TOIMG" in
         fi
         ;;
 esac
+
+### --range
+if [[ ! -z "$PAGES_RANGE" ]]; then
+    echo "Generating ranged subset."
+    RANGED_PDF_PATH="/tmp/${PDFFN/.pdf/}_$PAGES_RANGE"
+    pdftk "$REALPATH" cat $PAGES_RANGE output "$RANGED_PDF_PATH".pdf
+    du -h "$RANGED_PDF_PATH".pdf
+fi
