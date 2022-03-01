@@ -1,0 +1,164 @@
+\documentclass[a4paper,11pt]{report}
+
+\title{通用命名学}
+\author{Neruthes}
+\date{\today}
+
+\usepackage[a4paper,textwidth=38em,vmargin=30mm]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{calc}
+\usepackage{amsmath,xltxtra,xunicode}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage{wasysym,oz,pxfonts,txfonts}
+\usepackage{longtable,tabu,listing,tocloft}
+
+
+\usepackage[PunctStyle=plain,RubberPunctSkip=false]{xeCJK}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKromanfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+
+\begin{document}
+\tabulinesep=6pt
+\parindent=0pt
+\parskip=5pt
+
+\begin{titlepage}
+	\maketitle
+\end{titlepage}
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\chapter*{前言}
+
+
+\chapter{配队命名}
+
+\section{固定搭配命名法}
+
+部分固定搭配已经众所周知，所以我们承认并沿用这些固定搭配。
+
+\begin{longtabu}{|c|c|X[c]|}
+	\hline
+	{固定搭配名称} & {简称} & {内容} \\
+	\hline
+	\endhead
+	{国家队} & {-} & {班尼特 + 香菱 + 行秋 + 重云} \\
+	{雷神国家队} & {雷国} & {班尼特 + 香菱 + 行秋 + 雷电将军} \\
+	{万达国际} & {-} & {班尼特 + 香菱 + 达达利亚 + 枫原万叶} \\
+	\hline
+\end{longtabu}
+
+\section{角色缩写命名法}
+
+灵活搭配的阵容命名，需要组合阵容中的角色的单字简称。在条件允许的情况下，应当优先选用首选单字简称。但是，为特定修辞效果，允许使用备用单字简称。除非极端特殊需求，不应选用另外的单字简称。
+
+\begin{longtabu}{|X[c]|c|c|}
+	\hline
+	{角色} & {首选单字简称} & {备用单字简称} \\
+	\hline
+	\endhead
+	\hline
+	\endfoot
+	{迪卢克} & {迪} & {卢} \\
+	{琴} & {琴} & {-} \\
+	{莫娜} & {莫} & {-} \\
+	{温迪} & {温} & {-} \\
+	{可莉} & {可} & {-} \\
+	{阿贝多} & {阿} & {-} \\
+	{优菈} & {优} & {-} \\
+	\hline
+	{安柏} & {安} & {-} \\
+	{丽莎} & {丽} & {-} \\
+	{凯亚} & {凯} & {-} \\
+	{班尼特} & {班} & {点} \\
+	{罗莎莉亚} & {罗} & {修} \\
+	\hline
+	{刻晴} & {刻} & {-} \\
+	{七七} & {七} & {-} \\
+	{钟离} & {钟} & {-} \\
+	{甘雨} & {甘} & {-} \\
+	{魈} & {魈} & {-} \\
+	{胡桃} & {胡} & {-} \\
+	{申鹤} & {申} & {鹤} \\
+	% {XX} & {XX} & {-} \\
+	\hline
+	{香菱} & {香} & {-} \\
+	{行秋} & {行} & {秋} \\
+	{凝光} & {凝} & {-} \\
+	{北斗} & {北} & {-} \\
+	{烟绯} & {烟} & {-} \\
+	{云堇} & {云} & {-} \\
+	{XX} & {XX} & {-} \\
+	\hline
+	{枫原万叶} & {万} & {-} \\
+	{神里绫华} & {神} & {-} \\
+	{宵宫} & {宵} & {-} \\
+	{雷电将军} & {雷} & {-} \\
+	{珊瑚宫心海} & {心} & {-} \\
+	{荒泷一斗} & {荒} & {斗} \\
+	\hline
+	{八重神子} & {八} & {-} \\
+	{九条裟罗} & {九} & {裟} \\
+	{五郎} & {五} & {狗} \\
+	\hline
+	{达达利亚} & {达} & {公} \\
+\end{longtabu}
+
+
+
+
+\chapter{武器命名}
+
+
+
+\chapter{圣遗物命名}
+
+\section{圣遗物套装命名}
+
+\begin{longtabu}{|c|X[c]|c|c|}
+	\hline
+	{产地} & {套装名称} & {主要简称} & {备用简称} \\
+	\hline
+	\endhead
+	\hline
+	\endfoot
+	{蒙德} & {苍翠猎人} & {风} & {-} \\
+	{} & {少女} & {少女} & {-} \\
+	\hline
+	{璃月} & {魔女} & {魔女} & {火} \\
+	{} & {逆飞的流星} & {逆飞} & {-} \\
+	\hline
+	{稻妻} & {绝缘之旗印} & {绝缘} & {充能} \\
+	{} & {追忆之注连} & {追忆} & {泄能} \\
+\end{longtabu}
+
+
+
+
+\chapter{密境命名}
+
+\begin{longtabu}{|X[c]|c|l|c|c|}
+	\hline
+	{密境} & {地区} & {描述} & {主要名称} & {备用名称} \\
+	\hline
+	\endhead
+	\hline
+	\endfoot
+	{铭记之谷} & {蒙德} & {圣遗物：风，少女} & {风本} & {-} \\
+	{仲夏之庭} & {蒙德} & {圣遗物：如雷、平雷} & {雷本} & {-} \\
+	{芬德尼尔之顶} & {蒙德} & {圣遗物：水、冰} & {冰本} & {-} \\
+	{无妄引咎之宫} & {璃月} & {圣遗物：魔女、渡火} & {火本} & {-} \\
+	{华池岩岫} & {璃月} & {圣遗物：宗室、骑士} & {宗室本} & {-} \\
+	{山脊守望} & {璃月} & {圣遗物：千岩、苍白} & {千岩本} & {苍白本} \\
+\end{longtabu}
+
+
+\end{document}
