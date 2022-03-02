@@ -1,0 +1,88 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[a4paper,textwidth=34em,vmargin=34mm]{geometry}
+\usepackage{calc}
+\usepackage{amsmath,xltxtra,fontspec,xunicode}
+\usepackage{titlesec,datetime2}
+\usepackage{enumitem,paralist}
+\usepackage[OT1]{fontenc}
+\usepackage{wasysym,oz,pxfonts,txfonts}
+\usepackage{ragged2e}
+\usepackage{textcase}
+
+\usepackage[PunctStyle=plain,RubberPunctSkip=false]{xeCJK}
+\defaultCJKfontfeatures{Script=CJK}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\setmainfont{NewComputerModern}
+\setromanfont{NewComputerModern}
+\setsansfont{Inter}
+\setmonofont{JetBrains Mono NL}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKromanfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\graphicspath{ {/home/neruthes/DEV/ntexlibs/pic} }
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+
+
+
+
+
+\newcommand{\makehead}[4]{
+    % $1=authority $2=title $3=note $4=date
+    \begin{minipage}{\linewidth}
+        \center
+        \sffamily
+        \small
+        {\hfill{\includegraphics[width=16mm]{neoparia/emblem/Generic-Black.eps}}\hfill}
+        \vspace{6mm}
+
+        \MakeTextUppercase{#1}
+        \vspace{11mm}
+    \end{minipage}
+    \begin{minipage}{\linewidth}
+        \center
+        % \fontspec{Tinos}
+        \sffamily
+        \Large
+        #2
+        \vspace{12mm}
+    \end{minipage}
+    {\sffamily\footnotesize #3 \hfill #4}%
+    \vspace{2mm}
+    \hrule
+    \vspace{15mm}
+    % \RaggedRight
+    \rmfamily
+}
+\newcommand{\makeeof}[0]{
+    \vspace{9mm}
+    \begin{minipage}{\linewidth}
+        \center
+        * * *
+    \end{minipage}
+}
+
+
+
+
+
+\begin{document}
+\pagestyle{empty}
+\makehead{Neoparia Demokratia\\Auktoritas Diplomatou}{Statement on the Situation of\\ Golden Apple Archipelago}{Neoparia / Astroupoli}{\today}
+
+The Government of Neoparia Demokratia acknowledges that, Golden Apple Archipelago has a complicated history of human settlement, and its sovereignty is subject to extreme complexity. Our State calls for peaceful resolution of any possible territorial disputes over the archipelago through dialogue and not force. The Neoparian people cherish peace and are committed to contributing for peace.
+
+\makeeof
+
+\end{document}
