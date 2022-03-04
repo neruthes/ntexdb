@@ -1,0 +1,171 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[a4paper,hmargin=40mm,tmargin=34mm,bmargin=30mm]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{calc}
+\usepackage{amsmath,xltxtra,xunicode}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage{wasysym,oz,pxfonts,txfonts}
+\usepackage{datetime2}
+
+
+\usepackage{xeCJK}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+% =========================================
+\usepackage{everypage}
+\usepackage{listings}
+\usepackage{paralist}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{tocloft}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{makecell}
+\usepackage{qrcode}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{eso-pic}
+\graphicspath{ {/home/neruthes/DEV/ntexlibs/pic} }
+\usepackage{fontawesome5}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{ragged2e}
+\usepackage{tcolorbox}
+\setmainfont{Charter}
+\setromanfont{Charter}
+\setsansfont{SF Pro Text}
+\setmonofont{Justice}
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKromanfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+\newcommand{\kaifamily}[0]{\CJKfontspec{FandolKai}}
+
+\title{}
+\author{}
+\date{}
+\pagestyle{plain}
+% =========================================
+
+% =========================================
+% START CORPORATION CONFIG
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+\setlength{\baselineskip}{12pt}
+% END CORPORATION CONFIG
+% =========================================
+
+% =========================================
+% START COMMON STYLESHEET
+% Table
+\renewcommand\theadalign{l}
+\renewcommand\theadfont{\sffamily\bfseries}
+% Font Size
+
+% END COMMON STYLESHEET
+% =========================================
+
+
+\linespread{1.2}
+
+\newcommand{\makebondbody}[2]{
+    % $1=bond_sn $2=paper_part
+    \begin{minipage}{\textwidth}
+        \center
+
+        {\huge\rmfamily\bfseries {个人小额债券}}
+        \vspace{10pt}
+
+        {\Large\ttfamily\bfseries\fontspec[LetterSpace=10]{Elsie Black} PERSONAL TREASURY BOND}
+        \vspace{10pt}
+
+        {债券编号 [ {\ttfamily\large\color{red}#1} ] #2}
+        % \vspace{10pt}
+
+        % {#1}
+    \end{minipage}
+    \vspace{22pt}
+
+    \rmfamily
+
+    \tabulinesep=11pt
+    % \tabcolsep=0pt
+
+    {\hfill\begin{tabu} {|l|X|}
+        \hline
+        {发行方}     & {} \\
+        \hline
+        {借款金额}     & {} \\
+        \hline
+        {金额大写}     & {} \\
+        \hline
+        {认购日期}     & {} \\
+        \hline
+        {首次计息日}     & {} \\
+        \hline
+    \end{tabu}\hfill}
+
+    \section*{条款与条件}
+
+    \begin{enumerate}[itemsep=0pt]
+        \item 借款用途为，发行方的基本生活成本。
+        \item 借款期限为，总共 5000 天。前 3000 天无利息。
+    \end{enumerate}
+    \vspace{10pt}
+
+    \section*{发行方签章区}
+
+    发行方在此区域签章确认，本债券方生效。
+    \vspace{20pt}
+
+    \begin{tabu} {|lX|lX|}
+        \hline
+        {签章} & {} & {日期} & {} \\
+        \hline
+    \end{tabu}
+
+}
+
+
+
+
+
+
+\begin{document}
+\raggedright
+\raggedbottom
+\pagestyle{empty}
+
+
+\AddToShipoutPictureBG{%
+	\put(0mm,2mm){%
+		{\includegraphics[width=\paperwidth]{neoparia/N-PageBorder.green.png}}%
+		% {\includegraphics[width=\paperwidth]{neoparia/N-PageBorder.eps}}%
+	}%
+}
+\AddToShipoutPictureFG{%
+	\put(-43.5mm,0mm){%
+		{\includegraphics[width=3\paperwidth]{neoparia/pattern/EP6-green_20p.tile.png}}%
+	}%
+}
+
+
+
+\newcommand{\makebond}[1]{
+    \makebondbody{#1}{认购方存根}
+}
+
+
+
+\makebond{\today}
+
+
+
+\end{document}
