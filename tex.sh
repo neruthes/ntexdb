@@ -90,10 +90,11 @@ esac
 ### --range
 if [[ ! -z "$PAGES_RANGE" ]]; then
     echo "Generating ranged subset."
-    RANGED_PDF_PATH="/tmp/${PDFFN/.pdf/}_page$PAGES_RANGE.pdf"
-    pdftk "$REALPATH" cat $PAGES_RANGE output "$RANGED_PDF_PATH"
-    du -h "$RANGED_PDF_PATH"
-    if [[ $TONASOOS == y ]]; then
-        OSS_SUBDIR=ntexdb-ranged/ saveFileToNasOSS "$RANGED_PDF_PATH"
-    fi
+    # RANGED_PDF_PATH="/tmp/${PDFFN/.pdf/}_page$PAGES_RANGE.pdf"
+    # pdftk "$REALPATH" cat $PAGES_RANGE output "$RANGED_PDF_PATH"
+    # du -h "$RANGED_PDF_PATH"
+    # if [[ $TONASOOS == y ]]; then
+    #     OSS_SUBDIR=ntexdb-ranged/ saveFileToNasOSS "$RANGED_PDF_PATH"
+    # fi
+    OSS=y pdfrange "$REALPATH" "$PAGES_RANGE"
 fi
