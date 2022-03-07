@@ -4,7 +4,4 @@ rphm:
     echo "And now run ./tex.sh private/rphm-book-2022.tex"
 
 private:
-    cd private
-    git add .
-    git commit -m 'autocommit'
-    git push
+    bash -c "cd $PWD/private; git add .; git commit -m 'autocommit'; git push"
