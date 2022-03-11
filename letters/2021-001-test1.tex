@@ -1,54 +1,41 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,11pt]{article}
 
 
-\newcommand{\recipientaddress}{
-    \begingroup
-            \sffamily
-            \mdseries
-            \footnotesize
-            \setlength{\baselineskip}{14pt}
-            \setlength{\parskip}{0pt}
 
-            Αγία Σοφία
-            
-            Κωνσταντινούπολη
-            
-            \scshape 
-            Senatus Populusque Romanus
-
-    \endgroup
-}
 
 \input{/home/neruthes/DEV/ntexlibs/lib/letterhead1.tex}
 % \input{/home/neruthes/DEV/ntexlibs/lib/letterhead2.tex}
 
-% \usepackage{showframe}
 \usepackage{lipsum}
 
 \begin{document}
-    \pagestyle{plain}
-    \rmfamily\normalsize
-    \setlength{\parskip}{13pt}
-    \setlength{\baselineskip}{17pt}
-    \RaggedRight
+    \rmfamily
 
-    \recipientaddress\vspace{10mm}
+    \recipientaddress{
+        Αγία Σοφία
 
-    \normalsize
+        Κωνσταντινούπολη
+
+        \scshape Senatus Populusque Romanus
+    }
 
     Κωνσταντῖνος Δραγάσης Παλαιολόγος,
+    \vspace{1em}
+
+
 
     \lipsum[1]
 
     \lipsum[2]
 
+
+
+    \vspace{1em}
     Amen,\linebreak
     Νερυτηες
 
     {\footnotesize XX Αύγουστος MMXXI}
-
-
 \end{document}
