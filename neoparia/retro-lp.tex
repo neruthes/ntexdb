@@ -1,0 +1,160 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[a4paper,textwidth=42em,tmargin=23mm,bmargin=15mm]{geometry}
+\usepackage{calc}
+\usepackage{amsmath,xltxtra,fontspec,xunicode}
+\usepackage{titlesec,datetime2}
+\usepackage{enumitem,paralist}
+\usepackage[OT1]{fontenc}
+\usepackage{wasysym,oz}
+\usepackage{tabu}
+
+\usepackage{ulem}
+
+\usepackage[PunctStyle=plain,RubberPunctSkip=false]{xeCJK}
+\defaultCJKfontfeatures{Script=CJK}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\setmainfont{QTBasker}
+\setromanfont{QTBasker}
+\setsansfont{QTBookmann}
+% \setmonofont{Justice}
+\setmonofont{Libertinus Mono}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKromanfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx,eso-pic}
+\graphicspath{ {/home/neruthes/DEV/ntexlibs/pic} }
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+
+
+
+% \newcommand{\writing}[1]{{\LARGE\fontspec[LetterSpace=0]{Imperial Script}\textcolor{black!45!blue}{#1}}}
+\newcommand{\writing}[1]{{\Large\fontspec[LetterSpace=0]{Felipa}\textcolor{black!45!blue}{#1}}}
+\newcommand{\typing}[1]{{\large\fontspec[LetterSpace=0]{Libertinus Mono}\textcolor{black!55!blue}{#1}}}
+\newcommand{\wideunderline}[2][2em]{%
+  \uline{\makebox[\ifdim\width>#1\width\else#1\fi][l]{#2}}%
+}
+
+
+
+\begin{document}
+\pagestyle{empty}
+
+% \pagecolor{white!65!brown!95!yellow}
+% \color{black!95!brown}
+
+
+\begin{minipage}{8em}
+	{\includegraphics[width=4.5em]{neoparia/emblem/Generic-Black.eps}}
+\end{minipage}%
+\begin{minipage}{18em}
+	\sffamily
+	\large
+	\fontspec[LetterSpace=9]{GFS Didot}
+	% Neoparia Demokratia
+	\MakeUppercase{Neoparia Demokratia}
+
+	\LARGE
+	\fontspec[LetterSpace=12]{GFS Didot}
+	% Laissez-Passer
+	\MakeUppercase{Laissez-Passer}
+\end{minipage}\hfill
+\begin{minipage}{14em}
+	\flushright
+	\large
+	\fontspec[LetterSpace=2]{Libertinus Mono}
+	\underline{{\LARGE\textnumero} \textcolor{black!55!blue}{1234 56789\hspace{0.5em}}}%
+\end{minipage}
+
+\vspace{5mm}
+\begin{minipage}{\linewidth}
+	\linespread{1}
+	\sffamily
+	\tabcolsep=0pt
+	\tabulinesep=6pt
+	\begin{tabu}{lX[l]}
+		{\hspace{8em}} & {}                                                                       \\
+		{Auktoritas:}  & {Apostolis sto Konstantinoupoli\linebreak se Senatus Populusque Romanus} \\
+		{Prozenos:} & {Stamatis Palaiologos}                                                   \\
+		{Imerominia:}  & \wideunderline[70mm]{\hspace{2em}\typing{\large 2022/03/12}}             \\
+	\end{tabu}
+\end{minipage}
+\vspace{10mm}
+
+\hfill\begin{minipage}{34em}
+	\linespread{1.6}
+	\baselineskip=21pt
+
+	Traveler
+	\wideunderline[103mm]{\hfill\writing{Kaedehara Kazuha}\hfill},
+	born in
+	\wideunderline[50mm]{\hfill\writing{1999/10/29}\hfill}
+	is hereby granted the permission to enter Neoparia Demokratia.
+	Valid through
+	\wideunderline[63mm]{\hfill\writing{2023/03/12}\hfill}.
+	Maximum sojourn
+	\wideunderline[34mm]{\hfill\writing{90}\hfill} days.
+
+    % Remarks:
+
+    % {\hspace{2em}\writing{None.}}
+
+    Remarks: {\hspace{1.5em}\writing{None.}}
+    
+    % \vspace{3pt}
+    % \hrule
+    % \vspace{21pt}
+\end{minipage}
+\vspace{3mm}
+
+\hrule
+\vspace{1mm}
+
+\begin{minipage}{\linewidth}
+    \center
+    \fontspec[LetterSpace=50]{QTBookmann}
+    VISA
+\end{minipage}
+
+\vfill
+
+\begin{minipage}{\linewidth}
+    \center
+    \fontspec[LetterSpace=50]{QTBookmann}
+    VISA
+\end{minipage}
+
+\vspace{2mm}
+\hrule
+
+\begin{minipage}{\linewidth}
+    \center
+    % \fontspec{Bitstream Cyberbit}
+    % \fontspec{Berenis ADF Pro}
+    % \fontspec{Libertinus Serif}
+    \fontspec{Linux Libertine O}
+    % \sffamily
+    \small
+    \fontsize{10pt}{10pt}\selectfont
+    \scshape
+    % \bfseries
+
+
+    Travel Document
+    \hfill
+    Neoparia Demokratia / Auktoritas Diplomatou
+    \hfill
+    Titre de Voyage
+\end{minipage}
+
+\end{document}
