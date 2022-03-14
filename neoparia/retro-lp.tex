@@ -6,11 +6,11 @@
 \usepackage[a4paper,textwidth=42em,tmargin=23mm,bmargin=15mm]{geometry}
 \usepackage{calc}
 \usepackage{amsmath,xltxtra,fontspec,xunicode}
-\usepackage{titlesec,datetime2}
 \usepackage{enumitem,paralist}
 \usepackage[OT1]{fontenc}
 \usepackage{wasysym,oz}
 \usepackage{tabu}
+
 
 \usepackage{ulem}
 
@@ -32,6 +32,9 @@
 \usepackage{graphicx,eso-pic}
 \graphicspath{ {/home/neruthes/DEV/ntexlibs/pic} }
 
+% \usepackage{svg}
+% \svgpath{{/home/neruthes/DEV/ntexlibs/pic}}
+
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5pt}
 
@@ -44,6 +47,17 @@
 \newcommand{\wideunderline}[2][2em]{%
   \uline{\makebox[\ifdim\width>#1\width\else#1\fi][l]{#2}}%
 }
+
+
+
+\AddToShipoutPictureFG*{\put(25mm,120mm){
+    \rotatebox[origin=c]{4}{
+        \includegraphics[width=46mm]{neoparia/stamps-basic/BorderEnter-Elunoupoli.png}}
+    }
+    % \includegraphics[width=46mm]{neoparia/stamps-basic/BorderEnter-Elunoupoli.png}}
+}
+
+
 
 
 
@@ -73,7 +87,7 @@
 	\flushright
 	\large
 	\fontspec[LetterSpace=2]{Libertinus Mono}
-	\underline{{\LARGE\textnumero} \textcolor{black!55!blue}{1234 56789\hspace{0.5em}}}%
+	\underline{{\LARGE\textnumero} \textcolor{black!55!blue}{5187 52686\hspace{0.5em}}}%
 \end{minipage}
 
 \vspace{5mm}
@@ -100,7 +114,7 @@
 	Traveler
 	\wideunderline[103mm]{\hfill\writing{Kaedehara Kazuha}\hfill},
 	born in
-	\wideunderline[50mm]{\hfill\writing{1999/10/29}\hfill}
+	\wideunderline[50mm]{\hfill\writing{1999/10/29}\hfill},
 	is hereby granted the permission to enter Neoparia Demokratia.
 	Valid through
 	\wideunderline[63mm]{\hfill\writing{2023/03/12}\hfill}.
