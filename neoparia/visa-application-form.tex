@@ -30,12 +30,57 @@
 \usepackage{graphicx}
 \graphicspath{ {/home/neruthes/DEV/ntexlibs/pic} }
 
+\usepackage{tasks}
+
+
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5pt}
 \setlength{\tabulinesep}{11pt}
 
 \linespread{1.1}
 
+
+
+
+\newcommand{\inforow}[2]{
+    \begin{minipage}{\linewidth}
+        \vspace{3pt}
+        \infocell{#1}{#2}\\
+        \vspace{3pt}
+        \hrule
+        \vspace{5pt}
+    \end{minipage}\\
+}
+\newcommand{\inforowDuo}[4]{
+    \vspace{3pt}
+    \begin{minipage}{0.5\linewidth-4pt}
+        \infocell{#1}{#2}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.5\linewidth-4pt}
+        \infocell{#3}{#4}
+    \end{minipage}\\
+    \vspace{3pt}
+    \hrule
+    \vspace{5pt}
+}
+\newcommand{\infocell}[2]{
+    % $1=zh  $2=en
+    \begin{minipage}{\linewidth}
+        #1\\
+        {\fontsize{7.5pt}{8pt}\selectfont#2}
+    \end{minipage}
+}
+\newcommand{\inforowbig}[4]{
+    % $1=zh  $2=en  $3=zhnote  $4=ennote
+    \vspace{3pt}
+    \infocell{#1}{#2}\\
+    \vspace{3pt}
+    \hrule
+    \vspace{2pt}
+    {\fontsize{8pt}{10pt}\selectfont#3 {\fontsize{7.5pt}{10pt}\selectfont#4}}
+    \vspace{7pt}\par
+}
 
 
 
@@ -49,12 +94,17 @@
 
 \begin{minipage}{\linewidth}
 	\center
+    \rmfamily
+    \fontspec{Playfair Display}
+    \scshape
 	\Large
 	% \bfseries
 	纽巴尼亚共和国签证申请表\\
-	NEOPARIA DEMOKRATIA VISA APPLICATION FORM
+    Neoparia Demokratia Visa Application Form
+	% NEOPARIA DEMOKRATIA VISA APPLICATION FORM
 
 	\vspace{4pt}
+    \ttfamily
 	\normalsize
 	Latest Revision \today
 \end{minipage}
@@ -69,33 +119,27 @@
 \end{minipage}
 
 
+\fontsize{9pt}{10pt}\selectfont
 
-\section{基本信息 / BASIC INFO}
+\section{基本信息 / Basic Information}
 
+\inforowbig{标准名称}{Canonical Name}{请使用贵国官方语言的正字法。}{Please follow the orthography of the official language of your country.}
+\inforowbig{ASCII 拉丁字母名称}{ASCII-Compatible Name}{请使用 ASCII 标准中的 26 个拉丁字母。}{Please use the 26 letters in the ASCII alphabet.}
+\inforow{护照姓}{Surname on Passport}
+\inforow{护照名}{Given Name on Passport}
+\inforowDuo{护照号码}{Passport No}{出生年月日 (YYYY-MM-DD)}{Date of Birth (YYYY-MM-DD)}
+\inforowDuo{国籍}{Nationality}{出生国籍}{Nationality at Birth}
 
-\fontsize{9pt}{9pt}\selectfont
-\begin{minipage}{\linewidth}
-	\begin{tabu} {|X|X[3]|}
-		\hline
-		{标准名称 Canonical Name}       & {}             \\
-		\hline
-		{护照姓 Passport Surname}       & {}             \\
-		\hline
-		{护照名 Passport Given Name}    & {}             \\
-		\hline
-		{护照号码 Passport No}          & {}             \\
-		\hline
-		% \end{tabu}
-		% \begin{tabu} {|l|X|}
-		% \hline
-		{出生年月日 Date of Birth}      & {(YYYY-MM-DD)} \\
-		\hline
-		{国籍 Nationality}              & {}             \\
-		\hline
-		{出生国籍 Nationality at Birth \hfill Hello world} & {}             \\
-		\hline
-	\end{tabu}
-\end{minipage}
+\section{旅行信息 / Travel Information}
+
+\inforowbig{签证类型}{Visa Class}{类型细节请参阅帮助文档。}{Please consult the manual for detailed class definitions.}
+
+\begin{tasks}[label=,after-item-skip=0pt,item-indent=0pt](2)
+    \task A1: 外交常驻 Persistent Diplomat
+    \task A2: 外交临时 Temporary Diplomat
+    \task B1: 商务类访问 Business Visit
+    \task B2: 个人类访问 Personal Visit
+\end{tasks}
 
 
 \end{document}
