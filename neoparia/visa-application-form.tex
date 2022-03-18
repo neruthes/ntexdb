@@ -3,7 +3,7 @@
 
 \documentclass[a4paper,10pt]{article}
 
-\usepackage[a4paper,textwidth=48em,vmargin=18mm]{geometry}
+\usepackage[a4paper,textwidth=48em,vmargin=22mm]{geometry}
 \usepackage{calc}
 \usepackage{amsmath,xltxtra,fontspec,xunicode}
 \usepackage{titlesec,datetime2}
@@ -34,7 +34,7 @@
 
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{5pt}
+\setlength{\parskip}{1pt}
 \setlength{\tabulinesep}{11pt}
 
 \linespread{1.1}
@@ -49,7 +49,7 @@
         \vspace{3pt}
         \hrule
         \vspace{5pt}
-    \end{minipage}\\
+    \end{minipage}\par
 }
 \newcommand{\inforowDuo}[4]{
     \vspace{3pt}
@@ -59,7 +59,7 @@
     \hfill
     \begin{minipage}{0.5\linewidth-4pt}
         \infocell{#3}{#4}
-    \end{minipage}\\
+    \end{minipage}\par
     \vspace{3pt}
     \hrule
     \vspace{5pt}
@@ -88,30 +88,41 @@
 
 
 
+
+
+
+
+
+
 \begin{document}
 \sffamily
 \pagestyle{empty}
 
+
+
+
 \begin{minipage}{\linewidth}
 	\center
-    \rmfamily
-    \fontspec{Playfair Display}
-    \scshape
+	\rmfamily
+	\fontspec{Playfair Display}
+	\fontspec{Libertinus Serif}
+	\fontspec{Linux Libertine O}
+	\scshape
 	\Large
 	% \bfseries
 	纽巴尼亚共和国签证申请表\\
-    Neoparia Demokratia Visa Application Form
+	Neoparia Demokratia Visa Application Form
 	% NEOPARIA DEMOKRATIA VISA APPLICATION FORM
 
 	\vspace{4pt}
-    \ttfamily
+	\ttfamily
 	\normalsize
-	Latest Revision \today
+	\today
 \end{minipage}
 
 \vspace{10pt}
 \hrule
-\vspace{5pt}
+\vspace{10pt}
 
 \begin{minipage}{\linewidth}
 	请使用简体中文或美式英文填写申请表。\\
@@ -119,7 +130,14 @@
 \end{minipage}
 
 
+
+
+
 \fontsize{9pt}{10pt}\selectfont
+
+
+
+
 
 \section{基本信息 / Basic Information}
 
@@ -129,17 +147,36 @@
 \inforow{护照名}{Given Name on Passport}
 \inforowDuo{护照号码}{Passport No}{出生年月日 (YYYY-MM-DD)}{Date of Birth (YYYY-MM-DD)}
 \inforowDuo{国籍}{Nationality}{出生国籍}{Nationality at Birth}
+\inforowDuo{电子邮箱}{Email Address}{电话号码}{Phone Number}
+\inforow{居住地址}{Resident Address}
 
 \section{旅行信息 / Travel Information}
 
-\inforowbig{签证类型}{Visa Class}{类型细节请参阅帮助文档。}{Please consult the manual for detailed class definitions.}
+\inforowDuo{计划入境日期 (YYYY-MM-DD)}{Planned Date of Entry (YYYY-MM-DD)}{计划离境日期 (YYYY-MM-DD)}{Planned Date of Exit (YYYY-MM-DD)}
+\inforowbig{签证类型}{Visa Class}{类型定义请参阅帮助文档。请填写代码和标题。}{Please consult the guidelines for definitions. Fill in both code and title.}
 
-\begin{tasks}[label=,after-item-skip=0pt,item-indent=0pt](2)
-    \task A1: 外交常驻 Persistent Diplomat
-    \task A2: 外交临时 Temporary Diplomat
-    \task B1: 商务类访问 Business Visit
-    \task B2: 个人类访问 Personal Visit
+\begin{tasks}[label=,after-item-skip=0pt,item-indent=0pt](3)
+	\task \texttt{A1:} 外交常驻 Persistent Diplomat
+	\task \texttt{A2:} 外交临时 Temporary Diplomat
+	\task \texttt{A3:} 外交人员家属 Diplomat Family
+	\task \texttt{B1:} 商务类访问 Business Visit
+	\task \texttt{B2:} 个人类访问 Personal Visit
+	\task \texttt{G1:} 政府交流 Government Visit
+	\task \texttt{G2:} 学术交流 Academic Visit
+	\task \texttt{G3:} 专业交流 Professional Visit
+	\task \texttt{D1:} 本科及以下留学 Basic Student
+	\task \texttt{D2:} 高级留学 Advanced Student
+	\task \texttt{E1:} 公民家属 Citizen Family
+	\task \texttt{E2:} 随行陪同人员 Visitor Companion
+	\task \texttt{Z1:} 高级就业 Advanced Worker
+	\task \texttt{Z2:} 一般就业 Generic Worker
+	\task \texttt{K1:} 技术移民 Talented Immigrant
+	\task \texttt{K2:} 投资移民 Investor Immigrant
+	\task \texttt{K3:} 特殊移民 Special Immigrant
+	\task \texttt{K4:} 特殊居住者 Special Resident
 \end{tasks}
+
+% \section{}
 
 
 \end{document}

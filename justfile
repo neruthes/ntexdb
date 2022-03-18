@@ -1,8 +1,6 @@
 private:
-    bash -c "cd $PWD/private; git add .; git commit -m 'autocommit'; git push"
     rsync -av --delete _dist/private/ /home/neruthes/DEV/WEB/githubdist/ntexdb-private-$(cat private/.privatediruuid)/
     pushgithubdistweb
-
 
 rphmpre:        # RpHM Book 2022: Preprocessing
     bash private/.rphm/2022/build.sh
