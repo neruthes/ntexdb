@@ -17,16 +17,12 @@
 \XeTeXlinebreakskip = 0pt plus 1pt 
 
 % =========================================
-\usepackage{everypage}
-\usepackage{listings}
-\usepackage{paralist}
+% \usepackage{listings}
+% \usepackage{paralist}
 \usepackage{enumerate}
 \usepackage{enumitem}
-\usepackage{tocloft}
-\usepackage{longtable}
 \usepackage{tabu}
-\usepackage{makecell}
-\usepackage{qrcode}
+\usepackage{datetime2}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{eso-pic}
@@ -48,7 +44,7 @@
 % \setromanfont{QTBodini}
 % \setsansfont{Americane}
 % \setmonofont{CMU Typewriter Text}
-\setmonofont{Justice}
+\setmonofont{Libertinus Mono}
 \setCJKmainfont{Noto Sans CJK SC}
 \setCJKromanfont{Noto Serif CJK SC}
 \setCJKsansfont{Noto Sans CJK SC}
@@ -67,22 +63,14 @@
 \setlength{\parskip}{1pt}
 \setlength{\baselineskip}{12pt}
 % END CORPORATION CONFIG
-% =========================================
-
-% =========================================
-% START COMMON STYLESHEET
-% Table
-\renewcommand\theadalign{l}
-\renewcommand\theadfont{\sffamily\bfseries}
-% Font Size
-
-% END COMMON STYLESHEET
-% =========================================
 
 
 
 
-\newcommand{\tval}[1]{{\hspace{14pt}\ttfamily\upshape\mdseries\normalsize\textcolor{red!90!black}{#1}}}
+\newcommand{\tval}[1]{{\hspace{14pt}\ttfamily\upshape\mdseries\normalsize\textcolor{red}{#1}}}
+\newcommand{\bondkeyval}[2]{
+    {#1} & {\tval{#2}}
+}
 
 \newcommand{\makebondbody}[2]{
     \color{blue!12!black!80!white}
@@ -94,7 +82,7 @@
         {\color{blue!12!black!80!white}\Huge\ttfamily\bfseries\fontspec[LetterSpace=6]{Elsie Black}TREASURY\linebreak BOND}
         \vspace{15pt}
 
-        {{\ttfamily\large\color{red!90!black}[ S/N #1 ]}}
+        {{\ttfamily\large\color{red}S/N #1}}
         % \vspace{10pt}
 
         % {#1}
@@ -126,8 +114,6 @@
         \vspace{45pt}
         {\underline{\hspace{0.4\linewidth}}}
         \vspace{45pt}
-
-
         
         \sffamily\small
         \tabcolsep=0pt
@@ -135,9 +121,11 @@
         % \fontspec{Erato}
         \begin{tabu} {lXlX}
             \hline
-            {DATE OF ISSUE} & {\tval{2021 December 31}} & {DATE OF DUE} & {\tval{2022 December 31}} \\
+            \bondkeyval{DATE OF ISSUE}{\today} &
+            \bondkeyval{DAYS BEFORE DUE}{365} \\
             \hline
-            {INTEREST RATE} & {\tval{[0.00\% Monthly]}} & {CURRENCY} & {\tval{Renminbi (RMB)}} \\
+            \bondkeyval{INTEREST RATE}{0.00\% Monthly} &
+            \bondkeyval{CURRENCY}{RENMINBI (RMB)} \\
             \hline
         \end{tabu}
     \end{minipage}
@@ -169,7 +157,7 @@
 
 
 \AddToShipoutPictureBG{%
-	\put(1mm,1.41mm){%
+	\put(1mm,2.7mm){%
 		% {\includegraphics[width=\paperwidth]{neoparia/N-PageBorder.png}}%
 		{\includegraphics[width=\paperwidth-2mm]{neoparia/N-PageBorder.eps}}%
 	}%
@@ -194,8 +182,7 @@
 
 
 
-\makebond{320220005}
-\makebond{320220006}
+\makebond{320220007}
 
 
 
