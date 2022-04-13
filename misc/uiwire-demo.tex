@@ -1,0 +1,81 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[a4paper,landscape,margin=10mm,bmargin=18mm]{geometry}
+\usepackage{datetime2}
+
+
+
+% Include the library
+\input{/home/neruthes/DEV/ntexlibs/lib/libuiwire.tex}
+
+% Set component slot content
+\renewcommand{\UICSlotContentTopbar}[0]{
+    LOGO
+    \hfill
+    \uiButton{商品管理}
+    \uiButton{订单管理}
+    \uiButton{客户管理}
+    \hfill
+    \@Username
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\setmainfont{NewComputerModern}
+\setromanfont{NewComputerModern}
+\setsansfont{Inter}
+\setmonofont{Courier Prime}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKromanfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+\title{UIWire Library Demo}
+\author{Neruthes}
+\date{\today}
+
+\begin{document}
+
+\maketitle\clearpage
+\tableofcontents
+
+\sffamily
+
+
+
+
+% ===================================================
+% ===================================================
+% \chapter{Dashboard}\clearpage
+
+% ===================================================
+% \uipage{控制台首页}{
+%     Hello world!
+% }
+
+
+
+% ===================================================
+% ===================================================
+\chapter{商品管理}\clearpage
+
+% ===================================================
+\uipage{商品列表}{
+    \uicTopbar{}
+}
+
+
+
+
+
+\end{document}
