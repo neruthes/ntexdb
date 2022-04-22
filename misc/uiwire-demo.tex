@@ -1,6 +1,9 @@
-\documentclass[a4paper,12pt]{report}
+\documentclass[a4paper,10pt]{report}
 \usepackage[a4paper,landscape,margin=10mm,bmargin=18mm]{geometry}
 \usepackage{datetime2}
+
+% For this document only
+\usepackage{tabu,paralist,enumitem}
 
 
 
@@ -12,10 +15,11 @@
     LOGO
     \hfill
     \uiButton{商品管理}
-    \uiButton{订单管理}
     \uiButton{客户管理}
-    \hfill
-    \@Username
+    \uiButton{订单管理}
+    \uiButton{账号管理}
+    % \hfill
+    % \@Username
 }
 
 
@@ -43,6 +47,12 @@
 \title{UIWire Library Demo}
 \author{Neruthes}
 \date{\today}
+
+\setlength{\parskip}{8pt}
+\setlength{\tabcolsep}{4pt}
+\setlength{\tabulinesep}{4pt}
+
+
 
 
 
@@ -88,7 +98,31 @@
 
 % ===================================================
 \uipage{商品列表}{
-    \uicTopbar{}
+    
+    \topNbottom{2.3em}{
+        \uicTopbar{}
+    }{
+        \leftNright{12em}{
+            选择分类
+            \vspace{0.5em}
+
+            \begin{compactitem}
+                \item 全部商品
+                \item 安防设备
+                \item 其他
+            \end{compactitem}
+        }{
+            商品列表
+            \vspace{0.5em}
+
+            \small
+            \begin{tabu}{lXlll}
+                图片 & 标题 & 价格 & 状态 & {} \\
+                \hline
+                {} & {公寓酒店智能门锁 Q2} & {￥4496} & {正常} & {\textcolor{blue}{\CJKunderline{查看详情}}} \\
+            \end{tabu}
+        }
+    }
 }
 
 
