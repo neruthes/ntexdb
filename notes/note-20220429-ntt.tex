@@ -57,10 +57,7 @@ The Trust Chain is established on the following levels, ordered from root to cei
 \begin{compactitem}
 	\item OS-wide CA
 	\item Any of:
-	\begin{compactitem}
-		\item TLS-guarded website
-		\item DNSSEC-guarded DNS TXT record
-	\end{compactitem}
+    \item TLS-guarded website
 	\item Token Issuing Authority Root Certificate (TIA self-signed)
 	\item Token Grant Certificate (Signed by TIA)
 \end{compactitem}
@@ -97,7 +94,7 @@ Suppose that the TIASK is a generic \icode{id\_ed25519} file.
 
 \subsubsection{Authority Keypair Declaration}
 
-The TIA shall write a Authority Keypair Declaration (AKD) which looks like:
+The TIA shall write an Authority Keypair Declaration (AKD) which looks like:
 
 \begin{lstlisting}
 spec: NTT-Authority-Keypair-Declaration
@@ -134,9 +131,9 @@ Wj9ejDT4Ni1BtxpdGxo2kG
 -----END SSH SIGNATURE-----
 \end{lstlisting}
 
-\textbf{HTTPS}: The file should be available at \icode{https://example.com/example.com.sakd}.
-
-\textbf{DNS}: (TODO)
+The SAKD file should be available at \icode{https://example.com/example.com.sakd}.
+It is reasonable that the owner of \icode{example.com} prefers to let \icode{www.example.com} be the canonical domain for its main website.
+Therefore, when retrieving the SAKD, 301/302 redirecting shall be allowed as long as the final \icode{200 OK} URL is not out of the TIA domain.
 
 
 
@@ -333,6 +330,21 @@ A Token Ownership Indexing Servers (TOIS) is a server which maintains mapping re
 
 
 
+\section{Presenting Token}
+
+Ideally, a User Agent (UA), e.g. a mobile app, shall be responsible for managing the list of favorable STGCs.
+When necessary, the UA shall present the NTT by displaying the STGC.
+
+Methods of presentation include (but with no limitation to) NFC and QR.
+
+
+
+
+
+
+
+
+
 
 
 
@@ -395,6 +407,7 @@ tia-whitelist: example.com,neruthes.xyz
 The ODWA shall be signed similarly with \icode{ssh-keygen}, or signed with \icode{gpg --clear-sign}.
 
 The \icode{tia-whitelist} shall be a comma-delimited string for domains.
+
 
 
 
