@@ -10,3 +10,4 @@ _dist
 dist.tar.xz
 
 .osslist
+.vscode

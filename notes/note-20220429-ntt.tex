@@ -1,0 +1,427 @@
+\input{notes/.head.tex}
+
+\usepackage{tocloft,tabu}
+\setlength{\tabulinesep}{3pt}
+
+% \title{Introduction to Non-Transferable Token (NTT)}
+% \author{Neruthes}
+\date{2022-04-29}
+
+\linespread{1.1}
+
+\begin{document}
+% \raggedright
+
+\Nmaketitle{Introduction to Non-Transferable Token (NTT)}
+
+
+
+
+
+
+
+
+
+
+
+
+\section*{Abstract}
+
+Non-Transferable Token (NTT) is inspired by NFT, but has nothing to do with the blockchain technology.
+
+A NTT is a Signed Token Grant Certificate (STGC) granted to a Certified Token Owner (CTO) by an Token Issuing Authority (TIA),
+who is the owner of a fully qualified domain name (FQDN)
+and shall publish its Root Certificate for others to verify issued NTTs.
+
+A NTT cannot be transferred to another owner.
+
+
+
+\Nmaketoc
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Trust Chain}
+
+The Trust Chain is established on the following levels, ordered from root to ceil.
+
+\begin{compactitem}
+	\item OS-wide CA
+	\item Any of:
+	\begin{compactitem}
+		\item TLS-guarded website
+		\item DNSSEC-guarded DNS TXT record
+	\end{compactitem}
+	\item Token Issuing Authority Root Certificate (TIA self-signed)
+	\item Token Grant Certificate (Signed by TIA)
+\end{compactitem}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Authority Initialization}
+
+
+\subsection{The Principles}
+
+In modern days, website owners do not necessarily control the private key which safeguards their websites via TLS,
+therefore, we shall not require using the TLS certificate of the website for this purpose.
+Instead, an independent keypair shall be used.
+
+
+\subsection{The Procedure}
+
+\subsubsection{SSH Keygen}
+
+A Token Issuing Authority (TIA) must first initialize its Ed25519 keypair using \icode{ssh-keygen}.
+
+The TIA shall create an Ed25519 keypair (for signing purposes), and this keypair is called ``TIA Signing Keypair'' (TIASK).
+Suppose that the TIASK is a generic \icode{id\_ed25519} file.
+
+\subsubsection{Authority Keypair Declaration}
+
+The TIA shall write a Authority Keypair Declaration (AKD) which looks like:
+
+\begin{lstlisting}
+spec: NTT-Authority-Keypair-Declaration
+domain: example.com
+key-type: ssh-ed25519
+pubkey: AAAAC3NzaC1lZDI1NTE5AAAAIPoPvHErCcKsYF3BrPdfmwgRICsx2XMl1fN9I3Jg1pPA
+date: 2022-04-29T23:57:52+00:00
+\end{lstlisting}
+
+\subsubsection{Signing Authority Keypair Declaration}
+
+The TIA shall sign the AKD with the TIASK with \icode{ssh-keygen} to make a signature file:
+
+\begin{lstlisting}
+ssh-keygen -Y sign -f ~/.ssh/id_ed25519 -n file example.com.akd
+\end{lstlisting}
+
+\subsubsection{Publishing Signed Authority Keypair Declaration}
+
+By concatenating the two files, the TIA makes a Signed Authority Keypair Declaration (SAKD), which shall be served properly.
+The file should look like:
+
+\begin{lstlisting}
+spec: NTT-Authority-Keypair-Declaration
+date: 2022-04-29T23:57:52+00:00
+domain: example.com
+key-type: ssh-ed25519
+pubkey: AAAAC3NzaC1lZDI1NTE5AAAAIPoPvHErCcKsYF3BrPdfmwgRICsx2XMl1fN9I3Jg1pPA
+-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg+g+8cSsJwqxgXcGs91+bCBEgKz
+HZcyXV830jcmDWk8AAAAAEZmlsZQAAAAAAAAAGc2hhNTEyAAAAUwAAAAtzc2gtZWQyNTUx
+OQAAAEAIpWjhNl6UXd8TFwZ8GwBK4Ntw5BzEHjf92Nyjr21ZKuOmcWDA8m8DLmuQshObgI
+Wj9ejDT4Ni1BtxpdGxo2kG
+-----END SSH SIGNATURE-----
+\end{lstlisting}
+
+\textbf{HTTPS}: The file should be available at \icode{https://example.com/example.com.sakd}.
+
+\textbf{DNS}: (TODO)
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Owner Identification}
+
+The Certified Token Owner (CTO) shall be identified by a SSH public key or an OpenPGP public key, producing a CTOID.
+
+
+\subsection{SSH Public Key}
+
+If the owner is a SSH public key, it should be identified by the normalized text representation of it (only the first two columns), e.g.:
+
+\begin{lstlisting}
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPoPvHErCcKsYF3BrPdfmwgRICsx2XMl1fN9I3Jg1pPA
+\end{lstlisting}
+
+However, for better compatibility, we should slightly adjust its format to produce the CTOID:
+
+\begin{lstlisting}
+ssh-ed25519.AAAAC3NzaC1lZDI1NTE5AAAAIPoPvHErCcKsYF3BrPdfmwgRICsx2XMl1fN9I3Jg1pPA
+\end{lstlisting}
+
+
+\subsection{OpenPGP Public Key}
+
+If the owner is an OpenPGP public key, we can only identify it by its 40-digit fingerprint (uppercase, no delimiter), instead of the full public key,
+because it contains volatile data such as expiry date and subkeys.
+Even though the SHA-1 hash algorithm is miserably vulnerable for collisions.
+
+Example CTOID:
+
+\begin{lstlisting}
+CB0ABC7756440D12915E3F25AFB3373F5200DF38
+\end{lstlisting}
+
+
+
+
+
+
+
+
+
+
+
+\section{Designing Token Series}
+
+
+\subsection{Basic Information}
+
+A NTT must belong to a Token Series.
+A Token Series shall contain the following information:
+
+\begin{tabu}{|l|X|}
+	\hline
+	{Field}             & {Description}                                                                    \\
+	\hline
+	\icode{tia}         & {The TIA of the series, e.g. \icode{com.example}.}                            \\
+	\icode{series-id}   & {A reverse domain name, e.g. \icode{com.example.senator.n68}.}                \\
+	\icode{series-name} & {A human-friendly name of the series, e.g. ``Senator of the 68th Congress''.} \\
+	\hline
+\end{tabu}
+
+
+\subsection{Human-Readable Information}
+
+More information (e.g. artwork) is necessary for a NTT to make sense in front of humans.
+Therefore, the TIA shall host more information of its Token Series in a Token Series Catalog (TSC).
+
+The TSC shall be available at \icode{https://example.com/example.com.tsc.json} as a JSON file.
+
+Example:\pagebreak
+
+\begin{lstlisting}
+{
+    "spec": "NTT-Token-Series-Catalog",
+    "list": [
+        {
+            "series-id": "com.example.senator.n68",
+            "series-name": "Senator of the 68th Congress",
+            "artworks": [
+                {
+                    "type": "square",
+                    "url": "https://..."
+                },
+                {
+                    "type": "circle",
+                    "url": "https://..."
+                }
+            ]
+        }
+    ]
+}
+\end{lstlisting}
+
+The TSC does not need a digital signature.
+
+
+
+
+
+
+
+
+
+
+
+\section{Issuing Token}
+
+
+\subsection{Authority Database}
+
+The TIA shall maintain a database to record its issuing history,
+and may optionally publish it at \icode{https://example.com/example.com.tih.json} as a JSON file, where ``tih'' means Token Issuing History.
+
+
+\subsection{Writing Token Grant Certificate}
+
+The Token Grant Certificate (TGC) shall contain information of the Certified Token Owner (CTO) and the Token Series.
+
+Information of the CTO:
+
+\begin{compactitem}
+	\item \icode{name}
+	\item \icode{id-type}
+	\item \icode{ctoid}
+\end{compactitem}
+
+Information of the Token Series:
+
+\begin{compactitem}
+	\item \icode{series-id}
+	\item \icode{series-name}
+\end{compactitem}
+
+In writing, the data fields from the two sources shall be prefixed by their respective source identifiers, i.e. ``cto'' and ``series''.
+
+Example:
+
+\begin{lstlisting}
+spec: NTT-Token-Grant-Certificate
+date: 2022-04-29T23:57:52+00:00
+cto-name: Neruthes
+cto-id-type: ssh
+cto-ctoid: ssh-ed25519.AAAAC3NzaC1lZDI1NTE5AAAAIPoPvHErCcKsYF3BrPdfmwgRICsx2XMl1fN9I3Jg1pPA
+series-series-id: com.example.senator.n68
+series-series-name: Senator of the 68th Congress
+\end{lstlisting}
+
+
+\subsection{Signing Token Grant Certificate}
+
+The certificate body shall be signed (in the same way as we make the SAKD) to produce the Signed Token Grant Certificate (STGC).
+
+\begin{lstlisting}
+spec: NTT-Token-Grant-Certificate
+date: 2022-04-29T23:57:52+00:00
+cto-name: Neruthes
+cto-id-type: ssh
+cto-ctoid: ssh-ed25519.AAAAC3NzaC1lZDI1NTE5AAAAIPoPvHErCcKsYF3BrPdfmwgRICsx2XMl1fN9I3Jg1pPA
+series-series-id: com.example.senator.n68
+series-series-name: Senator of the 68th Congress
+-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg+g+8cSsJwqxgXcGs91+bCBEgKz
+HZcyXV830jcmDWk8AAAAAEZmlsZQAAAAAAAAAGc2hhNTEyAAAAUwAAAAtzc2gtZWQyNTUx
+OQAAAEC3qyZ8Eiye0LtLh8csJhKRbrvB6ESpFjHyrACXSws9KbS8GBmaCNzASJj+LcfJTj
+b1bjPSO/cmmNaDePNWrOAH
+-----END SSH SIGNATURE-----
+\end{lstlisting}
+
+
+\subsection{Distributing Signed Token Grant Certificate}
+
+The STGC shall be sent to the CTO itself.
+
+In addition to its own TIH file, the TIA may optionally publish the STGC to some Token Ownership Indexing Servers for a better indexing.
+
+A Token Ownership Indexing Servers (TOIS) is a server which maintains mapping relations from CTOID to STGC.
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Validating Token}
+
+% \subsection{Basic Steps}
+The validation procedure consists of 5 steps:
+
+\begin{compactenum}
+    \item Obtain STGC
+    \item Obtain SAKD
+    \item Verify SAKD
+    \item (Optional) Obtain OKL
+    \item Verify STGC
+\end{compactenum}
+
+
+
+
+
+
+
+
+
+
+
+\section{Extended Features}
+
+
+\subsection{Authority Keypair Retiring}
+
+The are occasions that the TIA wants to retire an old keypair and migrate to a new keypair, such as a data loss incident.
+In such cases, the TIA may generate a new keypair, leaving previously signed NTTs unverifiable.
+
+For this matter, the AKD may include a new field \icode{oldkeys},
+which points to a HTTPS URL where the Old Keys List (OKL) file shall be published.
+The URL shall contain a list of SSH public keys.
+The file format shall conform to a \icode{known\_hosts} file.
+
+
+\subsection{Owner-Defined Whitelist for Authorities}
+
+A attacker may spam a Token Ownership Indexing Server (TOIS) by issuing massive STGCs to a particular CTOID.
+
+To prevent this, a TOIS may support this feature, which allows the CTO to defined a whitelist of allowed TIAs,
+so that the TOIS may safely discard the incoming STGCs for the CTO from unlisted TIAs with a variety of possible policies,
+e.g. remove the STGC within 7 days unless the CTO whitelists the TIA.
+
+A Owner-Defined Whitelist for Authorities (ODWA) shall look like this:
+
+\begin{lstlisting}
+spec: NTT-Owner-Defined-Whitelist-For-Authorities
+date: 2022-04-29T23:57:52+00:00
+cto-name: Neruthes
+cto-id-type: ssh
+cto-ctoid: ssh-ed25519.AAAAC3NzaC1lZDI1NTE5AAAAIPoPvHErCcKsYF3BrPdfmwgRICsx2XMl1fN9I3Jg1pPA
+tia-whitelist: example.com,neruthes.xyz
+\end{lstlisting}
+
+The ODWA shall be signed similarly with \icode{ssh-keygen}, or signed with \icode{gpg --clear-sign}.
+
+The \icode{tia-whitelist} shall be a comma-delimited string for domains.
+
+
+
+
+
+
+
+
+
+\section{Extra Notes}
+
+\begin{compactitem}
+	\item All text files shall be encoded in UTF-8, shall use LF as line terminator, and shall end with a LF.
+\end{compactitem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

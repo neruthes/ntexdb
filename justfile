@@ -13,4 +13,5 @@ rphmmake:       # RpHM Book 2022: Actual building
     ntex private/rphm-book-2022.tex
     ntex private/rphm-book-2022.tex --oss --sync
 
-
+newnote:        # Create new note
+    bash .sh/newnote.sh

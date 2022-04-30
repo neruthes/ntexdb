@@ -1,0 +1,72 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{titling}
+\usepackage{enumerate,enumitem,paralist}
+
+% Use letterhead1 library
+\input{/home/neruthes/DEV/ntexlibs/lib/letterhead1.tex}
+
+
+
+\usepackage{listings}
+\lstset{
+	basicstyle=\ttfamily\footnotesize,
+	numbersep=5pt,
+	backgroundcolor=\color{black!5},
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2,
+	captionpos=b,
+	breaklines=true,
+	breakatwhitespace=true,
+	breakautoindent=true,
+	linewidth=\textwidth
+}
+
+
+
+
+
+
+
+
+% Fonts
+\setmainfont{NewComputerModern}
+\setromanfont{NewComputerModern}
+\setsansfont{Inter}
+\setmonofont{JetBrains Mono NL}
+\setCJKmainfont{FandolSong}
+\setCJKromanfont{FandolSong}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+% Use alternative geometry
+\newgeometry{textwidth=42em,tmargin=45mm,bmargin=33mm}
+
+% % Paragraph style
+% \setlength{\parindent}{2em}
+% \setlength{\parskip}{4pt}
+
+\newcommand{\Nmaketitle}[1]{%
+    \begin{minipage}{\linewidth}%
+        \parskip=6pt%
+        \center%
+        \rmfamily%
+        \fontspec[Ligatures=TeX]{Latin Modern Roman}%
+        {\LARGE#1}\par%
+        {\sffamily\normalsize\theauthor}\par%
+        {\sffamily\normalsize\thedate}%
+    \end{minipage}\par
+    \vspace{15pt}\hrule%
+    \vspace{15pt}%
+    \renewcommand{\ifootcornerL}[0]{#1}%
+}
+\newcommand{\Nmaketoc}[0]{\vspace{20pt}\hrule\tableofcontents\vspace{20pt}\hrule}
+
+
+\renewcommand{\letterfooterfont}[0]{\sffamily\footnotesize}
+\renewcommand{\ifootcornerL}[0]{A Note by \theauthor}
+\renewcommand{\ifootcornerR}[0]{Page \thepage}
+
+\newcommand{\icode}[1]{\texttt{\footnotesize#1}}
+
