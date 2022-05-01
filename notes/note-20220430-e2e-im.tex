@@ -1,0 +1,201 @@
+\input{notes/.head.tex}
+
+\setlength{\tabulinesep}{3pt}
+\linespread{1.1}
+
+\date{2022-04-30}
+
+
+
+
+
+\begin{document}
+
+\Nmaketitle{End-to-End Instant Messaging Protocol Design Specification}
+
+
+
+\section*{Abstract}
+
+This note describes a novel Instant Messaging (IM) protocol and the underlying Public Key Infrastructure (PKI) which enables the design.
+The protocol features end-to-end encryption (E2EE), forward secrecy, and cryptographic identity (CID).
+
+
+
+\Nmaketoc
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Background}
+
+There have been popular IM protocols available and I have no intention to reinvent one from scratch.
+However, security matters must be considered seriously.
+I would like to slightly adjust mature designs so that my new protocol will make a firm response to the security matters of messaging.
+
+
+
+
+
+
+
+
+
+
+\section{Design Principles}
+
+I would like to achieve the following principles in this design.
+
+\subsection{Security Principles}
+
+\begin{compactitem}
+	\item Undisclosed message signature for sender.
+	\item Deniable message authentication.
+	\item Native session management mechanism.
+\end{compactitem}
+
+\subsection{Usability Principles}
+
+\begin{compactitem}
+	\item Use SSH keypairs (Ed25519).
+\end{compactitem}
+
+
+
+
+
+
+
+
+
+
+\section{Existing Solutions}
+
+Existing solutions include IM solutions and non-IM ones. This is a summary on why they are unsatisfactory in my perspective.
+
+\begin{tabu}{|l|l|X|}
+	\hline
+	{Class}  & {Name}          & {Limitations}                                    \\
+	\hline
+	{IM}     & {Signal}        & {Requires phone number for user identification.} \\
+	{ }      & {Telegram}      & {Requires phone number for user identification.} \\
+	{ }      & {iMessage}      & {Precludes non-Apple devices.}                   \\
+	{ }      & {uTox}          & {Cannot synchronize across devices.}             \\
+	\hline
+	{Non-IM} & {Email+OpenPGP} & {Heavy. No native session management.}           \\
+	{ }      & {Email+S/MIME}  & {Like no reception at all?}                      \\
+	\hline
+\end{tabu}
+
+
+
+
+
+
+
+
+
+
+\section{User Identification}
+
+\subsection{Keypair Identification String}
+
+Unlike account-based systems, our protocol believes that the public key itself is a ``quasi-account''.
+
+Each user is identified by their Keypair Identification String (KIS), which looks like a domain name.
+The KIS is a period-delimited string consisting of three components: the encoded public key,
+the public key type identifier, and the namespace (\icode{pki}).
+
+For example:
+
+\begin{lstlisting}
+AAAAC3NzaC1lZDI1NTE5AAAAIAkjx6zoKdphKGEzHTXRczkpjDj8zj6QeAJenOIlWqX5.ssh-ed25519.pki
+\end{lstlisting}
+
+% Furthermore, DNS softwares may voluntarily support the \icode{pki} root domain.
+% To set DNS records, the keypair owner shall sign a zone file with \icode{ssh-keygen} under usage \icode{pki-zonefile},
+% where the \icode{\_sigts} subdomain must have a TXT record to represent the signing time,
+% either in UNIX timestamp integer (millisecond) or in ISO 8601 (e.g. 2022-04-30T17:05:50Z).
+
+% For now, only Ed25519 is available. If OpenSSH adds other algorithms (e.g. SECP256K1) in the future, we shall follow.
+
+
+
+
+
+
+
+
+
+
+\section{Layering}
+
+The message-exchanging operations may be divided into three layers.
+
+
+\subsection{Relay Service Layer}
+
+This layer cares how to relay encrypted messages between users.
+
+% \subsubsection{Home Servers}
+% \subsubsection{Handshaking}
+% \subsubsection{Prioritization}
+% \subsubsection{}
+
+\subsection{Session Management Layer}
+
+This layer cares how to maintain a persistent session for different scenarios.
+
+\subsubsection{Private Session}
+
+A private session is a bilateral session between two participants.
+
+\subsubsection{Quasigroup Session}
+
+A quasigroup session is a multi-party session among certain participants.
+
+\subsubsection{Group Session}
+
+A group session is a multi-party session consisting of dynamically changing participants.
+
+\subsection{Message Layer}
+
+This layer cares how to make raw text pieces (and binary files) into structured message envelopes.
+
+
+
+
+
+
+
+
+
+
+\section{Message Transportation}
+
+
+
+
+
+
+
+
+
+
+\section{Optimizations}
+
+
+
+
+
+
+\end{document}

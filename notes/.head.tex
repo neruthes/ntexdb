@@ -1,6 +1,7 @@
 \documentclass[a4paper,11pt]{article}
 \usepackage{titling}
 \usepackage{enumerate,enumitem,paralist}
+\usepackage{tocloft,tabu}
 
 % Use letterhead1 library
 \input{/home/neruthes/DEV/ntexlibs/lib/letterhead1.tex}
@@ -25,7 +26,8 @@
 % Use alternative geometry
 \newgeometry{textwidth=42em,tmargin=45mm,bmargin=33mm}
 
-% % Paragraph style
+% % Some dimensions
+\setlength{\tabulinesep}{3pt}
 % \setlength{\parindent}{2em}
 % \setlength{\parskip}{4pt}
 
@@ -35,7 +37,7 @@
         \center%
         \rmfamily%
         \fontspec[Ligatures=TeX]{Latin Modern Roman}%
-        {\LARGE#1}\par%
+        {\LARGE#1}\par\vspace{4pt}%
         {\sffamily\normalsize\theauthor}\par%
         {\sffamily\normalsize\thedate}%
     \end{minipage}\par
