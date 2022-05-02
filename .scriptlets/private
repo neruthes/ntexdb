@@ -1,0 +1,10 @@
+#!/bin/bash
+
+rsync -av --delete _dist/private/ /home/neruthes/DEV/WEB/githubdist/ntexdb-private-$(cat private/.privatediruuid)/
+
+pushgithubdistweb --wait
+
+cd private
+git add .
+git commit -m autocommit
+daemonize -- /usr/bin/git push;

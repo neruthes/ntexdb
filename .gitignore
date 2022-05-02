@@ -1,13 +1,13 @@
-private
+private/
 
 missfont.log
 
-svg-inkscape
-.tmp-pic
+svg-inkscape/
+.tmp-pic/
 
 
-_dist
+_dist/
 dist.tar.xz
 
 .osslist
-.vscode
+.vscode/
