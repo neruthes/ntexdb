@@ -3,7 +3,7 @@
 \setlength{\tabulinesep}{3pt}
 \linespread{1.1}
 
-\date{2022-05-02}
+\date{\today}
 
 
 
@@ -66,7 +66,8 @@ I would like to achieve the following principles in this design.
 \subsection{Usability Principles}
 
 \begin{compactitem}
-	\item Use SSH keypairs (Ed25519).
+	\item Use SSH keypairs (Ed25519) for signing.
+	\item Use OpenSSL keypairs (X25519) for encryption.
 \end{compactitem}
 
 
@@ -167,11 +168,25 @@ A quasigroup session is a multi-party session among certain participants.
 
 A group session is a multi-party session consisting of dynamically changing participants.
 
-\subsection{Message Layer}
+\subsection{Message Layer (for Basic Messages)}
 
 This layer cares how to make raw text pieces (and binary files) into structured message envelopes.
 
+\subsubsection{Procedure Overview}
 
+The whole procedure consists of the following steps:
+
+\begin{compactitem}
+    \item Construct raw message envelope according to message type.
+    \item Add basic metadata (time, sessionId, senderId).
+    \item Add extended metadata (replyTo, continueAt).
+    \item Add message authentication codes (privSig, sharedSig).
+    \item Construct final message envelope.
+\end{compactitem}
+
+\subsection{Message Layer (for Control Messages)}
+
+This layer cares how to inform control sequences (e.g. audio call request, online status heartbeat) to session participants.
 
 
 
