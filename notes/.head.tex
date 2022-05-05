@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,10pt]{article}
 \usepackage{titling}
 \usepackage{enumerate,enumitem,paralist}
 \usepackage{tocloft,tabu}
@@ -6,6 +6,8 @@
 % Use letterhead1 library
 \input{/home/neruthes/DEV/ntexlibs/lib/letterhead1.tex}
 
+\usepackage{xeCJKfntef}
+\usepackage{amssymb}
 
 
 
@@ -24,7 +26,7 @@
 \setCJKmonofont{Noto Sans CJK SC}
 
 % Use alternative geometry
-\newgeometry{textwidth=42em,tmargin=45mm,bmargin=33mm}
+\newgeometry{textwidth=46em,tmargin=45mm,bmargin=25mm}
 
 % % Some dimensions
 \setlength{\tabulinesep}{3pt}
@@ -54,3 +56,13 @@
 
 \newcommand{\icode}[1]{\texttt{\footnotesize#1}}
 
+
+
+\newcommand{\Asection}[1]{
+    \section*{#1}
+    \addcontentsline{toc}{section}{#1}
+}
+\newcommand{\Asubsection}[1]{
+    \subsection*{#1}
+    \addcontentsline{toc}{subsection}{#1}
+}

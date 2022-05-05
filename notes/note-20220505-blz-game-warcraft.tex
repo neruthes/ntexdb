@@ -1,0 +1,339 @@
+\input{notes/.head.tex}
+\docsetup{重生之我在暴雪设计魔兽手游}{Neruthes}{2022-05-05}
+\linespread{1.1}
+
+\setmainfont[AutoFakeSlant]{PingFang SC}
+\setCJKmainfont[AutoFakeSlant]{PingFang SC}
+% \setCJKromanfont{PingFang SC}
+
+
+
+\newcommand{\voiceline}[1]{
+    % \\{\footnotesize\itshape 台词：\CJKunderline{#1}}
+    \\{\footnotesize\itshape 台词：#1}
+}
+\newcommand{\charskillprop}[2]{
+    \vspace{7pt}%
+    \hrule width 0.7\linewidth
+    \vspace{7pt}%
+    {\normalsize$\blacksquare$ #1}\\%
+    \small#2\par
+}
+\newcommand{\charprofile}[3]{
+    % $1=name $2=weapon $3=abilitieslist
+    \fbox{
+        \begin{minipage}{0.7\linewidth}
+            \vspace{10pt}%
+            {\Large\bfseries#1}\hfill{\small#2}\par
+            \vspace{6pt}
+            #3\par
+            \vspace{10pt}%
+        \end{minipage}
+    }
+}
+\newcommand{\tobecontinued}[0]{
+    \clearpage\hspace{0.5\linewidth}\vspace{0.42\textheight}\par%
+    \begin{minipage}{\linewidth}
+        \center%
+        以下为草稿
+    \end{minipage}
+    \clearpage
+}
+
+
+
+
+\begin{document}
+% \raggedright
+
+\fulldoctitle
+
+这是一个小小的整活作品。
+
+{\Nmaketoc}\clearpage
+
+
+\Asection{足迹 | Travail}
+
+战争已经开始了，是上一场战争的延续。\\
+巨龙为世界的轮廓镀上五种光辉，以此昭示，他们的权柄可被企及。\\
+而现世的基底埋藏着腐朽的残骸，那是对僭越者的警示：\\
+万神殿的神座，从来不是为你预留的位置。\\
+但命定的守护者啊，不要就此驻足，谁都不能隔岸观火。看吧——
+
+% 混乱之治：人族
+守护圣光之国的骑士王子，终于对圣光产生了迷茫。\\
+无法拯救国民的圣光，还能称之为圣光吗？
+
+% 混乱之治：不死族
+众目睽睽之下，死灵之主遭人谋杀。\\
+在最后的时刻，他将复活终结一切死灵的死灵。
+
+% 混乱之治：兽族
+先知长生不灭，部落游荡之期亦无尽头。\\
+追求荣耀的先知，在草木山川中见到了怎样的荣耀？
+
+% 混乱之治：暗夜精灵族
+月光是月光祭司的敌人，星空是漂浮在梦境之海表面的诱饵。\\
+月光林地的学者正在催生愚行，而神的月光对此并无意见。
+
+% 冰封王座：暗夜精灵族
+典狱长热爱法庭上的一切闹剧，甚至渴求审判背叛者。\\
+但她非常明白，唯有泰坦不可与之为敌。
+
+% 冰封王座：人族
+魔力的欲望刻写在血精灵体内，永恒之井的恩赐仍有留存。\\
+血魔法师将这秘密告知旅人，因为他有这样做的理由。
+
+% 冰封王座：不死族
+他是人再也不会去爱的王子，他是再也不会去爱人的王子。\\
+人们追随他的理由，是因为相信，终有一日他将对巫妖王举起叛旗。
+
+% 魔兽世界：原版
+在无始无终的永恒里，众生将度过安然无梦的一生。\\
+但在扭曲虚空视线的死角下，仍有人想要做梦。\\
+众生有众生的底蕴，我们不是滤清泰坦造物后剩余的残渣。\\
+从世界之外，我们取得否定世界的力量。
+
+% 我的记忆已经磨损了太多，但我总还记得，
+
+
+
+
+
+
+
+
+
+
+
+
+\clearpage\Asection{序章：洛丹伦大陆的灾难} %混乱之治：人族
+
+\Asubsection{第一幕：防疫的圣骑士 | The Paladin Who Fought the Pandemic}
+
+玩家扮演麦迪文。
+
+\charprofile{麦迪文}{法器}{
+    \charskillprop{普通攻击：奥术裂隙}{连续 4 段的普通攻击，造成奥术伤害。}
+    \charskillprop{重击：奥术弹幕}{消耗一定体力，在小范围内造成大量奥术伤害。消耗所有奥术充能层数，并根据消耗的层数提升伤害倍率和体力消耗。}
+    \charskillprop{战技·短按：奥术护盾}{开启奥术护盾来免疫接下来 1.25 秒内的受到伤害。如果在开启后的 0.5 秒内护盾受到了伤害，那么冷却时间减半，并且恢复 5\% 的体力。\voiceline{固若金汤}}
+    \charskillprop{战技·长按：魔爆术}{蓄力 0.8 秒后，在一定范围内造成一次奥术伤害。}
+    \charskillprop{终极技能：气定神闲}{获得气定神闲状态。气定神闲状态持续期间有如下效果：\\
+        - 大幅提升普通攻击的速度。\\
+        - 大幅降低奥术弹幕的体力消耗。\\
+        - 奥术充能的最大层数提升到 6 层。\\
+        - 有至少 4 层奥术充能后，重击变为奥术飞弹，施放奥术飞弹不消耗体力，每一枚飞弹消耗一层奥术充能，并根据消耗前的层数提升伤害倍率。\\
+        - 每 1.25 秒自动回复一层奥术充能。}
+    \charskillprop{被动：奥术充能}{奥术裂隙、魔爆术命中敌人并造成伤害后，获得一层奥术充能，最多可以叠加 4 层。}
+    \charskillprop{被动：时间流转}{如果奥术弹幕、魔爆术命中敌人并对至少 3 个敌人造成伤害，重置魔爆术的冷却时间，并使 2 秒内的下一次奥术弹幕的体力消耗减半。}
+}
+
+麦迪文从梦境中苏醒。梦境中，麦迪文看到了可怕的预言。为此，麦迪文必须做些什么。在麦迪文的邀请下，卡德加决定一起上路。麦迪文已经沉睡太久了，不太了解现在的世界。所以，卡德加承担起了向导的职能。从达拉然出发，旅途的第一站是洛丹伦。
+
+在赶路时，麦迪文见到了吉安娜。
+
+> 吉安娜：竟然在这里遇到你了，麦迪文先生。\\
+> 卡德加：容我介绍，这位是吉安娜——安东尼达斯的学生，库尔提拉斯领袖的女儿。\\
+> 麦迪文：很高兴遇见你，吉安娜小姐。\\
+> 吉安娜：我要去找洛丹伦的阿尔萨斯王子，出发前听安东尼达斯老师说你们也要找他，一路上就在想是否可能与你们会面。\\
+> 麦迪文：看来我们可以同行。
+
+\charprofile{吉安娜}{法器}{
+    \charskillprop{普通攻击：寒冰箭}{连续 3 段的普通攻击，造成冰属性伤害。}
+    \charskillprop{重击：冰椎术}{向前方一小段距离内的扇形区域造成大量冰属性伤害。如果敌人处于冷气状态下，那么将其击退一小段距离。}
+    \charskillprop{战技·短按：冻霜新星}{以自身为圆心造成范围冰属性伤害。如果敌人处于冷气状态下，那么使其固定无法自主移动 2.5 秒，但不影响强制位移效果。}
+    \charskillprop{战技·长按：冰墙术}{在前方制造一面冰墙，阻挡移动和攻击弹道。\voiceline{升起来吧}}
+    \charskillprop{终极技能：暴风雪}{以最近的敌人为圆心召唤大范围暴风雪，在范围内对敌人间歇造成巨额冰属性伤害。\voiceline{风雪的缩影}}
+    \charskillprop{被动：冷气}{吉安娜对敌人造成冰属性伤害时，为其施加冷气状态，使其移动速度降低 35\%，持续 3 秒。}
+    \charskillprop{被动：碎冰}{吉安娜对冷气状态下的敌人造成冰属性伤害时，暴击率提升 15\%。}
+}
+
+
+\Asubsection{第二幕：为了没有灾厄的明天 | For a Tomorrow Without Catastrophes}
+
+三人一起找到了阿尔萨斯和乌瑟尔，一起打击诅咒教徒。
+
+\charprofile{乌瑟尔}{双手剑}{
+    \charskillprop{普通攻击：白银剑法}{连续 5 段的普通攻击，造成物理伤害。}
+    \charskillprop{重击}{大力劈砍，造成物理伤害。}
+    \charskillprop{战技·短按：圣光沐浴}{治疗自己和队伍内的角色，并在接下来的 4 秒内获得圣光沐浴状态。圣光沐浴期间，乌瑟尔获得 15\% 的普通攻击速度加成。\voiceline{帮帮忙}}
+    \charskillprop{终极技能：圣光制裁}{召唤一到圣光从天而降，造成大量圣光伤害，击晕周围的敌人 1.5 秒。根据击晕的敌人的数量为全队恢复生命值。恢复满体力条。}
+}
+
+\Asubsection{第三幕：圣光与堕落之歌 | Song of the Light and Unholiness}
+
+阿尔萨斯决定在斯坦索姆实施社会面清零。
+
+// To be continued...
+
+% 等到
+
+
+
+
+
+
+\tobecontinued
+
+\Asection{第一章：诅咒之路} %混乱之治：不死族
+
+// PLACEHOLDER
+
+\Asubsection{第一幕：死灵还魂千坟间 | Of the Soul Amidst Tombs}
+
+// PLACEHOLDER
+
+\Asubsection{第二幕：辞行东部王国 | Farewell, Eastern Kingdom}
+
+// PLACEHOLDER
+
+\Asubsection{第三幕：迫近的背叛 | A Betrayal Approaches}
+
+
+
+
+
+
+
+
+
+
+
+\Asection{第二章：入侵卡利姆多} %混乱之治：兽族
+
+% \Asubsection{第一幕：}
+
+% // PLACEHOLDER
+
+% \Asubsection{第二幕：}
+
+% // PLACEHOLDER
+
+% \Asubsection{第三幕：}
+
+% // PLACEHOLDER
+
+
+
+
+
+
+
+
+
+
+
+\Asection{第三章：永恒的结束} %混乱之治：暗夜精灵族
+
+% \Asubsection{第一幕：}
+
+% // PLACEHOLDER
+
+% \Asubsection{第二幕：}
+
+% // PLACEHOLDER
+
+% \Asubsection{第三幕：}
+
+% // PLACEHOLDER
+
+
+
+
+
+
+
+
+
+
+
+\Asection{第四章：恐怖之潮} %冰封王座：暗夜精灵族
+
+% \Asubsection{第一幕：}
+
+% // PLACEHOLDER
+
+% \Asubsection{第二幕：}
+
+% // PLACEHOLDER
+
+% \Asubsection{第三幕：}
+
+% // PLACEHOLDER
+
+
+
+
+
+
+
+
+
+
+
+\Asection{第五章：血精灵的诅咒} %冰封王座：人族
+
+% \Asubsection{第一幕：}
+
+% // PLACEHOLDER
+
+% \Asubsection{第二幕：炽烈的逃亡诗}
+
+% // PLACEHOLDER
+
+% \Asubsection{第三幕：}
+
+% // PLACEHOLDER
+
+
+
+
+
+
+
+
+
+
+
+\Asection{第六章：诅咒者的遗物} %冰封王座：不死族
+
+% \Asubsection{第一幕：}
+
+% // PLACEHOLDER
+
+% \Asubsection{第二幕：}
+
+% // PLACEHOLDER
+
+% \Asubsection{第三幕：}
+
+% // PLACEHOLDER
+
+
+
+
+
+
+
+
+
+
+
+\Asection{第七章：一个世界在等待} %魔兽世界：原版
+
+% \Asubsection{第一幕：}
+
+% // PLACEHOLDER
+
+% \Asubsection{第二幕：}
+
+% // PLACEHOLDER
+
+% \Asubsection{第三幕：}
+
+% // PLACEHOLDER
+
+
+
+\end{document}
