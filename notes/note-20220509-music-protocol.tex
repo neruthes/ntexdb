@@ -1,0 +1,299 @@
+\documentclass[a4paper,11pt]{article}
+\input{notes/.head.tex}
+\geometry{textwidth=40em}
+\docsetup{Music Streaming Service Protocol Architecture Design}{Neruthes \& Catten Linger}{2022-05-09}
+\linespread{1}
+
+
+
+
+
+
+
+\begin{document}
+
+\fulldoctitle
+
+
+
+
+
+
+\section*{Abstract}
+
+This protocol is designed to enable a distributed network for music stream service,
+where everyone may host their own music inventories and exchange access with each other.
+
+
+
+
+
+
+
+
+
+
+\Nmaketoc\clearpage
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Roles}
+
+% \subsection{Roles Overview}
+
+% Our architecture consist of the following roles:
+
+% \begin{tabu}{|l|X|}
+% 	\hline
+% 	{Role}                           & {Description}                                                                   \\
+% 	\hline
+% 	{Inventory Server}               & {Hosts music files through HTTP/HTTPS.}                                         \\
+% 	{Index Server}                 & {Maintains an index of music tracks from various inventory servers.}           \\
+% 	{Player Server: Web Player}      & {Follows index servers and provide in-browser playing service for end users.} \\
+% 	{Player Server: Independent App} & {Follows index servers and plays tracks.}                                     \\
+% 	{Subscriber Client}              & {Subscribes to a player server and plays tracks.}                               \\
+% 	\hline
+% \end{tabu}
+
+
+\subsection{Inventory Server}
+
+Responsibilities:
+
+\begin{compactitem}
+	\item Serves music files through HTTP/HTTPS.
+	\item Maintains a self-declaration file for information of this inventory.
+	\item Maintains an index for available music files with metadata (ID3 tags).
+\end{compactitem}
+
+
+
+
+
+\subsection{Index Server}
+
+% A index server shall maintain a list of upstream inventory servers (InvSerList).
+% By collecting their respective local catalogs, the index server shall maintain individual counters.
+
+Responsibilities:
+
+\begin{compactitem}
+	\item Maintains a list of upstream inventory servers.
+	\item Periodically collects upstream catalogs to build an aggregated catalog.
+	\item Disambiguation for name collisions among artists.
+	\item Decides whether the tracks (in different albums) sharing the same artist name are really performed by the same artist.
+	\item Uniquely identifies each album.
+	\item (Optional) Selectively applies patches to track metadata, e.g. consolidate artist names.
+	\item (Optional) Uses rules to mask certain tracks from an inventory server from being indexed.
+\end{compactitem}
+
+Notes:
+
+\begin{compactitem}
+	\item Each album should be identified by the Cartesian product of album artist and album title.
+\end{compactitem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Player Server: Web Player}
+
+Responsibilities:
+
+\begin{compactitem}
+	\item Follows index servers and provide in-browser playing service for end users
+\end{compactitem}
+
+\subsection{Player Server: Independent App}
+
+Responsibilities:
+
+\begin{compactitem}
+	\item Follows index servers and plays tracks.
+\end{compactitem}
+
+\subsection{Subscriber Client}
+
+Responsibilities:
+
+\begin{compactitem}
+	\item Subscribes to a player server and plays tracks.
+\end{compactitem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{API}
+
+
+\subsection{Inventory Server APIs}
+
+\subsubsection{The MusicSite File}
+
+This is a JSON file at \icode{\$siteurl\_main/.MusicSite.json}.
+
+The file shall include the following properties:
+
+\begin{tabu}{|l|X|}
+	\hline
+	{Property}      & {Description}                                                       \\
+	\hline
+	{title}         & {Human-readable title of this inventory.}                           \\
+	{siteurl\_main} & {Canonical URL of this inventory.}                                  \\
+	{siteurl}       & {Array of alternative URLs.}                                        \\
+	{peers}         & {(Optional) Array of other inventories which the owner recommends.} \\
+	\hline
+\end{tabu}
+
+Example:
+
+\begin{lstlisting}
+{
+    "title": "Example Music Site",
+    "siteurl_main": "https://music.example.com/music/",
+    "siteurl": [
+        "https://music.example.com/music/",
+        "http://10.0.233.10:12345/disk2/audio/music/",
+        "ftp://10.0.233.10/music/"
+    ],
+    "peers": [
+        "https://anothermusicservice.com/"
+    ]
+}
+\end{lstlisting}
+
+\subsubsection{The MusicCatalog File}
+
+This is a JSON file at \icode{\$siteurl\_main/.MusicCatalog.json}. An array of tracks.
+
+Each track shall include the following properties:
+
+\begin{tabu}{|l|X|}
+	\hline
+	{Property} & {Description}                                                                  \\
+	\hline
+	{path}     & {Relative path from this catalog file.}                                        \\
+	{size\_KB} & {Size of this music file in KB (1 KB = 1024 bytes).}                           \\
+	{album}    & {Album name.}                                                                  \\
+	{title}    & {Track title.}                                                                 \\
+	{artist}   & {Track artist.}                                                                \\
+	{disc}     & {(Nullable) Disc number if the album has multiple discs, starting from ``1''.} \\
+	{track}    & {Sequential position of the track in the disc, starting from ``01''.}          \\
+	\hline
+\end{tabu}
+
+Example:
+
+\begin{lstlisting}
+[
+    {
+        "path": "Genshin/01_风与异乡人/01 原神.flac",
+        "size_KB": "19704",
+        "album": "风与异乡人",
+        "title": "原神",
+        "artist": "陈致逸/HOYO-MiX",
+        "disc": "",
+        "track": "01"
+    }
+]
+\end{lstlisting}
+
+
+
+
+
+
+\subsection{Index Server APIs}
+
+
+\newcommand{\restfulapi}[3]{
+	\fbox{
+        \begin{minipage}{0.9\linewidth}
+            \parskip=7pt
+            \vspace{5pt}
+            % $\blacksquare$ \textsf{#1}
+            $\blacksquare$ {#1}
+            
+            Endpoint: \icode{#2}
+            
+            \textbf{Note}:\hspace{1em}#3
+            \vspace{5pt}
+        \end{minipage}
+    }
+}
+
+
+\subsubsection{Entity APIs}
+
+% \subsubsection{Track}
+
+\restfulapi{Get Track Info}{GET /api/entity/track/[TrackID]}{None.}
+
+% \subsubsection{Album}
+
+\restfulapi{Get Album Info}{GET /api/entity/album/[AlbumID]}{None.}
+
+% \subsubsection{Artist}
+
+\restfulapi{Get Artist Info}{GET /api/entity/artist/[ArtistID]}{None.}
+
+\subsubsection{Search APIs}
+
+\restfulapi{Wild Search}{GET /api/search?query=[Criteria]}{Use this API to search in all fields}
+
+\restfulapi{Scoped Search}{GET /api/search?query=[Criteria]\&scopes=[Scope1,Scope2]}{Use this API to search in specified ranges, where valid scopes include `title', `album', and `artist'.}
+
+
+
+
+
+
+
+% \section{Architecture}
+
+
+
+
+
+
+
+
+
+\end{document}
