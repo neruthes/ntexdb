@@ -1,7 +1,7 @@
 \documentclass[a4paper,11pt]{article}
 \input{notes/.head.tex}
 \geometry{textwidth=40em}
-\docsetup{Music Streaming Service Protocol Architecture Design}{Neruthes \& Catten Linger}{2022-05-09}
+\docsetup{Music Streaming Service Protocol Architecture Design}{Neruthes \& Catten Linger}{2022-05-10}
 \linespread{1}
 
 
@@ -48,21 +48,6 @@ where everyone may host their own music inventories and exchange access with eac
 
 \section{Roles}
 
-% \subsection{Roles Overview}
-
-% Our architecture consist of the following roles:
-
-% \begin{tabu}{|l|X|}
-% 	\hline
-% 	{Role}                           & {Description}                                                                   \\
-% 	\hline
-% 	{Inventory Server}               & {Hosts music files through HTTP/HTTPS.}                                         \\
-% 	{Index Server}                 & {Maintains an index of music tracks from various inventory servers.}           \\
-% 	{Player Server: Web Player}      & {Follows index servers and provide in-browser playing service for end users.} \\
-% 	{Player Server: Independent App} & {Follows index servers and plays tracks.}                                     \\
-% 	{Subscriber Client}              & {Subscribes to a player server and plays tracks.}                               \\
-% 	\hline
-% \end{tabu}
 
 
 \subsection{Inventory Server}
@@ -73,16 +58,12 @@ Responsibilities:
 	\item Serves music files through HTTP/HTTPS.
 	\item Maintains a self-declaration file for information of this inventory.
 	\item Maintains an index for available music files with metadata (ID3 tags).
+	\item (Optional) Extract cover images from music files in a dedicated cache directory.
 \end{compactitem}
 
 
 
-
-
 \subsection{Index Server}
-
-% A index server shall maintain a list of upstream inventory servers (InvSerList).
-% By collecting their respective local catalogs, the index server shall maintain individual counters.
 
 Responsibilities:
 
@@ -92,6 +73,8 @@ Responsibilities:
 	\item Disambiguation for name collisions among artists.
 	\item Decides whether the tracks (in different albums) sharing the same artist name are really performed by the same artist.
 	\item Uniquely identifies each album.
+    \item (Optional) Implement Search APIs.
+    \item (Optional) Extract cover images from upstream music files (or dedicated cache directories).
 	\item (Optional) Selectively applies patches to track metadata, e.g. consolidate artist names.
 	\item (Optional) Uses rules to mask certain tracks from an inventory server from being indexed.
 \end{compactitem}
@@ -120,7 +103,8 @@ Notes:
 Responsibilities:
 
 \begin{compactitem}
-	\item Follows index servers and provide in-browser playing service for end users
+	\item Follows index servers and provides an in-browser audio player for end users.
+    \item Implement Search APIs.
 \end{compactitem}
 
 \subsection{Player Server: Independent App}
@@ -128,7 +112,7 @@ Responsibilities:
 Responsibilities:
 
 \begin{compactitem}
-	\item Follows index servers and plays tracks.
+	\item Follows index servers and plays music files for end users.
 \end{compactitem}
 
 \subsection{Subscriber Client}
@@ -136,7 +120,7 @@ Responsibilities:
 Responsibilities:
 
 \begin{compactitem}
-	\item Subscribes to a player server and plays tracks.
+	\item Subscribes to a player server and plays music files for end users.
 \end{compactitem}
 
 
@@ -160,10 +144,10 @@ Responsibilities:
 
 
 
-\section{API}
+\section{APIs}
 
 
-\subsection{Inventory Server APIs}
+\subsection{Inventory Server}
 
 \subsubsection{The MusicSite File}
 
@@ -240,7 +224,7 @@ Example:
 
 
 
-\subsection{Index Server APIs}
+\subsection{Index Server \& Player Server}
 
 
 \newcommand{\restfulapi}[3]{
@@ -251,9 +235,11 @@ Example:
             % $\blacksquare$ \textsf{#1}
             $\blacksquare$ {#1}
             
-            Endpoint: \icode{#2}
+            % Endpoint: 
+            \icode{#2}
             
-            \textbf{Note}:\hspace{1em}#3
+            % \textbf{Note}:\hspace{1em}#3
+            Note:\hspace{1em}#3
             \vspace{5pt}
         \end{minipage}
     }

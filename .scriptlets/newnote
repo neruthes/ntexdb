@@ -1,5 +1,11 @@
 #!/bin/bash
 
-NEWFN="notes/note-$(date +%Y%m%d)-$2.tex"
+if [[ -z $2 ]]; then
+    FNPART="$RANDOM$RANDOM"
+else
+    FNPART="$2"
+fi
+
+NEWFN="notes/note-$(date +%Y%m%d)-$FNPART.tex"
 
 sed "s|DATESTRING|$(date '+%Y-%m-%d')|" notes/.tmpl.tex > "$NEWFN"

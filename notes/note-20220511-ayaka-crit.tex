@@ -1,0 +1,122 @@
+\documentclass[a4paper,10pt]{article}
+\input{notes/.head.tex}
+\docsetup{神里绫华永冻流理之冠主属性选择}{Neruthes}{2022-05-11 (Working Draft Preview)}
+\renewcommand{\cacheddoctitlebig}[0]{神里绫华永冻流理之冠主属性选择\par Main Stat Choices of Circlet of Logos for\linebreak Kamisato Ayaka in Perma-Freeze Teams}
+\linespread{1.2}
+
+\renewcommand{\contentsname}{目录}
+
+
+
+\newcounter{mathlinenum}
+\setcounter{mathlinenum}{1}
+\newcommand{\mathline}[2]{
+    \hspace{2em} (\themathlinenum) \hspace{2em} #1: \hfill $#2$ \hfill
+    \stepcounter{mathlinenum}
+}
+\newcommand{\centerblk}[1]{
+    \begin{minipage}{\linewidth}
+        \center#1
+    \end{minipage}
+}
+
+
+
+
+
+
+\begin{document}
+
+\fulldoctitle
+
+
+\section*{摘要}
+
+本文探讨永冻流的神里绫华如何选择理之冠的主属性。我们假设永冻流的神里绫华必然使用冰风迷途的勇士圣遗物套装 4 件套，但不限制武器的选择。
+
+This article discusses the artifact choice problem of Circlet of Logos for Kamisato Ayaka in perma-freeze teams.
+We assume that the Blizzard Strayer 4-set will be used. However, the variation of weapon choices shall be considered.
+
+\Nmaketoc
+
+
+\section{基本概念}
+
+在主流永冻队「神罗万心」中，神里绫华可以获得不计入角色常态面板的暴击率：
+
+\begin{tabu}{|X|l|l|}
+	\hline
+	{来源}                                & {暴击率}                & {条件}                     \\
+	\hline
+	{冰风迷途的勇士圣遗物套装 4 件套特效} & {40\%}                  & {敌人被冻结}               \\
+	{元素共鸣：双冰}                      & {15\%}                  & {敌人被冻结或有冰元素附着} \\
+	{罗莎莉亚天赋}                        & {5\%\hfill{}（估计值）} & {罗莎莉亚施放元素爆发}     \\
+	\hline
+	{合计}                                & {60\%}                  & {-}                        \\
+	\hline
+\end{tabu}
+
+
+
+\section{案例分析}
+
+\subsection{案例基本信息}
+
+志愿者 001 提供的样本中，神里绫华有 11\% 的暴击率（Nominal Crit Rate, NCR）和 300\% 的暴击伤害（Effective Crit DMG, ECD），其理之冠主属性为暴击伤害。我们将探讨这个案例中将理之冠更换为攻击力百分比主属性的可能性。
+
+\subsection{计算}
+
+实际暴击率为
+
+\centerblk{$ECR = NCR + 60\% = 11\% + 60\% = 0.71$}
+
+双暴乘区的加成为
+
+\centerblk{$CSB = ECR \cdot ECD = 0.71 \times 3.00 = 2.13$}
+
+双暴乘区的值为
+
+\centerblk{$CSV = 1 + CSB = 3.13$}
+
+控制其他变量，若将暴伤头更换为攻击头，那么将会损失 62.2\% 的暴击伤害（ECD）以换取 46.6\% 的攻击力百分比（ATK Percentage Bonus, AtkPB）。
+
+新的双暴乘区的加成为
+
+\centerblk{$CSB_2 = ECR \cdot ECD_2 = 0.71 \times (3.00 - 0.622) = 1.68838$}
+
+新的双暴乘区的值为
+
+\centerblk{$CSV_2 = 1 + CSB_2 = 2.68838$}
+
+新的双暴乘区的值是原来的 0.858907 倍。为此，换来的46.6\% 的攻击力百分比必须使攻击力乘区变为原来的至少 1.16427 倍才不亏。
+
+设临界情况攻击力乘区的原值为正有理数 $X$，则有
+
+\centerblk{$\dfrac{X + 0.466}{X} \geqslant 1.16427$}
+
+解方程得到不等式
+
+\centerblk{$X \leqslant 2.83679$}
+
+\subsection{结论}
+
+对于此案例中的神里绫华（11\%/300\%），在装备暴伤头时，若攻击力的绿字白字比小于或等于 1.83679，那么值得将暴伤头更换为攻击头。
+
+
+
+
+\section{备注}
+
+\begin{enumerate}
+	\item 浮点数计算有舍入误差。
+\end{enumerate}
+
+
+
+\section{致谢}
+
+感谢安在哉作为志愿者提供其游戏进度内神里绫华面板数据。
+
+
+
+\end{document}
