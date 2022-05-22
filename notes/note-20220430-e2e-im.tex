@@ -1,4 +1,4 @@
-\documentclass[a4paper,10pt]{article}
+\documentclass[a4paper,11pt]{article}
 \input{notes/.head.tex}
 \docsetup{End-to-End Instant Messaging Protocol Design Specification}{Neruthes}{\today}
 \linespread{1.1}
@@ -111,22 +111,44 @@ Existing solutions include IM solutions and non-IM ones. This is a summary on wh
 
 Unlike account-based systems, our protocol believes that the public key itself is a ``quasi-account''.
 
+\subsubsection{Definition}
+
 Each user is identified by their Keypair Identification String (KIS), which looks like a domain name.
-The KIS is a period-delimited string consisting of three components: the encoded public key,
-the public key type identifier, and the namespace (\icode{pki}).
+The KIS is a period-delimited string consisting of three components: the public key fingerprint,
+the public key type identifier, and the namespace (\icode{pki}). The KIS should be case-insensitive.
 
 For example:
 
 \begin{lstlisting}
-AAAAC3NzaC1lZDI1NTE5AAAAIAkjx6zoKdphKGEzHTXRczkpjDj8zj6QeAJenOIlWqX5.ssh-ed25519.pki
+0a980cf5253c7efee51271989bf19c88.ssh-ed25519.pki
 \end{lstlisting}
 
-% Furthermore, DNS softwares may voluntarily support the \icode{pki} root domain.
-% To set DNS records, the keypair owner shall sign a zone file with \icode{ssh-keygen} under usage \icode{pki-zonefile},
-% where the \icode{\_sigts} subdomain must have a TXT record to represent the signing time,
-% either in UNIX timestamp integer (millisecond) or in ISO 8601 (e.g. 2022-04-30T17:05:50Z).
+\subsubsection{Calculating Fingerprint}
 
-% For now, only Ed25519 is available. If OpenSSH adds other algorithms (e.g. SECP256K1) in the future, we shall follow.
+Get the public key body (without header, footer, and trailing LF) and calculate its SHA-256 hash and get the initial 32 hexadecimal digits.
+
+For example:
+
+\begin{lstlisting}
+printf "VvJceV08TFPnOWUwZpoSHMSzENgqyYuPI8H1RV" | sha256sum | cut -c1-32
+\end{lstlisting}
+
+\subsubsection{Calculating Pawprint}
+
+Similar to Fingerprint, we need the concept ``Pawprint''.
+
+The Pawprint is also calculated from the public key body.
+Unlike the Fingerprint, it is the SHA-512 hash of the public key body (same definition as above) and is encoded in Base64.
+
+
+For example:
+
+\begin{lstlisting}
+LQ327D41HbMrtBk651QXyinXrN7PgWrI8n8T7sqkzyOQtljgqK
+uYE5E62zGXKOcHqCFGfZJpc8u7PywKzfBdrA==
+\end{lstlisting}
+
+(Linebreaks are for display purposes only and do not actually exist in the data stream.)
 
 
 
