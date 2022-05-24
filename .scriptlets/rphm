@@ -8,11 +8,15 @@ case $SUBCOMMAND in
     pre)
         bash private/.rphm/2022/build.sh
         ;;
-    *)
+    full)
         bash private/.rphm/2022/build.sh
         ntex private/rphm-book-2022-draft.tex
         ntex private/rphm-book-2022-draft.tex --oss
         ntex private/rphm-book-2022.tex
         ntex private/rphm-book-2022.tex --oss --sync
+        ;;
+    *)
+        echo "Usage: sl rphm ACTION"
+        echo "    ACTION can be: pre/full"
         ;;
 esac
