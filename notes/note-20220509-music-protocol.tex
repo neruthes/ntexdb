@@ -1,8 +1,13 @@
 \documentclass[a4paper,11pt]{article}
 \input{notes/.head.tex}
-\geometry{textwidth=40em}
-\docsetup{Music Streaming Service Protocol Architecture Design}{Neruthes \& Catten Linger}{2022-05-10}
+\fontsizepteleven
+% \fontsizeptwelve
+\docsetup{Music Streaming Service Protocol Architecture Design}{Neruthes \& Catten Linger}{2022-05-24 version 0.3.2}
 \linespread{1}
+
+% \FontsetLegal
+\FontsetOldstyle
+% \FontsetBook
 
 
 
@@ -23,6 +28,8 @@
 
 This protocol is designed to enable a distributed network for music stream service,
 where everyone may host their own music inventories and exchange access with each other.
+
+The current version is a working draft. It is not a final resolution and does not reflect the final consensus of the authors.
 
 
 
@@ -73,10 +80,10 @@ Responsibilities:
 	\item Disambiguation for name collisions among artists.
 	\item Decides whether the tracks (in different albums) sharing the same artist name are really performed by the same artist.
 	\item Uniquely identifies each album.
-    \item (Optional) Implement Search APIs.
-    \item (Optional) Extract cover images from upstream music files (or dedicated cache directories).
+	\item (Optional) Implement Search APIs.
+	\item (Optional) Extract cover images from upstream music files (or dedicated cache directories).
 	\item (Optional) Selectively applies patches to track metadata, e.g. consolidate artist names.
-	\item (Optional) Uses rules to mask certain tracks from an inventory server from being indexed.
+	\item (Optional) Uses rules to mask certain tracks in an inventory server from being indexed.
 \end{compactitem}
 
 Notes:
@@ -104,7 +111,7 @@ Responsibilities:
 
 \begin{compactitem}
 	\item Follows index servers and provides an in-browser audio player for end users.
-    \item Implement Search APIs.
+	\item Implement Search APIs.
 \end{compactitem}
 
 \subsection{Player Server: Independent App}
@@ -179,7 +186,8 @@ Example:
     ],
     "peers": [
         "https://anothermusicservice.com/"
-    ]
+    ],
+    "features": {}
 }
 \end{lstlisting}
 
@@ -224,55 +232,85 @@ Example:
 
 
 
-\subsection{Index Server \& Player Server}
+% \subsection{Index Server \& Player Server}
 
 
-\newcommand{\restfulapi}[3]{
-	\fbox{
-        \begin{minipage}{0.9\linewidth}
-            \parskip=7pt
-            \vspace{5pt}
-            % $\blacksquare$ \textsf{#1}
-            $\blacksquare$ {#1}
-            
-            % Endpoint: 
-            \icode{#2}
-            
-            % \textbf{Note}:\hspace{1em}#3
-            Note:\hspace{1em}#3
-            \vspace{5pt}
-        \end{minipage}
-    }
-}
+% \newcommand{\restfulapi}[3]{
+% 	\fbox{
+%         \begin{minipage}{0.9\linewidth}
+%             \parskip=7pt
+%             \vspace{5pt}
+%             % $\blacksquare$ \textsf{#1}
+%             $\blacksquare$ {#1}
+
+%             % Endpoint: 
+%             \icode{#2}
+
+%             % \textbf{Note}:\hspace{1em}#3
+%             Note:\hspace{1em}#3
+%             \vspace{5pt}
+%         \end{minipage}
+%     }
+% }
 
 
-\subsubsection{Entity APIs}
+% \subsubsection{Entity APIs}
 
-% \subsubsection{Track}
+% % \subsubsection{Track}
 
-\restfulapi{Get Track Info}{GET /api/entity/track/[TrackID]}{None.}
+% \restfulapi{Get Track Info}{GET /api/entity/track/[TrackID]}{None.}
 
-% \subsubsection{Album}
+% % \subsubsection{Album}
 
-\restfulapi{Get Album Info}{GET /api/entity/album/[AlbumID]}{None.}
+% \restfulapi{Get Album Info}{GET /api/entity/album/[AlbumID]}{None.}
 
-% \subsubsection{Artist}
+% % \subsubsection{Artist}
 
-\restfulapi{Get Artist Info}{GET /api/entity/artist/[ArtistID]}{None.}
+% \restfulapi{Get Artist Info}{GET /api/entity/artist/[ArtistID]}{None.}
 
-\subsubsection{Search APIs}
+% \subsubsection{Search APIs}
 
-\restfulapi{Wild Search}{GET /api/search?query=[Criteria]}{Use this API to search in all fields}
+% \restfulapi{Wild Search}{GET /api/search?query=[Criteria]}{Use this API to search in all fields}
 
-\restfulapi{Scoped Search}{GET /api/search?query=[Criteria]\&scopes=[Scope1,Scope2]}{Use this API to search in specified ranges, where valid scopes include `title', `album', and `artist'.}
-
-
-
+% \restfulapi{Scoped Search}{GET /api/search?query=[Criteria]\&scopes=[Scope1,Scope2]}{Use this API to search in specified ranges, where valid scopes include `title', `album', and `artist'.}
 
 
 
 
-% \section{Architecture}
+
+
+
+\section{Optional Features}
+
+Optional features are not mandatory. Implementations may decide whether they want to support any of these features.
+
+\subsection{Ephemeral Inventory Access Model (EIAM)}
+
+In certain circumstances, the Inventory Server would like to impose access control restrictions, making their hosting less public. Although Inventory Servers are supposed to be protected by CDNs, their maintainers may still have concerns on legal consequences for any potential copyright infringement.
+
+With Ephemeral Inventory Access Model (EIAM), URLs are no longer stable. The Inventory may indicate its periodical token rotation so that its downstream parties may be able to redistribute the new token further down the stream.
+
+EIAM is established on the old-school HTTP basic authentication protocol. For every new hour, the Inventory Server may regenerate a new token, which is known as `password' in the `HTTP basic authentication' context. The new token is calculated from two parts: the stable entropy string (ideally a UUIDv4 string) and the numerical representation of the current minute (\icode{\$date +\%Y\%m\%d.\%H\%M}). Join the two strings with a colon, then calculate the SHA-256 hash of the new string, then finally get its initial 30 characters.
+
+Example code for regenerating ephemeral token:
+
+% \begin{lstlisting}
+% echo "$(cat .entropy-naspublicguest):$(date +%Y%m%d.%H%M)" \
+%     | sha256sum | cut -c1-30
+% \end{lstlisting}
+
+If this feature is enabled, the Inventory Server shall indicate its policy by adding a new entry in the \icode{features.eiam} field of the MusicSite metadata file. The content object shall include the following properties:
+
+\begin{tabu}{|l|l|X|}
+	\hline
+	{Property}        & {Type}   & {Description}                                                                                               \\
+	\hline
+	{\icode{minute}}  & {number} & {At which minute in every hour, the Inventory Server regenerates the new token. Nullable; defaults to `0'.} \\
+	{\icode{guest}}   & {string} & {Which username the guests shall use with the token. Nullable; defaults to `guest'.}                        \\
+	{\icode{entropy}} & {string} & {The entropy string.}                                                                                       \\
+	\hline
+\end{tabu}
+
 
 
 

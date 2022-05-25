@@ -3,7 +3,6 @@
 % Use letterhead1 library
 \input{/home/neruthes/DEV/ntexlibs/lib/letterhead1.tex}
 
-\usepackage{xeCJKfntef}
 \usepackage{amssymb}
 
 \usepackage{paralist,enumerate,enumitem}
@@ -26,10 +25,14 @@
 \renewcommand{\letterfooterwidth}[0]{44em}
 
 \newcommand{\refreshgeometry}[0]{
-    \newgeometry{textwidth=\letterfooterwidth,tmargin=45mm,bmargin=25mm}
+    \newgeometry{textwidth=\letterfooterwidth,tmargin=45mm,bmargin=29mm}
 }
 \newcommand{\fontsizepteleven}[0]{
     \renewcommand{\letterfooterwidth}[0]{40em}
+    \refreshgeometry
+}
+\newcommand{\fontsizeptwelve}[0]{
+    \renewcommand{\letterfooterwidth}[0]{37em}
     \refreshgeometry
 }
 
@@ -38,6 +41,18 @@
 % \setlength{\parindent}{2em}
 % \setlength{\parskip}{4pt}
 
+\newcommand{\simpledoctitle}[0]{%
+    \begin{minipage}{\linewidth}%
+        \parskip=6pt%
+        \center%
+        \rmfamily%
+        \fontspec[Ligatures=TeX]{Latin Modern Roman}%
+        {\LARGE\cacheddoctitlebig}\par\vspace{4pt}%
+    \end{minipage}\par
+    \vspace{15pt}\hrule%
+    \vspace{15pt}%
+    \renewcommand{\ifootcornerL}[0]{\cacheddoctitlefooter}%
+}
 \newcommand{\fulldoctitle}[0]{%
     \begin{minipage}{\linewidth}%
         \parskip=6pt%
