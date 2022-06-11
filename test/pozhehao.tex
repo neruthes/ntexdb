@@ -1,0 +1,38 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper,tmargin=26mm,bmargin=26mm]{geometry}
+\usepackage{calc}
+
+\usepackage[PunctStyle=plain,RubberPunctSkip=false,CJKecglue=\hskip 4pt plus 20pt,CJKglue=\hskip 0pt]{xeCJK}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+\setmainfont{NewComputerModern}
+\setromanfont{NewComputerModern}
+\setsansfont{IBM Plex Sans}
+\setmonofont{JetBrains Mono NL}
+\setCJKmainfont{FandolSong}
+\setCJKromanfont{FandolSong}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+\setlength{\parindent}{0pt}
+
+
+\newcommand{\tryfont}[2]{
+    \fontspec[Ligatures=TeX]{#1}
+    \CJKfontspec[Ligatures=TeX]{#1}
+    #2
+}
+
+
+
+\begin{document}
+\LARGE
+
+\tryfont{Noto Serif CJK SC}{破折号——测试文本}\\
+\tryfont{Noto Serif CJK SC}{破折号测试文本}
+
+\tryfont{FandolSong}{破折号——测试文本}\\
+\tryfont{FandolSong}{破折号测试文本}
+
+\end{document}
