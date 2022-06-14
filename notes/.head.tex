@@ -67,6 +67,10 @@
     \vspace{15pt}%
     \renewcommand{\ifootcornerL}[0]{\cacheddoctitlefooter}%
 }
+\newcommand{\setrealdisplaytitle}[1]{
+    \renewcommand{\cacheddoctitlebig}[0]{#1}
+    \renewcommand{\cacheddoctitlefooter}[0]{#1}
+}
 \newcommand{\Nmaketoc}[0]{\vspace{20pt}\hrule\tableofcontents\vspace{20pt}\hrule}
 
 
