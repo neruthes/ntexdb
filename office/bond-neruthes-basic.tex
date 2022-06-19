@@ -12,7 +12,7 @@
 \usepackage{wasysym,oz,pxfonts,txfonts}
 
 
-\usepackage[PunctStyle=plain,RubberPunctSkip=false]{xeCJK}
+\usepackage[PunctStyle=plain,RubberPunctSkip=false,CJKglue=\hskip 0pt,CJKecglue=\hskip 4pt plus 20pt]{xeCJK}
 \XeTeXlinebreaklocale "zh" 
 \XeTeXlinebreakskip = 0pt plus 1pt 
 
@@ -73,8 +73,8 @@
 }
 
 \newcommand{\makebondbody}[2]{
-    \color{blue!12!black!80!white}
     % $1=bond_sn $2=paper_part
+    \color{blue!12!black!80!white}
     \begin{minipage}{\textwidth}
         \center
 
@@ -131,7 +131,6 @@
     \end{minipage}
     \vspace{25pt}
 
-
     \sffamily
     \tabcolsep=5pt
     \begin{tabu} {X[c]X[c]}
@@ -143,6 +142,16 @@
         {\hrule\vspace{5pt} SIGNATURE} & {\hrule\vspace{5pt} STAMP} \\
     \end{tabu}
 
+    \AddToShipoutPictureBG*{%
+        \put(1mm,2.7mm){%
+            {\includegraphics[width=\paperwidth-2mm]{neoparia/N-PageBorder.eps}}%
+        }%
+    }
+    \AddToShipoutPictureBG*{%
+        \put(-43.5mm,0mm){%
+            {\includegraphics[width=\paperheight,height=\paperheight]{neoparia/pattern/EP-4-black_20p.png}}%
+        }%
+    }
 }
 
 
@@ -156,28 +165,12 @@
 \pagestyle{empty}
 
 
-\AddToShipoutPictureBG{%
-	\put(1mm,2.7mm){%
-		% {\includegraphics[width=\paperwidth]{neoparia/N-PageBorder.png}}%
-		{\includegraphics[width=\paperwidth-2mm]{neoparia/N-PageBorder.eps}}%
-	}%
-}
-% \AddToShipoutPictureBG{%
-% 	\put(-43.5mm,0mm){%
-% 		{\includegraphics[width=3\paperwidth]{neoparia/pattern/EP6-black_20p.tile.png}}%
-% 	}%
-% }
-\AddToShipoutPictureBG{%
-    \put(-43.5mm,0mm){%
-        % {\includegraphics[width=\paperheight,height=\paperheight]{neoparia/pattern/EP-4-blue_20p.png}}%
-        {\includegraphics[width=\paperheight,height=\paperheight]{neoparia/pattern/EP-4-black_20p.png}}%
-    }%
-}
+
 
 
 
 \newcommand{\makebond}[1]{
-    \makebondbody{#1}{}
+	\makebondbody{#1}{}
 }
 
 
