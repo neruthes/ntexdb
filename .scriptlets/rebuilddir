@@ -1,0 +1,6 @@
+#!/bin/bash
+
+build_dir="$2"
+for fn in $build_dir/*.tex; do
+    ntex $fn --nosync
+done
