@@ -1,0 +1,76 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper,landscape,textwidth=50em,tmargin=24mm,bmargin=24mm]{geometry}
+\usepackage{calc}
+\usepackage{fontspec}
+
+\usepackage{tabu}
+
+\usepackage[PunctStyle=plain,RubberPunctSkip=false,CJKglue=,CJKecglue=\hskip 4pt plus 20pt]{xeCJK}
+\usepackage{xeCJKfntef}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+\linespread{1.2}
+
+\title{}
+\author{}
+\date{\today}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+
+\pagestyle{empty}
+
+
+
+\newcommand{\donorData}[1]{
+    % {\large\bfseries\upshape#1}
+    {\large\upshape#1}
+}
+
+
+
+\begin{document}
+
+\center
+
+{Paimon Travel Software Foundation}
+\vskip 24pt
+
+{\huge\fontsize{33pt}{33pt}\selectfont\fontspec{Italianno} Certificate of Donation}
+\vskip 24pt
+
+\rule{60mm}{0.4pt}
+
+\vfill
+
+
+
+% Thanks\hfill for donating\\
+% \donorData{Aether}\hfill \donorData{100 Mora}\\
+
+\itshape
+\begin{tabu}{X[c]X[c]}
+	{Thanks donor}             & {For donating}         \\
+	{\donorData{Aether}} & {\donorData{100 Mora}} \\
+\end{tabu}
+\vskip 12pt
+
+Onto the project\\
+\donorData{Enkanomiya Reset Mission}
+\upshape
+
+
+
+
+\vfill
+\flushright
+
+{\large\bfseries John Smith}
+
+{\small Community Secretary-General}
+
+{\small\today}
+
+
+\end{document}
