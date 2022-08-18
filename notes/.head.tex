@@ -5,7 +5,7 @@
 
 \usepackage{amssymb}
 
-\usepackage{paralist,enumerate,enumitem}
+\usepackage{paralist,enumitem,booktabs,indentfirst,multicol}
 
 
 
@@ -46,7 +46,7 @@
 % \setlength{\parskip}{4pt}
 
 \newcommand{\simpledoctitle}[0]{%
-    \begin{minipage}{\linewidth}%
+    \noindent\begin{minipage}{\linewidth}%
         \parskip=6pt%
         \center%
         \rmfamily%
@@ -58,7 +58,7 @@
     \renewcommand{\ifootcornerL}[0]{\cacheddoctitlefooter}%
 }
 \newcommand{\fulldoctitle}[0]{%
-    \begin{minipage}{\linewidth}%
+    \noindent\begin{minipage}{\linewidth}%
         \parskip=6pt%
         \center%
         \rmfamily%
