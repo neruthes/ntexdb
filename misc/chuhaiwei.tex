@@ -1,0 +1,114 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[textwidth=38em,tmargin=24mm,bmargin=33mm]{geometry}
+\input{/home/neruthes/DEV/ntexlibs/lib/plain/report.tex}
+
+\newcommand{\gongwenbiaoti}[3]{
+    % $1=office $2=sn $3=title
+    % \setcounter{page}{1}
+    \clearpage\phantomsection\stepcounter{chapter}\addcontentsline{toc}{chapter}{\numberline{\thechapter}#3}
+    \noindent\begin{minipage}{\linewidth}
+        \center
+        \Huge
+        \bfseries
+        \fontspec{Noto Serif CJK SC}
+        \CJKfontspec{Noto Serif CJK SC}
+        \textcolor{red}{#1}\par
+        \vspace{10pt}
+    
+        \small\mdseries
+        #2\par
+        \vspace{20pt}
+    \end{minipage}
+    
+    {\color{red}{\hrule}}
+    \vspace{30pt}
+    
+    \noindent\begin{minipage}{\linewidth}
+        \center
+        \Large
+        \fontspec{Noto Serif CJK SC}
+        \CJKfontspec{Noto Serif CJK SC}
+        \bfseries
+        #3\par
+    \end{minipage}
+    \vspace{10pt}
+}
+\newcommand{\docsig}[1]{
+    \vfill
+    \vskip 30pt
+    \noindent\hfill\parbox{0.5\linewidth}{\center#1}\par
+    \vskip 30pt
+}
+
+\linespread{1.6}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+\setmainfont[AutoFakeBold]{FandolFang}
+\setCJKmainfont[AutoFakeBold]{FandolFang}
+
+\title{临风村除四害故事集}
+\author{Neruthes}
+\date{\today}
+
+\begin{document}
+\begin{titlepage}
+	\maketitle
+\end{titlepage}
+\tableofcontents\clearpage
+
+
+% Institutions list:
+% 村大〔1956〕第5号
+% 除害委〔1956〕第1号
+
+
+\gongwenbiaoti{临风村村民大会}{村大〔1956〕第5号}{关于成立除四害委员会的决议}
+
+在中央正式提出“除四害”的方针后，全村各界人士积极响应党和国家的号召，为除四害运动铺平道路。
+为此，村民大会常务委员会召开工作会议，各位常委在会上仔细研究了党和国家的号召和村民同志们的宝贵建议。
+会议通过本决议，并于即日起公示。
+
+经临风村村民大会常务委员会表决同意，即日起临风村村务院增设除四害委员会，简称“除害委”。
+大会选举董建国任委员长、陈凤新任副委员长，孙耀邦、贺锦丽、贺为先、董红旗任委员。
+
+除四害委员会的职权和职责包括：
+
+\textmd{一、统筹规划全村除四害工作方案。}
+% 委员独立研究、调查本村实际情况，委员会以集体名义制定工作规划。
+
+\textmd{二、争取上级政府的支持。}
+% 委员会争取上级政府的专项支持，包括资金、人力等方面。对外流程上，仍然以村务院办公厅作为对上级政府沟通的主体。
+
+\textmd{三、宣传除四害工作的价值。}
+% 委员会组织制作宣传材料、举办宣传活动，向全村群众宣传除四害工作的价值，调动群众的积极性，争取群众的支持。
+
+\textmd{四、与其他村交流除四害工作经验。}
+% 委员会独立与其他村交流除四害工作的相关经验，并对交流的成果加以书面整理，以供后续工作参考。
+
+\textmd{五、检查基层除四害工作的落实情况。}
+% 委员会检查基层单位对有关工作指导意见的落实情况，并对不足之处提供进一步的指示。
+
+\textmd{六、向村务院汇报工作。}
+% 委员会向村务院汇报工作成果，属于村务院的一级下属单位。
+
+以下单位应当在职权、职责范围内积极响应除四害委员会的工作安排、协助请求：
+村农业部、村林业部、村水文部、村卫生部、村武装部、村土地资源部、村交通部、村住建部、村邮政局。
+
+\docsig{临风村村民大会常务委员会\\1956年2月1日}
+
+
+
+
+\gongwenbiaoti{临风村除四害委员会}{除害委〔1956〕第1号}{关于成立灭鼠局的通知}
+
+\noindent 各单位、各界群众：
+
+我单位研究决定，在我单位下增设灭鼠局，分管除四害工作中的灭鼠部分。
+孙耀邦任局长、周传福任副局长。
+
+// To be continued...
+
+\docsig{印发人：董建国\\临风村除四害委员会\\1956年2月2日}
+
+
+\end{document}
