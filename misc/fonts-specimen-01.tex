@@ -1,12 +1,15 @@
-\documentclass[a4paper,11pt]{report}
-\usepackage[a4paper,textwidth=40em,tmargin=20mm,bmargin=27mm]{geometry}
+\documentclass[a4paper,12pt]{report}
+\usepackage[a4paper,textwidth=37em,tmargin=20mm,bmargin=27mm]{geometry}
 \usepackage{calc}
 \usepackage{fontspec}
 
-\usepackage[PunctStyle=plain,RubberPunctSkip=false,CJKglue=,CJKecglue=\hskip 4pt plus 20pt]{xeCJK}
+\usepackage[PunctStyle=plain,RubberPunctSkip=false,CJKglue=\hskip 0pt,CJKecglue=\hskip 4pt plus 20pt]{xeCJK}
 \usepackage{xeCJKfntef}
 \XeTeXlinebreaklocale "zh"
-\XeTeXlinebreakskip = 0pt plus 1pt
+\XeTeXlinebreakskip = 0pt
+
+\linespread{1.2}
+\frenchspacing
 
 \title{Font Specimen 01}
 \author{Neruthes}
@@ -22,26 +25,48 @@
         \parskip=7pt
         \fontspec{#1}
         \CJKfontspec{#1}
-        \huge\bfseries#1\mdseries{} Font Specimen\par
+        \huge\bfseries#1\mdseries{} Font Specimen
+
         \Large\bfseries
-        Senatus Populusque Romanus 1453-05-29\par
+        Senatus Populusque Romanus 1453-05-29
+
         \large
         E PLURIBUS UNUM.\\
         \mdseries
-        PEUPLE ET NOTRE DEVOIR.
-        \par
-        \normalsize\bfseries
+        PEUPLE ET NOTRE DEVOIR. \itshape
+        AD MORTEM EX NIHILO.
+
+        \normalsize\bfseries\upshape
         Gott ist tot; alles ist richtig mit der Welt.
         \mdseries
         Lorem ipsum dolor sit amet.\\
         \normalsize
-        \textit{I jump over the lazy doge; it doesn't hurt me}.\par
+        \textit{I jump over the lazy doge; it doesn't hurt me}.
+
         \normalsize
+        NORMALSIZE:
         This specimen is created to present the visual characteristics of multiple typefaces en masse.
+        Generally speaking, this paragraph is supposed to be long enough.
+        However, the sentences within it should remain simple.
         Mihoyo is a Shanghai-based game development company.
         Microsoft offers to acquire Activition Blizzard at a scary price.
         Le monde va changer de base. Nous ne sommes rien soyons tout.
-        \par
+        Also, it is important to see how the Ελληνικη Αλφαβητο blend with Latin.
+        The last Αυτοκρατωρ of Senatus Populusque Romanus was Κωνσταντινος Δραγατσης Παλαιολογος,
+        who died valorously on 1453 May 29.
+
+        \small
+        SMALL:
+        This specimen is created to present the visual characteristics of multiple typefaces en masse.
+        Generally speaking, this paragraph is supposed to be long enough.
+        However, the sentences within it should remain simple.
+        Mihoyo is a Shanghai-based game development company.
+        Microsoft offers to acquire Activition Blizzard at a scary price.
+        Le monde va changer de base. Nous ne sommes rien soyons tout.
+        Also, it is important to see how the Ελληνικη Αλφαβητο blend with Latin.
+        The last Αυτοκρατωρ of Senatus Populusque Romanus was Κωνσταντινος Δραγατσης Παλαιολογος,
+        who died valorously on 1453 May 29.
+
         战争已经开始了，是上一场战争的延续。
         众神为欲望的轮廓镀上七种光辉，
         以此昭示，他们的权柄可被企及。
@@ -50,17 +75,9 @@
         高天之上的神座，从来不是为你预留的位置。
         但僭越之人啊，不要就此驻足。
         谁都不能隔岸观火。
-        % 看吧。
-        % 守护自由城邦千年的巨龙，终于对自由产生了迷茫。
-        % 被「自由」之神命令的自由，还能称之为自由吗？
-        % 众目睽睽之下，「契约」之神遭人谋杀。
-        % 在最后的时刻，他将签订终结一切契约的契约。
-        % 将军长生不灭，幕府锁国之期亦无尽头。
-        % 追求「永恒」之神，在世人眼中见到了怎样的永恒。
-        \par
-        \small
+
+        \small\scshape
         Neruthes is the creator of this document. The source code is available on GitHub.
-        \par
     \end{minipage}\par
     \vskip 10pt
 }
@@ -68,238 +85,10 @@
 \begin{document}
 
 
-% CJK Fonts
-% ==============================================
-% \specimen{AR PL KaitiM Big5}
-% \specimen{AR PL KaitiM GB}
-% \specimen{AR PL Mingti2L Big5}
-% \specimen{AR PL New Kai}
-% \specimen{AR PL New Sung}
-% \specimen{AR PL New Sung Mono}
-% \specimen{AR PL SungtiL GB}
-% \specimen{AR PL UKai CN}
-% \specimen{AR PL UKai HK}
-% \specimen{AR PL UKai TW}
-% \specimen{AR PL UKai TW MBE}
-% \specimen{AR PL UMing CN}
-% \specimen{AR PL UMing HK}
-% \specimen{AR PL UMing TW}
-% \specimen{AR PL UMing TW MBE}
-% \specimen{Apple LiGothic}
-% \specimen{Apple LiSung}
-% \specimen{Baoli SC}
-% \specimen{Baoli TC}
-% \specimen{BiauKai}
-% \specimen{Bitstream Cyberbit}
-% \specimen{Droid Sans Fallback}
-% \specimen{FandolFang}
-% \specimen{FandolHei}
-% \specimen{FandolKai}
-% \specimen{FandolSong}
-% \specimen{HYBeiWeiXieJing}
-% \specimen{HYChengXingJ}
-% \specimen{HYCuZhuanF}
-% \specimen{HYFanXiaoGeLiShuJ}
-% \specimen{HYGuLi}
-% \specimen{HYQiDiXiaoKai}
-% \specimen{HYQiHei}
-% \specimen{HYQuanTangShiF}
-% \specimen{HYQuanTangShiJ}
-% \specimen{HYRuiHuSong}
-% \specimen{HYShouJinShuJ}
-% \specimen{HYSuZeLiXingKaiOriginal}
-% \specimen{HYSunWanMinCaoShu}
-% \specimen{HYXuJingXingKai}
-% \specimen{HYYanHuShouShu}
-% \specimen{HYYanKai}
-% \specimen{HYZiKuTangYiShanKaiW}
-% \specimen{HanaMinA}
-% \specimen{Hannotate SC}
-% \specimen{Hannotate TC}
-% \specimen{HanziPen SC}
-% \specimen{HanziPen TC}
-% \specimen{HappyZcool-2016}
-% \specimen{Hei}
-% \specimen{Hiragino Sans CNS}
-% \specimen{Hiragino Sans GB}
-% \specimen{Kai}
-% \specimen{Kaiti SC}
-% \specimen{Kaiti TC}
-% \specimen{LXGW WenKai}
-% \specimen{LXGW WenKai Mono}
-% \specimen{Lantinghei SC}
-% \specimen{Lantinghei TC}
-% \specimen{LiHei Pro}
-% \specimen{LiSong Pro}
-% \specimen{Libian SC}
-% \specimen{Libian TC}
-% \specimen{LingWai SC}
-% \specimen{LingWai TC}
-% \specimen{MiSans}
-% \specimen{Noto Sans CJK HK}
-% \specimen{Noto Sans CJK JP}
-% \specimen{Noto Sans CJK KR}
-% \specimen{Noto Sans CJK SC}
-% \specimen{Noto Sans CJK TC}
-% \specimen{Noto Sans Mono CJK HK}
-% \specimen{Noto Sans Mono CJK JP}
-% \specimen{Noto Sans Mono CJK KR}
-% \specimen{Noto Sans Mono CJK SC}
-% \specimen{Noto Sans Mono CJK TC}
-% \specimen{Noto Sans SC}
-% \specimen{Noto Serif CJK JP}
-% \specimen{Noto Serif CJK KR}
-% \specimen{Noto Serif CJK SC}
-% \specimen{Noto Serif CJK TC}
-% \specimen{Noto Serif SC}
-% \specimen{PingFang HK}
-% \specimen{PingFang SC}
-% \specimen{PingFang TC}
-% \specimen{STFangsong}
-% \specimen{STHeiti}
-% \specimen{STKaiti}
-% \specimen{SimSong}
-% \specimen{SimSun}
-% \specimen{Source Han Sans CN}
-% \specimen{Source Han Serif CN}
-% \specimen{Wawati SC}
-% \specimen{Wawati TC}
-% \specimen{Weibei SC}
-% \specimen{Weibei TC}
-% \specimen{WenQuanYi Micro Hei}
-% \specimen{WenQuanYi Micro Hei Mono}
-% \specimen{WenQuanYi Zen Hei}
-% \specimen{WenQuanYi Zen Hei Mono}
-% \specimen{WenQuanYi Zen Hei Sharp}
-% \specimen{Xingkai SC}
-% \specimen{Xingkai TC}
-% \specimen{Yuanti SC}
-% \specimen{Yuanti TC}
-% \specimen{Yuppy SC}
-% \specimen{Yuppy TC}
-
-
-
-
-
-
-
-
-% Normal tests
-% ==============================================
-% \specimen{Newsreader 16pt}\vfill
-% \specimen{Tribun ADF Std}\vfill
-% \specimen{Nimbus Roman}\clearpage
-
-% \specimen{Piazzolla}\vfill
-% \specimen{Faustina}\clearpage
-
-% \specimen{KazukiReiwa}\vfill
-% \specimen{QIJIC}\clearpage
-
-
-% Qualitype
-% ==============================================
-\specimen{QTAbbie}
-\specimen{QTAgateType}
-\specimen{QTAncientOlive}
-\specimen{QTAntiquePost}
-\specimen{QTArabian}
-\specimen{QTArnieB}
-\specimen{QTArtiston}
-\specimen{QTAtchen}
-\specimen{QTAvanti}
-\specimen{QTBasker}
-\specimen{QTBeckman}
-\specimen{QTBengal}
-\specimen{QTBlackForest}
-\specimen{QTBlimpo}
-\specimen{QTBodiniPoster}
-\specimen{QTBodini}
-\specimen{QTBookmann}
-\specimen{QTBoulevard}
-\specimen{QTBrushStroke}
-\specimen{QTCaligulatype}
-\specimen{QTCanaithtype}
-\specimen{QTCascadetype}
-\specimen{QTCaslanOpen}
-\specimen{QTCaslan}
-\specimen{QTCasual}
-\specimen{QTChanceryType}
-\specimen{QTChicagoland}
-\specimen{QTClaytablet}
-\specimen{QTCloisteredMonk}
-\specimen{QTCoronation}
-\specimen{QTDeuce}
-\specimen{QTDingBits}
-\specimen{QTDoghausHeavy}
-\specimen{QTDoghausLight}
-\specimen{QTDoghaus}
-\specimen{QTDublinIrish}
-\specimen{QTEraType}
-\specimen{QTEurotype}
-\specimen{QTFloraline}
-\specimen{QTFlorencia}
-\specimen{QTFraktur}
-\specimen{QTFrankHeavy}
-\specimen{QTFrank}
-\specimen{QTFrizQuad}
-\specimen{QTFuturePoster}
-\specimen{QTFuture}
-\specimen{QTGaromand}
-\specimen{QTGhoulFace}
-\specimen{QTGraphLite}
-\specimen{QTGraveure}
-\specimen{QTGreece}
-\specimen{QTHandwriting}
-\specimen{QTHeidelbergType}
-\specimen{QTHelvet-Black}
-\specimen{QTHelvet-BoldOutline}
-\specimen{QTHelvetCnd-Black}
-\specimen{QTHelvetCnd-Light}
-\specimen{QTHelvetCnd}
-\specimen{QTHoboken}
-\specimen{QTHowardTypeFat}
-\specimen{QTHowardType}
-\specimen{QTImpromptu}
-\specimen{QTJupiter}
-\specimen{QTKooper}
-\specimen{QTKorrin}
-\specimen{QTKung-Fu}
-\specimen{QTLautrecType}
-\specimen{QTLetterGoth}
-\specimen{QTLinoscroll}
-\specimen{QTLinostroke}
-\specimen{QTLondonScroll}
-\specimen{QTMagicMarker}
-\specimen{QTMerryScript}
-\specimen{QTMilitary}
-\specimen{QTOKCorral-Cnd}
-\specimen{QTOKCorral-Ext}
-\specimen{QTOKCorral}
-\specimen{QTOldGoudy}
-\specimen{QTOptimum}
-\specimen{QTPalatine}
-\specimen{QTPandora}
-\specimen{QTParisFrance}
-\specimen{QTPeignoir-Lite}
-\specimen{QTPeignoir}
-\specimen{QTPiltdown}
-\specimen{QTPristine}
-\specimen{QTRobotic2000}
-\specimen{QTSanDiego}
-\specimen{QTSchoolCentury}
-\specimen{QTSlogantype}
-\specimen{QTSnowCaps}
-\specimen{QTStoryTimeCaps}
-\specimen{QTTechtone}
-\specimen{QTTheatre}
-\specimen{QTTimeOutline}
-\specimen{QTTumbleweed}
-\specimen{QTUSA-Uncial}
-\specimen{QTVagaRound}
-\specimen{QTWeise}
-\specimen{QTWestEnd}
+\specimen{Helvetica Neue}
+\specimen{Hauora}
+\specimen{C059}
+\specimen{Brygada 1918}
 
 
 
