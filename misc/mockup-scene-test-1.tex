@@ -1,0 +1,22 @@
+\documentclass[a3paper,12pt]{article}
+\usepackage[a3paper,landscape,margin=15mm]{geometry}
+\usepackage{calc,xunicode,graphicx,eso-pic,xeCJK,xeCJKfntef}
+\pagestyle{empty}
+
+\begin{document}
+% \textcolor{white}{Hello world!}
+\leavevmode\vphantom{114514}
+\AddToShipoutPictureBG{%
+    \put(-50mm,0mm){%
+        \includegraphics[height=\paperheight]{/home/neruthes/DLD/2023-01/SceneCreator/Scenes_1-10/Scene-1w-stuffed.jpg}%
+    }%
+}
+\AddToShipoutPictureFG{%
+    \put(126mm,32.5mm){%
+    % \put(126mm,22.5mm){%
+        \includegraphics[height=235mm]{/home/neruthes/DEV/immerherbstreichtexdb/_dist/royalletters/rl-2023-001.pdf}
+        % \rule{166.16mm}{235mm}%
+    }%
+}
+    
+\end{document}
