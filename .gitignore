@@ -11,5 +11,4 @@ video-slides/.img
 _dist/
 dist.tar.xz
 
-.osslist
 .vscode/
