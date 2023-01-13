@@ -1,0 +1,123 @@
+\documentclass[a4paper,11pt]{article}
+\input{/home/neruthes/DEV/ntexdb/notes/.head.tex}
+\fontsizepteleven
+% \fontsizeptwelve
+\docsetup{WiRadio: Protocol Suite for Radio Broadcasting over Wi-Fi Frequencies}{Neruthes}{2023-01-11}
+% \linespread{1.1}
+
+
+
+
+
+
+
+\begin{document}
+% \raggedright
+
+\fulldoctitle
+
+
+\section*{Abstract}
+
+I intend to design a hybrid protocol suite, named \textbf{WiRadio}, having both digital and analog features,
+for the transmission of realtime audio over safe civilian frequencies such as 2.4 GHz and 5 GHz,
+which are commonly used by the IEEE 802.11 protocol suite and Bluetooth across major countries.
+
+The WiRadio protocol suite concerns the transportation of analog audio signals and
+a Zeroconf-like service discovery mechanism.
+
+\tableofcontents
+\clearpage
+
+
+\section{Frequencies}
+
+\subsection{Options for Frequencies}
+
+The idea of WiRadio is to conceal the existence of radio stations within the jungle of Wi-Fi signals.
+Therefore, only the frequencies used by the IEEE 802.11 protocol suite may be our options.
+Particularly, only IEEE 802.11a/b/g/n/ac/ax frequencies may be used.
+These include 2.4 GHz frequencies and 5 GHz frequencies:
+
+\begin{itemize}
+	\item 2.4 GHz
+	      \begin{itemize}
+		      \item Channel 1-11 (2412-2462 MHz)
+	      \end{itemize}
+	\item 5 GHz
+	      \begin{itemize}
+		      \item Channel 32-68 (5160-5340 MHz)
+		      \item Channel 149-161 (5745-5805 MHz)
+		      \item Channel 165 (5825 MHz)
+	      \end{itemize}
+\end{itemize}
+
+\subsection{Dynamic Frequency Selection}
+
+Dynamic Frequency Selection (DFS) is an important feature of modern Wi-Fi communications.
+It can be helpful for WiRadio.
+
+WiRadio shall inherit the existing DFS mechanism in IEEE 802.11ax,
+whose algorithm and implementations are beyond my knowledge for the moment of this note being written.
+
+
+
+\section{Analog Audio Transmission}
+
+WiRadio shall inherit the existing encoding mechanism of FM radio,
+which is also beyond my knowledge for the moment of this note being written.
+
+Someone who accidentally turns his FM radio receiver to a specific frequency
+shall be able to listen to the audio inside.
+
+
+
+\section{Digital Service Discovery Mechanism}
+
+\subsection{Faking Wi-Fi Beacon Frames}
+
+WiRadio shall inherit the existing method of broadcasting beacon frames in IEEE 802.11.
+The contents of the fake Wi-Fi beacon frames do not conform to the format specified in IEEE 802.11.
+However, the fake Wi-Fi beacon frames shall start with 80 bits which make them to look like real Wi-Fi beacon frames.
+As a result, in the eyes of generic Wi-Fi chips, they are receiving malformed Wi-Fi beacon frames.
+
+A WiRadio beacon frame has a dynamic magic header at the initial 10 bytes, which are to be ignored, since they are only a coverup.
+The real data starts at the 11th byte.
+
+Here is the structure of the data in a WiRadio beacon frame:
+
+\begin{tabu}{lllX}
+	\toprule
+	Index & Field Name          & Length   & Description                                                                                                                                                                                                                                                                                                               \\
+	\midrule
+	0     & Magic Header        & 4B       & {Magic header. Should be 0x19911225.}                                                                                                                                                                                                                                                                                     \\
+	1     & Protocol Version    & 1B       & {UInt8 number, for the version of WiRadio protocol being used now. Should be 0x00.}                                                                                                                                                                                                                                       \\
+	2     & Timestamp           & 8B       & {UInt64 number, for the UNIX timestamp in milliseconds.}                                                                                                                                                                                                                                                                  \\
+	3     & Seed                & 1B       & {UInt8 number, a random number to avoiding collision.}                                                                                                                                                                                                                                                                    \\
+	4     & Page                & 1B       & {UInt8 number, to indicate which page this frame belongs to the macro-frame. All pages of a macro-frame must share the same timestamp and the same seed. This is useful for situations where the WiRadio beacon frame becomes too long to be contained in a legitimate-looking fake Wi-Fi beacon frame. Starting from 0.} \\
+	5     & Station Pubkey Type & 1B       & {0x00: Ed25519 (with OpenSSH default parameters). Other types may be supported in future.}                                                                                                                                                                                                                                \\
+	6     & Station Pubkey      & Variable & {The actual length depends on `Station Pubkey Type'. 0x00: 32 bytes.}                                                                                                                                                                                                                                                     \\
+	7     & Station Name Length & 1B       & {UInt8 number, for the length of Field `Station Name'.}                                                                                                                                                                                                                                                                   \\
+	8     & Station Name        & Variable & {A string encoded in UTF-8.}                                                                                                                                                                                                                                                                                              \\
+	9     & Current Frequency   & 2B       & {UInt16 number, for the current frequency in MHz.}                                                                                                                                                                                                                                                                        \\
+	10    & Signature           & Variable & {The predictable-length digital signature for all bytes above, using the hash+signature algorithms specified in `Station Pubkey Type'.}                                                                                                                                                                                   \\
+	11    & Hash                & 6B       & {Get the initial 6 bytes from the SHA-256 hash of all bytes above.}                                                                                                                                                                                                                                                       \\
+	\bottomrule
+\end{tabu}
+
+Note that when a multi-page macro-frame is being broadcasted, a header of Field 0-3 shall be the common header in every page.
+Any page must not be longer than 240 bytes.
+If the whole macro-frame exceeds the limit, paging is necessary.
+
+% Wi-Fi beacon frame: 252 bytes
+% Our usable: 240 bytes
+
+\subsection{Requirement for User Agents}
+
+In an audience ever listens to the radio station, the user agent shall remember the station pubkey,
+so that the audience may continue the listening when the station jumps to another frequency using DFS.
+
+
+
+
+\end{document}
