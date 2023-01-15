@@ -1,0 +1,237 @@
+\documentclass[a4paper,11pt]{article}
+\input{/home/neruthes/DEV/ntexdb/notes/.head.tex}
+\fontsizepteleven
+% \fontsizeptwelve
+\docsetup{Domain Name Hyper Header Protocol (DNHHP) Specification Version 1.0 (Draft)}{Neruthes}{2023-01-15}
+\linespread{1.1}
+
+
+
+
+
+
+
+\begin{document}
+% \raggedright
+
+\fulldoctitle
+
+
+\section*{Introduction}
+
+Domain Name Hyper Header Protocol (DNHHP) is a lightweight extension to DNS TXT records.
+DNHHP uses DNS TXT records as the transportation/representation layer to convey short messages in a key-value fashion.
+
+The primary purpose of DNHHP is service discovery.
+Such services can include SSH, HTTP, HTTPS, FTP, SMTP, IMAP, IMAP, POP3, etc.
+
+\tableofcontents\clearpage
+
+
+
+
+\section{A Straightforward Example}
+
+Represented in DNS zone file format:
+
+\begin{lstlisting}
+@  IN  TXT  dnhhp webmaster-name John Appleseed
+@  IN  TXT  dnhhp webmaster-emails johnappleseed@example.com webmaster@example.com
+@  IN  TXT  dnhhp http-ports 80 2095 8000
+@  IN  TXT  dnhhp https-ports 443 2096 8443
+@  IN  TXT  dnhhp x-urlencoded-zeroconf IPv6%3Bbubulu%3B_ssh._tcp%3B\
+            example.com%3B77.77.77.77%3Bfcc0%3A989c%3A7c13%3A9bf9%3A\
+            32b7%3A%3A1%3B22%3B
+\end{lstlisting}
+
+
+
+
+
+
+
+\section{Design Synopsis}
+
+DNHHP is built over DNS TXT records.
+
+In the data part of a HTTP record, we have 3 sections delimited by whitespace:
+
+\begin{enumerate}
+	\item Protocol Version Indicator (PVI): Static text ``dnhhp''.
+	\item Header Key Name (HKN): A short string to indicate the key of the record.
+	\item Header Value Data (HVD): A short string to indicate the key of the record.
+\end{enumerate}
+
+\subsection{Protocol Version Indicator (PVI)}
+
+The Protocol Version Indicator (PVI) should be static text ``dnhhp''.
+
+In future, if DNHHP moves to a format incompatible with the current format, we will then suffix it with a version number.
+
+\subsection{Header Key Name (HKN)}
+
+The Header Key Name (HKN) is a short string to indicate the key of the record.
+Although not technically necessarily,
+it is advised to use only alphanumerical characters, hyphen, and underscore in the HKN,
+to conform to the common practices in HTTP headers.
+
+DNHHP is heavily inspired by HTTP headers.
+And if possible, a HTTP server may include the DNHHP records of a domain name in the HTTP responses as headers
+when it responds to HTTP requests for the domain name.
+So domain name owners are advised to use HKNs which do not collide with the names of common HTTP headers.
+
+\subsubsection{Reserved Key Names}
+
+The prefix ``dnhhp-'' is a reserved namespace.
+No actual record shall start with this prefix.
+
+Some magics require the ``dnhhp-'' prefix to work properly:
+
+\begin{enumerate}
+	\item \textbf{dnhhp-urlencoded-}\\
+	      When the value for a key (e.g. ``website-alt'') is too complicated, i.e. involving special characters which might cause syntax problems,
+	      it may be preferable to process the value string with ``encodeURIComponent'' before writing into the TXT record.
+	      In this case, instead of ``website-alt'', the domain owner writes ``dnhhp-urlencoded-website-alt'' as the HKN.
+	      When a DNHHP lookup implementation finds that there is a ``dnhhp-urlencoded-'' prefixed record for the given query criteria,
+	      it should return the decoded value of the encoded record, regardless of whether a non-prefixed plain record exists in the DNS answer.
+	      A lookup implementation should allow querying prefixed keys from callers.
+\end{enumerate}
+
+\subsection{Header Value Data (HVD)}
+
+It is allowed to include whitespace characters in the HVD section.
+Implementations should handle this situation correctly.
+
+For example:
+
+\begin{lstlisting}
+// In shell script
+dnhhp_key="$(cut -d' ' -f2 <<< "$dnhhp_line")"
+dnhhp_val="$(cut -d' ' -f3- <<< "$dnhhp_line")"
+
+// In JavaScript
+const dnhhpResultArr = dnhhp.lookupRaw('example.com', 'https-ports')[0];
+const dnhhp_key = dnhhpResultArr[1];
+const dnhhp_val = dnhhpResultArr.slice(2).join(' ');
+\end{lstlisting}
+
+
+
+
+
+
+
+\section{Standardized Lookup URI}
+
+\subsection{Basic URI Format}
+
+A lookup request may be represented by a URI in the following format:
+
+\begin{lstlisting}
+dnhhp://{{domain name}}/{{header key}}
+\end{lstlisting}
+
+For example:
+
+\begin{lstlisting}
+dnhhp://example.com/https-ports
+\end{lstlisting}
+
+\subsection{Extended URI Formats}
+
+The following extended URI formats are recommended for lookup tool developers to implement,
+but not a mandatory part of the URI standard.
+A tool can simply ignore everything since the question mark and it should provide compatible results
+by performing DNS queries over traditional port 53.
+
+\begin{enumerate}
+	\item \textbf{dnhhp://example.com/keyname?first}\\
+	      Get the first record only.
+	      Note that sorting of DNS records may be unreliable,
+	      and this behavior might return different results across different DNS queries.
+	\item \textbf{dnhhp://example.com/keyname?doh=1.1.1.1,dns.example.com}\\
+	      Require the query to be made via DNS over HTTPS,
+	      by giving a comma-delimited list of hostnames to request information from.
+          Or leave empty ``?doh'' to let the lookup tool decide internally.
+\end{enumerate}
+
+
+
+
+
+
+
+\section{Configuration}
+
+Take the ``https-ports'' for example, the domain owner should configure a TXT record like ``dnhhp https-ports 443 2096'',
+in order to announce the available ports for HTTPS on the domain name.
+
+
+
+
+
+
+
+\section{Possible Working Scenarios}
+
+\subsection{Circumventing Port Blockage}
+
+Sometimes, certain TCP/UDP ports, e.g. 80 and 443, of home cables may be blocked by ISPs.
+
+When the home owner wants to maintain a public WWW/FTP/SMTP/IMAP server, the unavailability of default ports can cause troubles.
+Theoretically, a visitor can add the port (which can be announced along with the domain name or the IP address) into the URL,
+it is still a very unhappy experience.
+
+Also, it is possible to create a ``gateway.example.com'' subdomain on Cloudflare (or similar services) with a redirect rule
+which redirects all requests on ``http://gateway.example.com/'' toward ``http://actual.example.com:19980/'',
+but a more beautiful solution may further help.
+
+Imagine that a browser is smart enough to query a list of HTTPS ports by getting a ``https-ports'' DNHHP record via DNS
+before it opens TCP or QUIC connections and tries another port after finding the previous one silent.
+
+
+
+
+
+
+\section{Recommended Headers}
+
+Here is a list of recommended headers with their definitions:
+
+\begin{enumerate}
+	\item \textbf{webmaster-name}\\
+	      Contact information of the webmaster.
+	\item \textbf{webmaster-emails}\\
+	      A whitespace-delimited list of the email addresses of the webmaster.
+	\item \textbf{https-ports} / \textbf{http-ports}\\
+	      A whitespace-delimited list of ports which should be tried in the given order by WWW user agents.
+	\item \textbf{website-alt}\\
+	      A whitespace-delimited list of alternative locations of this website (e.g. a live mirror or a tarball/zip).
+	      \\Should be urlencoded.
+	\item \textbf{zeroconf}\\
+	      The ``avahi-browse -atp'' compatible string (subtracting the initial 2 fields)
+	      for zeroconf-compatible service discovery mechanisms.
+	      \\Should be urlencoded.
+\end{enumerate}
+
+
+
+
+
+
+
+\section{Lookup Tools}
+
+I have written a small shell script for DNHHP lookup purposes.
+
+\href{https://github.com/neruthes/NDevShellRC/tree/master/bin/dnhhp}{https://github.com/neruthes/NDevShellRC/tree/master/bin/dnhhp}
+
+Try retrieving ``https-ports'' and ``website-alt'' records on domain name ``neruthes.xyz'' with the tools provided above.
+
+Run ``dnhhp all neruthes.xyz'' to get the complete list of the configured DNHHP headers.
+
+
+
+
+
+\end{document}

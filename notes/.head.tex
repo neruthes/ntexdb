@@ -50,8 +50,10 @@
         \parskip=6pt%
         \center%
         \rmfamily%
-        \fontspec[Ligatures=TeX]{Latin Modern Roman}%
-        {\LARGE\cacheddoctitlebig}\par\vspace{4pt}%
+        \begin{center}
+            \parbox{\linewidth-6em}{\fontspec[Ligatures=TeX]{Latin Modern Roman}\LARGE\cacheddoctitlebig}
+        \end{center}
+        \par\vskip 4pt%
     \end{minipage}\par
     \vspace{15pt}\hrule%
     \vspace{15pt}%
@@ -62,8 +64,10 @@
         \parskip=6pt%
         \center%
         \rmfamily%
-        \fontspec[Ligatures=TeX]{Latin Modern Roman}%
-        {\LARGE\cacheddoctitlebig}\par\vspace{4pt}%
+        \begin{center}
+            \parbox{\linewidth-6em}{\center\fontspec[Ligatures=TeX]{Latin Modern Roman}\LARGE\cacheddoctitlebig}
+        \end{center}
+        \par\vskip 4pt%
         {\sffamily\normalsize\cacheddocauthor}\par%
         {\sffamily\normalsize\cacheddocdate}%
     \end{minipage}\par
