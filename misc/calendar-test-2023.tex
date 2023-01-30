@@ -1,0 +1,159 @@
+% PDF artifact: https://pub-714f8d634e8f451d9f2fe91a4debfa23.r2.dev/keep/ntexdb/calendar-test-2023.pdf--555ea8e462bd569a9a93dbd1f0a12bbb.pdf
+
+\documentclass[a4paper,10pt]{article}
+\usepackage[a4paper,margin=15mm]{geometry}
+\usepackage{calc,fontspec,xcolor,amsmath,amssymb}
+
+\setmainfont{NewComputerModern}
+\setmonofont{Noto Sans Mono}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{12pt}
+
+
+\newlength{\calcellwidth}
+\setlength{\calcellwidth}{21pt}
+\newcommand{\calcell}[1]{\parbox{\calcellwidth}{\small\ttfamily\center\vphantom{1g}#1}}
+\newcommand{\calrow}[7]{%
+    \parbox{\linewidth}{
+        \centering
+        \parbox{7\calcellwidth}{%
+            \textcolor{gray}{\calcell{#1}}%
+            \calcell{#2}%
+            \calcell{#3}%
+            \calcell{#4}%
+            \calcell{#5}%
+            \calcell{#6}%
+            \textcolor{gray}{\calcell{#7}}%
+        }%
+    }
+}
+\newcommand{\calweek}[7]{%
+    \calrow%
+    {\normalizeNumRange{#1}}%
+    {\normalizeNumRange{#2}}%
+    {\normalizeNumRange{#3}}%
+    {\normalizeNumRange{#4}}%
+    {\normalizeNumRange{#5}}%
+    {\normalizeNumRange{#6}}%
+    {\normalizeNumRange{#7}}%
+}
+\newcounter{currentdatenum}
+\setcounter{currentdatenum}{999}
+
+\newcommand{\normalizeNumRange}[1]{%
+    #1%
+}
+
+\newcounter{matrixmaxdate}
+\setcounter{matrixmaxdate}{0}
+\newcounter{matrixcellid}
+\setcounter{matrixcellid}{0}
+\newcommand{\genmatrixCell}[0]{%
+    \ifnum \thematrixcellid<1 {}\else
+        \ifnum \thematrixcellid>\thematrixmaxdate {}\else
+            \arabic{matrixcellid}
+        \fi%
+    \fi%
+    \stepcounter{matrixcellid}%
+}
+\newcommand{\genmatrix}[2]{
+    % argv: skip, end
+    \setcounter{matrixmaxdate}{#2}
+    \setcounter{matrixcellid}{1-#1}
+    \calweek{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}
+	\calweek{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}
+	\calweek{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}
+	\calweek{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}
+	\calweek{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}
+	\calweek{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}{\genmatrixCell}
+    % \setcounter{matrixcellid}{0}
+}
+\newcommand{\calmonthheaderSun}[0]{
+    % \calrow{SUN}{MON}{TUE}{WED}{THU}{FRI}{SAT}
+    \calrow{S}{M}{T}{W}{T}{F}{S}
+}
+\newcommand{\calmonth}[1]{\vrule\parbox{7\calcellwidth+12pt}{\hrule\parbox{\linewidth}{#1}\hrule}\vrule}
+\newcommand{\monthtitle}[1]{
+    % \parbox{\linewidth}{\center\large\bfseries#1}\par\vskip 5pt
+    \center\large\bfseries#1\par\vskip 3pt
+    \mdseries\small
+}
+
+
+
+
+
+
+
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{center}
+    \LARGE CALENDAR
+\end{center}
+\vfill
+
+
+
+% Q1
+\calmonth{%
+	\monthtitle{2023 JAN}\hrule\calmonthheaderSun\hrule
+	\genmatrix{0}{31}
+}\hfill%
+\calmonth{%
+	\monthtitle{2023 FEB}\hrule\calmonthheaderSun\hrule
+	\genmatrix{3}{28}
+}\hfill%
+\calmonth{%
+	\monthtitle{2023 MAR}\hrule\calmonthheaderSun\hrule
+	\genmatrix{3}{31}
+}
+
+% Q2
+\calmonth{%
+	\monthtitle{2023 APR}\hrule\calmonthheaderSun\hrule
+	\genmatrix{6}{30}
+}\hfill%
+\calmonth{%
+	\monthtitle{2023 MAY}\hrule\calmonthheaderSun\hrule
+	\genmatrix{1}{31}
+}\hfill%
+\calmonth{%
+	\monthtitle{2023 JUN}\hrule\calmonthheaderSun\hrule
+	\genmatrix{4}{30}
+}
+
+% Q3
+\calmonth{%
+	\monthtitle{2023 JUL}\hrule\calmonthheaderSun\hrule
+	\genmatrix{6}{31}
+}\hfill%
+\calmonth{%
+	\monthtitle{2023 AUG}\hrule\calmonthheaderSun\hrule
+	\genmatrix{2}{31}
+}\hfill%
+\calmonth{%
+	\monthtitle{2023 SEP}\hrule\calmonthheaderSun\hrule
+	\genmatrix{5}{30}
+}
+
+% Q3
+\calmonth{%
+	\monthtitle{2023 OCT}\hrule\calmonthheaderSun\hrule
+	\genmatrix{0}{31}
+}\hfill%
+\calmonth{%
+	\monthtitle{2023 NOV}\hrule\calmonthheaderSun\hrule
+	\genmatrix{3}{30}
+}\hfill%
+\calmonth{%
+	\monthtitle{2023 DEC}\hrule\calmonthheaderSun\hrule
+	\genmatrix{5}{31}
+}
+
+
+
+\end{document}
