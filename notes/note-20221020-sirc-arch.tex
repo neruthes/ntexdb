@@ -2,7 +2,7 @@
 \input{/home/neruthes/DEV/ntexdb/notes/.head.tex}
 \fontsizepteleven
 % \fontsizeptwelve
-\docsetup{Secure Internet-Relayed Chat Protocol Set Architecture}{Neruthes}{\today, Early Draft, Version 0.1.0}
+\docsetup{Secure Internet-Relayed Chat Protocol Set Architecture}{Neruthes}{\today, Early Draft, Version 0.1.1}
 \linespread{1.05}
 \frenchspacing
 
@@ -98,7 +98,7 @@ The support for querying by Fingerprint is mandatory, while the support for othe
 
 For a query like `GET /u/alice',
 it either returns the plaintext SelfCert, or returns a human-friendly webpage
-which contains a <link> tag (rel=``selfcertplaintext'') to the plaintext SelfCert in its <head>.
+which contains a <link> tag (rel=``alternative'' type=``text/plain+selfcert'') to the plaintext SelfCert in its <head>.
 In this case, Alice may simply write `https://example.com/u/alice' somewhere and
 Bob (or the user agent of Bob) will be able to obtain Alice.cert from the SCRS.
 
@@ -151,7 +151,8 @@ Therefore the user itself may be relieved from making uploads in the event of up
 \begin{description}
     \item[Data Message] What users want to send to each other.
     \item[Control Message] What the softwares need to send and receive in order to maintain good communication experiences.
-    \item[TypeInfo] Metadata for the data being transported. Control messages are identified with respective types.
+    \item[TypeInfo] Metadata for the data being transported, represented by their standard MIME type strings.
+        Control messages are identified with respective types under the primary category ``sirc-control''.
     \item[RawData] The actual data for transportation, usually text or image.
     \item[ChatID] The identifier of the current Conversation. Defined later.
     \item[SlotID] If Alice knows the ChatID of a message, it can try fetching the `next' messages after it, by calculating the SlotID of the next messages. A Message Relay Server (MRS) may maintain a key-value storage which maps SlotIDs to Envelopes. In other words, the participants of a Conversation keep opportunistically `jumping through various channels' (in Wi-Fi terms). See notes below for exceptions.
