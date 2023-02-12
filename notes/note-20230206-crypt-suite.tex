@@ -1,0 +1,250 @@
+\documentclass[a4paper,11pt]{article}
+\input{/home/neruthes/DEV/ntexdb/notes/.head.tex}
+\fontsizepteleven
+\docsetup{Model of Seven Layers for Cryptographic Communication Protocols}{Neruthes}{2023-02-12 (WIP)}
+
+
+
+
+
+
+
+\begin{document}
+
+\fulldoctitle
+
+
+\section*{Abstract}
+
+We aim to establish a loose suite of cryptographic communication protocols in a KISS fashion.
+Every single protocol works on its own and connects to other protocols with clearly defined boundaries.
+
+This document is a high-level overview and discusses the integration of protocols.
+We may sometimes mention hypothetical protocols and describe their features;
+such text pieces are not design specifications of the mentioned protocols,
+but hints to offer rich understanding of how layers are divided and how
+(hypothetical and existing) protocols may interoperate with each other.
+
+% \clearpage
+\tableofcontents\clearpage
+
+
+
+
+\section{Layers}
+
+Like the OSI model of computer networking, we must identify several layers for the cryptography ecosystem being designed.
+
+Our Suite defines the following layers (from infrastructure to application):
+
+\begin{description}
+	\item[Data Delivery Layer (DDL)]
+		Responsible for routing and delivery of arbitrary data cargos on top of it.
+		May or may not break down cargos into packets, frames, etc.
+	\item[Representation Formatting Layer (RFL)]
+		Responsible for representing the data in a way (e.g. Base64) that the Data Delivery Layer can safely transport.
+	\item[Room Management Layer (RML)]
+		Client-server communication below E2EE.
+		Rooms are similar to frequencies in terms of FM radio.
+		Maintains distinguished rooms (e.g. IRC channels) in mansions (e.g. IRC servers).
+		A room hosts a timeline of envelopes posted in the room, to be available for public retrieval;
+		an expiry policy may optionally be applied to envelopes (by the owner of the mansion).
+		Any posting in a room is public information.
+		Hint: Protocols of higher levels can implement dynamic room selection algorithms.
+	\item[Channel Management Layer (CML)]
+		Similar to TLS.
+		Maintains channels for sessions above it.
+		A channel facilitates the communication for 2 parties (i.e. user devices).
+		Provides E2EE security for layers above (SML to PIL).
+		Requires an existing cipher key (i.e. created via a key negotiation procedure).
+		Hint: Use 0-RTT key negotiation for establishing a default channel.
+	\item[Session Management Layer (SML)]
+		Maintains sessions for messages above it.
+		A session may have a type and several participants (i.e. persons).
+	\item[Message Packaging Layer (MPL)]
+		Constructs and interprets self-declaring message payloads which indicate the content and the context.
+	\item[Person Identification Layer (PIL)]
+		May hardly be called a layer, but is important enough.
+\end{description}
+
+
+
+
+
+\section{Responsibilities of Layers}
+
+\subsection{Data Delivery Layer (DDL)}
+
+A DDL protocol provides cargo transportation capabilities over data railways.
+A cargo is a binary data blob.
+
+A data railway may be an IRC chat room, a Telegram chat, etc.
+Also, a data railway may be a simple wrapper over stream protocols, e.g. TCP, WebSocket, WebRTC.
+
+All layers above DDL are packet protocols and not stream protocols.
+Realtime video/audio is tricky. We will discuss them later.
+
+Cargo ordering is not a big concern for a DDL protocol, since SML protocols are expected to handle the ordering of messages.
+
+\subsection{Representation Formatting Layer (RFL)}
+
+A RFL protocol is responsible for representing the data in a way (e.g. Base64) that the DDL protocol can safely transport.
+
+This layer is negligible when working with a DDL protocol which is capable of transporting verbatim binary data packets.
+However, for DDL protocols which transport data over text-based applications (e.g. email, IRC),
+it can be necessary to do some wrapping (e.g. Base64, Base32, Base4096Hangul) to ensure both human-friendliness and railway-compatibility.
+
+Encoding is done at this layer so that DDL protocols can focus on their own job.
+
+\subsection{Room Management Layer (RML)}
+
+A RML protocol provides room selection algorithms so that the CML protocol running over it
+may be able to connect to multiple rooms.
+
+A room is an abstraction of the DDL protocol instance.
+Rooms can be IRC chat rooms, Telegram chats, etc.
+
+Rooms can be noisy so that unwanted data blobs may be observed.
+A CML protocol shall do the filtering to identify the packets it wants when reading from rooms.
+
+\subsection{Channel Management Layer (CML)}
+
+A CML protocol provides a secure E2EE communication environment for SML protocol datagrams going through it.
+It implements the security of communication between exactly 2 parties at the device level.
+
+Each packet sent to the channel manager on the remote machine (RCM) should be an independent decryption unit ---
+the RCM should be able to decrypt the packet without too much information beyond channel metadata.
+
+The exchange of encrypted packets requires a room.
+Packets may be sent into rooms and may be received from rooms.
+
+While 0-RTT key negotiation SHOULD be preferable, round trips are acceptable.
+
+Hint: A CML protocol can initialize the channel via a 0-RTT algorithm for the first outgoing SML datagram
+with necessary metadata attached to negotiate another key.
+
+A CML protocol has 2 responsibilities:
+
+\begin{enumerate}
+	\item Accepts SML datagrams from the session manager on the local machine
+	      and encrypts them and sends encrypted secure boxes to the channel manager on the remote machine.
+	\item Accepts encrypted secure boxes from the channel manager on the remote machine
+	      and decrypts them and sends SML datagrams to the session manager on the local machine.
+\end{enumerate}
+
+A CML protocol MAY have the following features:
+
+\begin{enumerate}
+    \item Deniable authentication
+\end{enumerate}
+
+\subsection{Session Management Layer (SML)}
+
+A SML protocol is responsible for determining the chronicle order of messages going through the session in either direction.
+
+The quantity of participants of a session may range from 2 to some very large number (e.g. 1024).
+Participants are persons (raw X.25519 keypairs, X.509 self-signed certificates, etc),
+contrary to devices in CML.
+
+Hint: When a session has too many participants, encryption is meaningless
+(for mitigating a prepared spy, not an automated surveillance system) because everyone can leak.
+
+A SML protocol consumes inputs and gives outputs,
+and maintains internal states for any given session (e.g. identifier of the last incoming message).
+The session instance on one machine interacts with the messaging manager on the local machine (LMM)
+and the session manager on the remote machine (RSM).
+
+Interactions with LMM:
+
+\begin{itemize}
+	\item Input:
+	      \begin{itemize}
+		      \item Real message package (outgoing)
+	      \end{itemize}
+	\item Output:
+	      \begin{itemize}
+		      \item Real message package (incoming)
+	      \end{itemize}
+\end{itemize}
+
+Interactions with RSM:
+
+\begin{itemize}
+	\item Input:
+	      \begin{itemize}
+		      \item Message datagram
+		      \item Control datagram
+	      \end{itemize}
+	\item Output:
+	      \begin{itemize}
+		      \item Message datagram
+		      \item Control datagram
+	      \end{itemize}
+\end{itemize}
+
+A datagram is a stand-alone self-declaring envelope of data which shall be transmitted securely through a CML protocol.
+It is comparable to HTTP request.
+
+A Message datagram is a wrapping over the message so that the chronicle position of the message may be determined by all participants.
+
+A Control datagram is a hint for performance-improving and error-handling.
+
+Possible use cases of Control datagrams include:
+
+\begin{enumerate}
+    \item Session initialization notification
+    \item Hint to re-acquire my user metadata
+    \item Change of online status (``Hey I am online!'')
+    \item Message read receipt
+    \item Request for retrieving historic messages
+    \item Response for retrieving historic messages
+    \item Broadcast for the identity of a newly invited member in a chat group
+\end{enumerate}
+
+\subsection{Message Packaging Layer (MPL)}
+
+A MPL protocol constructs and interprets self-declaring message payloads which indicate the content and the context,
+so that the messaging manager on the remote machine (RMM) can interpret messages and extract the contents for human interaction.
+Messages may be structured and categorized.
+
+Messages shall be piped into sessions and shall be received from sessions.
+The exchange of messages between persons requires a session.
+
+\subsection{Person Identification Layer (PIL)}
+
+A PIL protocol defines how persons are identified/authenticated,
+and provides cryptographic parameters to the CML protocol (for encryption and deniable authentication)
+and to the MPL protocol (for digital signature).
+
+Depending on the application scenario, a person may have an encryption keypair or a signature keypair, or both.
+
+A PIL protocol SHALL define unique short identifiers for persons, e.g. fingerprint (hash of the public key).
+
+A PIL protocol MAY define internal trust models. For example, OpenPGP defines 5 levels of trust and has a ``subkey'' architecture.
+
+
+
+
+\section{Sample Application Scenarios}
+
+\subsection{Cismail: Email-Like Messaging}
+
+\href{https://pub-714f8d634e8f451d9f2fe91a4debfa23.r2.dev/keep/ntexdb/note-20230210-cismail.pdf--9f1bb76e5b1938be3c8907311238dbc0.pdf}{PDF Link}.
+
+\subsection{IRC-Like Chatting}
+
+\begin{enumerate}
+	\item PIL: X.509 self-signed certificate with Ed25519/X.25519 keypairs
+	\item MPL: Compact Multimedia Message Packaging Protocol (CMMPP)
+	\item SML: Interactive Message Exchange Session Protocol (IMESP)
+	\item CML: Secure E2EE Posting Channel Protocol (SEPCP)
+	\item RML: Dynamic Chat Room Switching Protocol (DCRSP)
+	\item RFL: Binary Modular Envelope Protocol (BMEP)
+	\item DDL: IRC + Nostr
+\end{enumerate}
+
+
+
+
+
+\end{document}
