@@ -2,7 +2,7 @@
 \input{/home/neruthes/DEV/ntexdb/notes/.head.tex}
 \fontsizepteleven
 % \fontsizeptwelve
-\docsetup{Cismail Protocol Specification Version 1}{Neruthes}{2023-02-12 (WIP)}
+\docsetup{Cismail Protocol Specification Version 1}{Neruthes}{2023-02-17 (WIP)}
 \linespread{1.1}
 
 
@@ -41,12 +41,8 @@ It allows a plaintext message to be encrypted for a recipient from an author wit
 \subsection{Background}
 
 Alice wants to write to Bob.
-% Alice has 2 keypairs;
-% one for signature ($AS.priv$, $AS.pub$),
-% and the other for encryption ($AE.priv$, $AE.pub$).
-% The same applies to Bob ($BS.priv$, $BS.pub$, $BE.priv$, $BE.pub$).
 
-They have exchanged their public keys (self-signed X.509 certificates) already before this story begins.
+They have exchanged their Cismail public keys (age) already before this story begins.
 
 \subsection{Writing Message}
 
@@ -60,17 +56,18 @@ Lorem ipsum dolor sit amet.
 
 \subsection{Message Packaging Layer: Basic Mail Message Markup (BMMM)}
 
-Alice needs to wrap the raw message into a mail payload by adding a header,
+Alice needs to wrap the raw message into a mail payload `$MP$' by adding a header,
 which consists of a few LF-delimited data fields and an ending mark (a line consisting of exactly 10 ``-'' characters).
 These data fields allow the recipient to understand the context of the raw text.
 
 \begin{lstlisting}
 p: bmmm-1.0
-app: cismail-1.0
+app: cismail-format-v1
+time: 1676524116
 from: Alice
 to: Bob
-from_key: <X.509 Subject Key Identifier (hex)>
-to_key: <X.509 Subject Key Identifier (hex)>
+from_key: <Alice.kpid>
+to_key: <Bob.kpid>
 markup: plain
 garbage_bytes: <Some random bytes ...>
 ----------
@@ -81,6 +78,7 @@ Lorem ipsum dolor sit amet.
 The definitions of the data fields in the header will be discussed later.
 
 Note: Random garbage bytes are inserted to make sure that the length (in bytes) of the output is always a multiple of 256.
+If the raw input is longer than 4096, the length of the output is always a multiple of 1024.
 
 \subsection{Session Management Layer: Null Session Protocol}
 
@@ -89,88 +87,17 @@ It does nothing at all.
 It maintains no state and adds no prefix.
 It terminates after finishes echoing the first message going into it.
 
-\subsection{Channel Management Layer: One-Way ECDH-Hybrid Temporary Channel Protocol}
+\subsection{Channel Management Layer: Universal Cipher Suite Plugging Wrapper}
 
-\subsubsection{Key Negotiation}
+The encryption operation is delegated to an appropriate program
+which is capable of encrypting for a specific type of recipient identifier.
+In this example, the type of recipient identifier is ``age''.
 
-Alice generates an ephemeral keypair ($Ephe.priv$, $Ephe.pub$).
-The ephemeral keypair is used in an ECDH operation to calculate the ephemeral shared secret `$Ess$'.
-
-\begin{displaymath}
-	Ess = ECDH~(~Ephe.pri~,~BE.pub~)
-\end{displaymath}
-
-Alice calculates the permanent shared secret `$Pss$' between them.
+The program is used to calculate the encrypted blob `$EB$'.
 
 \begin{displaymath}
-	Pss = ECDH~(~AE.pri~,~BE.pub~)
+	EB = Prog.enc(~Bob_{pub}~,~MP~)
 \end{displaymath}
-
-Let the predefined magic salt number `$Salt$' be dee44fb4 c92dd378 c7d948a1 c76b19e9 e6e16e9e fbbdd087 66922b93 c19f1437.
-
-Alice calculates the real cipher key `$Cipher$' by passing the data as parameters to PBKDF2.
-
-\begin{center}
-	\begin{tabu}{ll}
-		\toprule
-		Parameter  & Value          \\
-		\midrule
-		PRF        & HMAC (SHA-256) \\
-		Salt       & $Salt$         \\
-		Password   & $Ess$          \\
-		Iterations & 207777         \\
-		dkLen      & 256            \\
-		\bottomrule
-	\end{tabu}
-\end{center}
-
-\subsubsection{Symmetric Encryption}
-
-Alice generates a random IV `$V$'.
-
-Alice uses the parameters to encrypt the session member payload `$SMP$' from the previous stage to get the encrypted blob `$EB$'.
-The encryption should be compatible with OpenSSL command line operation.
-
-\begin{displaymath}
-	EB = AES\_256\_CFB.encrypt(~IV~,~Cipher~,~SMP~)
-\end{displaymath}
-
-\subsubsection{Deniable Authentication}
-
-Alice calculates the HMAC (with SHA-256) `$MAC$' for `$SMP$'.
-
-\begin{displaymath}
-	MAC = HMAC(~Pss~,~HMAC(~Ess~,~SMP~)~)
-\end{displaymath}
-
-With the HMAC value `$MAC$', Bob should be able to believe that SMP is authored by Alice or Bob,
-but unable to prove that to any third party.
-
-\subsubsection{Output Construction}
-
-Alice constructs the binary output according to the this list:
-
-\begin{enumerate}
-	\item Magic header ``0x61390c02'', which means ``OWECDH'' in Base64. 4 bytes.
-	\item A CBOR (RFC 8949) payload according to the following table.
-\end{enumerate}
-
-\begin{center}
-	\begin{tabu}{lll}
-		\toprule
-		Field Name & Type          & Description                                          \\
-		\midrule
-		{ver}      & {uint (t0)}   & {Version indicator ``1''}                            \\
-		{recvhint} & {uint (t0)}   & {Last 16 bits of ``to\_key'' as an unsigned integer} \ (hex)\
-		{hmac}     & {buffer (t2)} & {$MAC$}                                              \\
-		{iv}       & {buffer (t2)} & {$V$}                                                \\
-		{ephem}    & {buffer (t2)} & {$Ephe.pub$}                                         \\
-		{cblob}    & {buffer (t2)} & {$EB$}                                               \\
-		\bottomrule
-	\end{tabu}
-\end{center}
-
-Then a binary output payload (`output.bin') is created.
 
 \subsection{Human-Friendly Wrapped Format}
 
@@ -210,16 +137,69 @@ The Cismail protocol requires the following protocols as dependencies:
 
 \begin{enumerate}
 	\item Message Payload Layer: Basic Mail Message Markup (BMMM)
-	\item Channel Management Layer: One-Way ECDH-Hybrid Temporary Channel Protocol (cipher: AES-256-CFB)
+	\item Channel Management Layer: Universal Cipher Suite Plugging Wrapper
 \end{enumerate}
 
 This document includes the draft specifications for the dependencies.
 The formal versions of them shall have their own independent specification documents.
 
-// TODO
+% // TODO
 
-% \subsection{Simple Person Keyquard Object}
+\subsection{Universal Cipher Suite Plugging Wrapper}
 
+\subsubsection{Keypair Identifier}
+
+A Keypair Identifier is a URI for a cryptographic identity.
+
+A good short form for the term may be ``kpid''.
+
+The string consists of 4 fields, as delimited by colon characters.
+
+\begin{center}
+	\begin{tabu}{ll}
+		\toprule
+		Field Name     & Description                         \\
+		\midrule
+		Static Header  & Static string ``kpid''.             \\
+		Toolkit Name   & Consult the list of toolkits below. \\
+		Key Identifier & The toolkit-specific identifier.    \\
+		\bottomrule
+	\end{tabu}
+\end{center}
+
+Examples:
+
+\begin{itemize}
+	\item kpid:age:age1s4zpwvrypemsn7ckn38uauedncy9m9yrn7dyak2trc7vst7mgpqskds8lg
+\end{itemize}
+
+List of toolkits:
+
+\begin{description}
+	\item[age] https://github.com/FiloSottile/age
+\end{description}
+
+\subsubsection{Encryption Operation}
+
+\begin{displaymath}
+	EB = Prog.enc(~K_{pub}~,~Msg~)
+\end{displaymath}
+
+\subsubsection{Decryption Operation}
+
+\begin{displaymath}
+	Msg = Prog.dec(~K_{pri}~,~EB~)
+\end{displaymath}
+
+\subsubsection{Wrapping}
+
+\begin{description}
+	\item[Bare Mode]
+		Makes no wrapping at all.
+		The application using this mode should have its own strategy to find out the correct toolkit.
+	\item[Standard Mode]
+		// TODO
+\end{description}
 
 
 
