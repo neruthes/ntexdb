@@ -1,0 +1,146 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[a4paper,textwidth=37.5em,tmargin=30mm,bmargin=33mm]{geometry}
+\usepackage{calc}
+\usepackage{fontspec,tocloft,graphicx,adjustbox,multicol,tabu,booktabs,datetime2}
+
+\setmainfont{Libertinus Serif}
+
+\linespread{1.08}
+\frenchspacing
+
+\title{Font Specimen 02}
+\author{Neruthes}
+\date{\today}
+
+\setlength{\columnsep}{1.5em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+
+
+
+
+
+
+
+
+\newcommand{\isection}[1]{
+    \par\vskip 14pt
+    \parbox{\linewidth}{\Large\altfontfamily\bfseries#1}\nopagebreak
+    \par\vskip 7pt\nopagebreak
+}
+
+\newcommand{\mainfontfamily}[0]{}
+\newcommand{\altfontfamily}[0]{}
+
+
+\newcounter{fontindex}
+\newcommand{\makespecimen}[2]{
+    % argv: mainfont, altfont
+    \clearpage
+    \renewcommand{\mainfontfamily}[0]{\fontspec[Ligatures=TeX]{#1}}
+    \renewcommand{\altfontfamily}[0]{\fontspec[Ligatures=TeX]{#2}}
+    \mainfontfamily
+    % \stepcounter{fontindex}
+    % \phantomsection
+    % \addcontentsline{toc}{subsection}{\numberline{\arabic{fontindex}}#1}
+    \parbox{\textwidth}{
+        \small
+        \altfontfamily
+        Lorem Ipsum University
+        \hfill
+        FS-2023-384
+    }\par\vskip 4pt
+    \hrule
+    \vskip 40pt
+    \begin{center}
+        \altfontfamily
+        \LARGE Font Combination Preview Fake Article\linebreak #1 + #2\par\vskip 10pt
+        \mainfontfamily
+        \normalsize
+        % #1~~+~~#2\par
+        \today\par\vskip 10pt
+
+        \small
+        \tabcolsep=8pt
+        \begin{tabu}{cccc}
+            Author & Main Font & Alt Font & License \\
+            \textbf{Neruthes} & \textbf{#1} & \textbf{#2} & \textbf{CC BY-SA 4.0} \\
+        \end{tabu}\par
+    \end{center}
+    \par
+    \vskip 5pt
+    \hrule
+    \vskip 35pt
+
+    \begin{multicols*}{2}
+        \raggedbottom
+        \raggedcolumns
+        \mainfontfamily
+        \isection{Abstract}
+        This is a sample document for demonstrating font combination choices visually en masse.
+        LaTeX is considered the best typesetting tool for achieving this particular goal.
+
+        \isection{Font Combination}
+        In this document, the main font is #1, and the alt font is {\altfontfamily #2}.
+        As we create articles or reports, we often want to combine different fonts
+        to indicate the difference between types of information.\par
+
+        \begin{tabu}{lX}
+            \toprule
+            Role & Font Choice \\
+            \midrule
+            Main Font & #1 \\
+            Alt Font & #2 \\
+            \bottomrule
+        \end{tabu}
+
+        \isection{Lorem Ipsum}
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur maximus dapibus neque. Praesent tempus, sem sit amet vestibulum cursus, dolor sapien pretium turpis, quis interdum justo justo vitae neque. Nulla tristique mattis ligula, sit amet tincidunt sapien pulvinar vel. Fusce mollis tortor et nunc pretium, sed vulputate dui fermentum.
+        
+        Suspendisse et erat vitae ex maximus tristique. Cras suscipit enim elementum nibh iaculis, quis euismod orci laoreet. Praesent porta, metus quis ultrices pretium, sapien nisi faucibus erat, non bibendum sapien leo non lectus. Sed volutpat, mi id pulvinar rhoncus, lectus nisi hendrerit libero, vel semper erat mauris eu lacus.
+        
+        Vivamus molestie lobortis tempor. Curabitur consectetur et mi at iaculis. Sed convallis mollis dui, at semper quam hendrerit vel. 
+
+        \isection{Copyright}
+        This document is created by Neruthes. The source code is available on GitHub.
+        Modifications and redistributions are permitted under the \textbf{CC BY-SA 4.0} license.
+    \end{multicols*}
+}
+
+
+
+
+
+
+
+
+
+\begin{document}
+
+
+
+
+
+
+
+\makespecimen{Alegreya Sans}{Alegreya}
+\makespecimen{Alegreya}{Alegreya Sans}
+\makespecimen{FreeSerif}{FreeSans}
+\makespecimen{Open Sans}{Ubuntu}
+\makespecimen{NewComputerModern}{Roboto}
+
+\makespecimen{Roboto}{Noto Sans Display}
+\makespecimen{Roboto}{IBM Plex Sans}
+\makespecimen{Roboto}{Outfit}
+\makespecimen{Roboto}{Lora}
+\makespecimen{Roboto}{Source Serif Pro}
+\makespecimen{Roboto}{Brygada 1918}
+\makespecimen{Roboto}{Latin Modern Roman}
+\makespecimen{Roboto}{C059}
+\makespecimen{Roboto}{TeX Gyre Schola}
+
+
+
+
+\end{document}

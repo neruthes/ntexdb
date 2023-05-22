@@ -1,0 +1,231 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper,textwidth=37em,tmargin=20mm,bmargin=27mm]{geometry}
+\usepackage{calc}
+\usepackage{fontspec,tocloft,graphicx,adjustbox,truncate}
+\renewcommand{\TruncateMarker}{}
+
+\usepackage[PunctStyle=plain,RubberPunctSkip=false,CJKglue=\hskip 0pt,CJKecglue=\hskip 4pt plus 20pt]{xeCJK}
+\usepackage{xeCJKfntef}
+\setmainfont{Libertinus Serif}
+
+\linespread{1.2}
+\frenchspacing
+
+\title{Font Specimen 02}
+\author{Neruthes}
+\date{\today}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+
+
+
+
+
+
+
+\renewcommand{\section}[1]{
+    \clearpage
+    \phantomsection
+    \stepcounter{section}
+    \addcontentsline{toc}{section}{\numberline{\arabic{section}}#1}
+    \leavevmode
+    \vfill
+    \begin{center}
+        \large\bfseries\scshape
+        Section \arabic{section}\par
+        \Huge\mdseries\upshape
+        #1
+    \end{center}
+    \vskip 20pt
+    \vfill
+    \clearpage
+}
+
+
+\newcommand{\myadjbox}[1]{
+    \begin{adjustbox}{max width=\linewidth,min width=\linewidth}%
+        #1\par
+    \end{adjustbox}\par
+}
+
+
+
+\newcounter{fontindex}
+\newcommand{\specimen}[1]{
+    % $1=fontname
+    \clearpage
+    \stepcounter{fontindex}
+    \phantomsection
+    \addcontentsline{toc}{subsection}{\numberline{\arabic{fontindex}}#1}
+    \fontspec[Ligatures=TeX]{#1}
+    \CJKfontspec[Ligatures=TeX]{#1}
+    \myadjbox{\Huge\bfseries#1~-~Font~Specimen}\par
+    \vfill
+
+    \Huge\mdseries
+    \myadjbox{\bfseries\itshape Deal! Delay no more!}\par\vfill
+    \myadjbox{\MakeUppercase{\bfseries Senatus Populusque Romanus}}\par\vfill
+
+    \large
+    {\bfseries 1\hfill 2\hfill 3\hfill 4\hfill 5\hfill 6\hfill 7\hfill 8\hfill 9\hfill 0\hfill !\hfill @\hfill \#\hfill \$\hfill \%\hfill \textasciicircum\hfill \&\hfill *\hfill ()\hfill -=\hfill \_\hfill +\hfill []\hfill ;:\hfill ``?''\hfill `/'\hfill <,.>}\par
+    {\mdseries 1\hfill 2\hfill 3\hfill 4\hfill 5\hfill 6\hfill 7\hfill 8\hfill 9\hfill 0\hfill !\hfill @\hfill \#\hfill \$\hfill \%\hfill \textasciicircum\hfill \&\hfill *\hfill ()\hfill -=\hfill \_\hfill +\hfill []\hfill ;:\hfill ``?''\hfill `/'\hfill <,.>}\par
+    \vfill
+
+    \LARGE\mdseries\upshape
+    \myadjbox{\bfseries VENTI KLEE TARTAGLIA ZHONGLI ALBEDO}\par\vfill
+
+    \Large\mdseries
+    \myadjbox{Ganyu Xiao Hu Tao Eula Kaedehara Kazuha}\par\vfill
+    
+    \Large\mdseries\upshape
+    \myadjbox{KAMISATO AYAKA YOIMIYA RAIDEN SHOGUN SANGONOMIYA KOKOMI}\par\vfill
+
+    \myadjbox{\bfseries Sangonomiya Kokomi Arataki Itto Yae Miko Kamisato Ayato Yelan}\par\vfill
+
+    \large\mdseries
+    \myadjbox{\upshape Venti Klee Tartaglia Zhongli Albedo Ganyu Xiao Hu Tao Eula Kaedehara Kazuha}\par\vfill
+
+    \myadjbox{\scshape Tighnari Nilou Cyno Nahida Alheithm Dehya Baizhu}\par\vfill
+
+    \myadjbox{\bfseries\scshape Jean Diluc Mona Amber Lisa Kaeya Bennett Fischl Diona Mika}\par\vfill
+
+    \myadjbox{\mdseries\itshape Keqing Qiqi Xiangling Xingqiu Chongyun Ninguang Beidou Xinyan Yunjin}\par\vfill
+
+
+    \normalsize\mdseries\upshape
+    \textsc{We the People of the United States, in Order to form a more perfect Union}, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.
+    \par\vfill
+
+    \small\mdseries
+    \myadjbox{\bfseries\upshape Alles ist richtig mit der Welt. I jump over the lazy doge; it doesn't hurt me.}\vfill
+    \myadjbox{\mdseries\upshape Alles ist richtig mit der Welt. I jump over the lazy doge; it doesn't hurt me.}\vfill
+
+    \normalsize
+    \myadjbox{Le monde va changer de base. Nous ne sommes rien soyons tout.}\vfill
+
+    \small
+    \myadjbox{Κωνσταντίνος Δραγατης Παλαιολόγος 1453 05 29}\par\vfill
+    \myadjbox{Μες την Αγια Σοφια Θα βρεθουμε ξανα. Λειτουργια μελλοντικη οι Έλληνες μαζι.}\vfill
+
+
+
+    \small
+    \myadjbox{\scshape This specimen is created by Neruthes. The source code is available on GitHub.}
+}
+\newcommand{\CJKspecimen}[1]{
+    % $1=fontname
+    \clearpage
+    \stepcounter{fontindex}
+    \phantomsection
+    \addcontentsline{toc}{subsection}{\numberline{\arabic{fontindex}}#1}
+    \fontspec[Ligatures=TeX]{#1}
+    \CJKfontspec[Ligatures=TeX]{#1}
+
+    \normalsize
+    \myadjbox{\mdseries #1~-~FONT~SPECIMEN}\vfill
+    
+    \large
+    \myadjbox{\bfseries 战争已经开始了是上一场战争的延续}\vfill
+    \myadjbox{众神为欲望的轮廓镀上七种光辉以此昭示他们的权柄可被企及}\vfill
+    \myadjbox{而现世的基底埋藏着阴燃的残骸那是对僭越者的警示}\vfill
+    \myadjbox{高天之上的神座从来不是为你预留的位置}\vfill
+    \myadjbox{\upshape 但僭越之人啊不要就此驻足谁都不能隔岸观火}\vfill
+
+    \myadjbox{守护自由城邦千年的巨龙终于对自由产生了迷茫被自由之神命令的自由还能称之为自由吗}
+    \vfill
+    
+    \myadjbox{团长车准备好了}\vfill
+    \myadjbox{真是安静的街道啊没有加拉霍恩高木也很努力我也是加把劲骑士}\vfill
+    \myadjbox{至今以来的努力不会全部木大团长你在干什么啊团长}\vfill
+    \myadjbox{\bfseries 所以不要停下来啊}\vfill
+    \myadjbox{希望之花连接着羁绊}\vfill
+
+    \normalsize
+    \myadjbox{세월은~흘러가도~산천은~안다~깨어나서~외치는~뜨거운~함성}
+    \vfill
+    \myadjbox{後一度だけ奇跡は起こるだろう優しい声で描く歪んだ未来}
+    \vfill
+
+    \small
+    \myadjbox{\mdshape This specimen is created by Neruthes.\itshape The source code is available on GitHub.}
+}
+
+
+
+
+
+
+
+
+\begin{document}
+\leavevmode
+\vfill
+\begin{center}
+	\huge\scshape
+	Font Specimen Collection
+\end{center}
+\vfill
+
+\tableofcontents\clearpage
+
+
+
+
+
+
+
+\section{Graphical User Interface}
+
+\specimen{SF Pro Display}
+\specimen{SF Pro Text}
+\specimen{Roboto}
+
+
+
+
+
+\section{Grotesque}
+
+\specimen{Nimbus Sans}
+\specimen{Helvetica Neue}
+\specimen{Nacelle}
+\specimen{Outfit}
+\specimen{Questrial}
+\specimen{RadioCanada}
+\specimen{Alegreya Sans}
+
+
+
+
+
+
+\section{Serif}
+
+\specimen{Lora}
+\specimen{C059}
+\specimen{Brygada 1918}
+\specimen{Old Standard}
+\specimen{Nimbus Roman}
+
+
+
+
+
+
+% CJK
+\section{CJK}
+
+\CJKspecimen{PingFang SC}
+\CJKspecimen{Noto Sans CJK SC}
+\CJKspecimen{Noto Serif CJK SC}
+\CJKspecimen{FandolSong}
+\CJKspecimen{Kaiti SC}
+\CJKspecimen{STKaiti}
+\CJKspecimen{FandolKai}
+\CJKspecimen{FandolFang}
+\CJKspecimen{STFangsong}
+
+
+
+\end{document}
