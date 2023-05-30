@@ -6,9 +6,11 @@
 
 \usepackage[PunctStyle=plain,RubberPunctSkip=false,CJKglue=\hskip 0pt,CJKecglue=\hskip 4pt plus 20pt]{xeCJK}
 \usepackage{xeCJKfntef}
-\setmainfont{Libertinus Serif}
+\setmainfont{TeX Gyre Schola}
+\setromanfont{TeX Gyre Schola}
+\setsansfont{TeX Gyre Heros}
 
-\linespread{1.2}
+\linespread{1}
 \frenchspacing
 
 \title{Font Specimen 02}
@@ -16,7 +18,7 @@
 \date{\today}
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{7pt}
+\setlength{\parskip}{2pt}
 
 
 
@@ -32,6 +34,7 @@
     \leavevmode
     \vfill
     \begin{center}
+        \rmfamily
         \large\bfseries\scshape
         Section \arabic{section}\par
         \Huge\mdseries\upshape
@@ -62,14 +65,26 @@
     \CJKfontspec[Ligatures=TeX]{#1}
     \myadjbox{\Huge\bfseries#1~-~Font~Specimen}\par
     \vfill
+    \vfill
+    \vfill
+    \vfill
+    \vfill
+    \vfill
 
     \Huge\mdseries
-    \myadjbox{\bfseries\itshape Deal! Delay no more!}\par\vfill
+    \myadjbox{\bfseries\itshape Deal! Delay no more!}\par
+    \vfill
+    \vfill
+    \vfill
+    \vfill
+    \vfill
+
     \myadjbox{\MakeUppercase{\bfseries Senatus Populusque Romanus}}\par\vfill
 
     \large
-    {\bfseries 1\hfill 2\hfill 3\hfill 4\hfill 5\hfill 6\hfill 7\hfill 8\hfill 9\hfill 0\hfill !\hfill @\hfill \#\hfill \$\hfill \%\hfill \textasciicircum\hfill \&\hfill *\hfill ()\hfill -=\hfill \_\hfill +\hfill []\hfill ;:\hfill ``?''\hfill `/'\hfill <,.>}\par
-    {\mdseries 1\hfill 2\hfill 3\hfill 4\hfill 5\hfill 6\hfill 7\hfill 8\hfill 9\hfill 0\hfill !\hfill @\hfill \#\hfill \$\hfill \%\hfill \textasciicircum\hfill \&\hfill *\hfill ()\hfill -=\hfill \_\hfill +\hfill []\hfill ;:\hfill ``?''\hfill `/'\hfill <,.>}\par
+    \myadjbox{\bfseries 1234567890!@\#\$\%\textasciicircum\&*()-=\_+[];:``?''`/'<,.>}\par
+    \vfill
+    \myadjbox{\mdseries 1234567890!@\#\$\%\textasciicircum\&*()-=\_+[];:``?''`/'<,.>}\par
     \vfill
 
     \LARGE\mdseries\upshape
@@ -90,7 +105,12 @@
 
     \myadjbox{\bfseries\scshape Jean Diluc Mona Amber Lisa Kaeya Bennett Fischl Diona Mika}\par\vfill
 
-    \myadjbox{\mdseries\itshape Keqing Qiqi Xiangling Xingqiu Chongyun Ninguang Beidou Xinyan Yunjin}\par\vfill
+    \myadjbox{\mdseries\itshape Keqing Qiqi Xiangling Xingqiu Chongyun Ninguang Beidou Xinyan Yunjin}\par
+    \vfill
+    \vfill
+    \vfill
+    \vfill
+    \vfill
 
 
     \normalsize\mdseries\upshape
@@ -102,16 +122,28 @@
     \myadjbox{\mdseries\upshape Alles ist richtig mit der Welt. I jump over the lazy doge; it doesn't hurt me.}\vfill
 
     \normalsize
-    \myadjbox{Le monde va changer de base. Nous ne sommes rien soyons tout.}\vfill
+    \myadjbox{Le monde va changer de base. Nous ne sommes rien soyons tout.}
+    \vfill
+    \vfill
+    \vfill
+    \vfill
+    \vfill
 
     \small
-    \myadjbox{Κωνσταντίνος Δραγατης Παλαιολόγος 1453 05 29}\par\vfill
-    \myadjbox{Μες την Αγια Σοφια Θα βρεθουμε ξανα. Λειτουργια μελλοντικη οι Έλληνες μαζι.}\vfill
+    \myadjbox{Κωνσταντίνος Δραγατης Παλαιολόγος}\par\vfill
+    \myadjbox{Μες την Αγια Σοφια Θα βρεθουμε ξανα. Λειτουργια μελλοντικη οι Έλληνες μαζι.}
+    \vfill
+    \vfill
+    \vfill
+    \vfill
+    \vfill
+    \vfill
 
 
 
     \small
     \myadjbox{\scshape This specimen is created by Neruthes. The source code is available on GitHub.}
+    \myadjbox{\itshape https://github.com/neruthes/ntexdb/blob/master/misc/fonts-specimen-02.tex}
 }
 \newcommand{\CJKspecimen}[1]{
     % $1=fontname
@@ -123,7 +155,12 @@
     \CJKfontspec[Ligatures=TeX]{#1}
 
     \normalsize
-    \myadjbox{\mdseries #1~-~FONT~SPECIMEN}\vfill
+    \myadjbox{\mdseries #1~-~FONT~SPECIMEN}
+    \vfill
+    \vfill
+    \vfill
+    \vfill
+    \vfill
     
     \large
     \myadjbox{\bfseries 战争已经开始了是上一场战争的延续}\vfill
@@ -133,6 +170,9 @@
     \myadjbox{\upshape 但僭越之人啊不要就此驻足谁都不能隔岸观火}\vfill
 
     \myadjbox{守护自由城邦千年的巨龙终于对自由产生了迷茫被自由之神命令的自由还能称之为自由吗}
+    \vfill
+    \vfill
+    \vfill
     \vfill
     
     \myadjbox{团长车准备好了}\vfill
@@ -146,9 +186,14 @@
     \vfill
     \myadjbox{後一度だけ奇跡は起こるだろう優しい声で描く歪んだ未来}
     \vfill
+    \vfill
+    \vfill
+    \vfill
+    \vfill
 
     \small
-    \myadjbox{\mdshape This specimen is created by Neruthes.\itshape The source code is available on GitHub.}
+    \myadjbox{\scshape This specimen is created by Neruthes. The source code is available on GitHub.}
+    \myadjbox{\itshape https://github.com/neruthes/ntexdb/blob/master/misc/fonts-specimen-02.tex}
 }
 
 
@@ -174,6 +219,16 @@
 
 
 
+
+\section{TeX Gyre}
+
+\specimen{TeX Gyre Adventor}
+\specimen{TeX Gyre Bonum}
+\specimen{TeX Gyre Heros}
+\specimen{TeX Gyre Schola}
+\specimen{TeX Gyre Termes}
+\specimen{TeX Gyre Pagella}
+\specimen{TeX Gyre Cursor}
 
 \section{Graphical User Interface}
 
