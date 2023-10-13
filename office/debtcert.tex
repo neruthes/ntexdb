@@ -1,0 +1,90 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[textwidth=36em,vmargin=62mm]{geometry}
+
+\usepackage{calc,multicol,paralist,enumitem,xeCJK,xeCJKfntef,tabu,booktabs,graphicx,eso-pic}
+
+\setmainfont{TeX Gyre Termes}
+\setromanfont{TeX Gyre Termes}
+\setsansfont{TeX Gyre Heros}
+\setmonofont{Noto Sans Mono}
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKromanfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Serif CJK SC}
+
+
+% Sizing
+\setdefaultleftmargin{2em}{2em}{1em}{1em}{1em}{1em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\setlength{\columnsep}{2em}
+\frenchspacing
+\linespread{1.0}
+
+% Styling
+\pagestyle{empty}
+\AddToShipoutPictureBG{
+    \put(0.5\paperwidth-0.5\paperheight,0mm){%
+        \includegraphics[height=\paperheight]{/home/neruthes/DEV/ntexlibs/patterns/_dist/p49.gradient.224499-008811.png}
+    }
+}
+
+
+
+\newcommand{\infobox}[1]{
+    {\small #1} \\
+    {\Huge\vphantom{1AThjp}~~~\vspace{5pt}} \\
+    \hline
+}
+
+
+
+\begin{document}
+\begin{center}
+    \LARGE\bfseries
+    借~款~关~系~证~明~书
+\end{center}
+
+\vfill
+
+\begin{multicols}{2}
+    条款与条件：
+
+    \begin{enumerate}[itemsep=4pt,parsep=4pt]
+		\item 双方以平等自愿原则建立借贷关系，债权方以借款形式出资支持债务方的合法活动。
+		\item 债务方依照本文件之约定向下方填写的还款方式足额转账即完成偿还，相关金融机构的回单构成还款证明。
+		\item 债务方保证借款后的真实用途与右侧填写的借款事由一致。
+		\item 若发生争议，相关诉讼应当在右侧填写的争议裁决地区的人民法院提起。适用中华人民共和国内地的法律。
+	\end{enumerate}
+	\vfill
+    
+	\begin{tabu}{|X|}
+        \hline
+		\infobox{序列号}
+		\infobox{债权方}
+		\infobox{还款方式}
+		\infobox{偿还期限}
+	\end{tabu}
+
+    \columnbreak
+
+	\begin{tabu}{|X|}
+        \hline
+		\infobox{债务方}
+		\infobox{借款事由}
+		\infobox{借款金额数字}
+		\infobox{借款金额大写}
+		\infobox{利率}
+		\infobox{利息计算方式}
+		\infobox{争议裁决地区}
+	\end{tabu}
+
+    \vfill
+
+	\begin{tabu}{|X|}
+        \hline
+		\infobox{签发日期}
+		\infobox{签字确认}
+	\end{tabu}
+\end{multicols}
+\end{document}
