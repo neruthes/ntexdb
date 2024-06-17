@@ -3,7 +3,7 @@
 
 \documentclass[a4paper,11pt]{article}
 
-\usepackage[a4paper,hmargin=15mm,tmargin=23mm,bmargin=7mm]{geometry}
+\usepackage[a4paper,hmargin=15mm,tmargin=12mm,bmargin=12mm]{geometry}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{calc}
 \usepackage{amsmath,xltxtra,xunicode}
@@ -38,44 +38,19 @@
 \usepackage{tcolorbox}
 \usepackage{textcase}
 
-\usepackage[sfdefault]{inter}
-\usepackage[OT1]{fontenc}
-% \renewcommand*\familydefault{\ttdefault}
-
-% \setmainfont{IBM Plex Serif}
-% \setromanfont{IBM Plex Serif}
-% \setmainfont{QTBodini}
-% \setromanfont{QTBodini}
-\setsansfont{Inter}
-\setmonofont{JetBrains Mono NL}
-% \setCJKmainfont{Noto Sans CJK SC}
-% \setCJKromanfont{Noto Serif CJK SC}
-% \setCJKsansfont{Noto Sans CJK SC}
-% \setCJKmonofont{Noto Sans CJK SC}
+\setmainfont{TeX Gyre Termes}
+\setromanfont{TeX Gyre Termes}
+\setsansfont{TeX Gyre Heros}
+\setmonofont{Noto Sans Mono}
 
 
 \title{}
 \author{}
 \date{}
-\pagestyle{plain}
-% =========================================
-
-% =========================================
-% START CORPORATION CONFIG
+\pagestyle{empty}
 \setlength{\parindent}{0pt}
-\setlength{\baselineskip}{12pt}
-% END CORPORATION CONFIG
-% =========================================
-
-% =========================================
-% START COMMON STYLESHEET
-% Table
-\renewcommand\theadalign{l}
-\renewcommand\theadfont{\sffamily\bfseries}
-% Font Size
-
-% END COMMON STYLESHEET
-% =========================================
+\setlength{\parskip}{14pt}
+\linespread{1.2}
 
 
 
@@ -111,15 +86,7 @@
 \tabulinesep=_1pt^3pt
 \center
 
-% ------------------------
-% Title
-% ------------------------
-% {\ttfamily\fontsize{40pt}{50pt}\fontspec{Realtime Rounded}\selectfont\bfseries{EGO ESE NERUTHES}}
-% {\rmfamily\fontsize{40pt}{50pt}\selectfont\bfseries{EGO ESE NERUTHES}}
-% {\rmfamily\fontspec{Realtime Rounded}\fontsize{36pt}{40pt}\selectfont\bfseries{KOTOMATSU}}
-% {\rmfamily\fontspec{Myriad Pro}\fontsize{36pt}{40pt}\selectfont\bfseries{ICH BIN KOTOMATSU}}
-{\rmfamily\fontspec{Seravek}\fontsize{36pt}{40pt}\selectfont\bfseries{ICH BIN KOTOMATSU}}
-\vspace{20pt}
+\leavevmode\vskip 20pt
 
 
 % ------------------------
@@ -130,165 +97,165 @@
 
 % 1 small
 \begin{tabu}{ccXcc}
-	{\setnote{4.0}{0.1}} & {} &
-        \useimagealt{1} &
-    {} & {\setnote{4.0}{0.1}} \\
+	{\setnote{4.0}{0.1}} & {}                   &
+	\useimagealt{1}      &
+	{}                   & {\setnote{4.0}{0.1}}   \\
 \end{tabu}
 
 \parskip=1pt
 % 2 big
 \begin{tabu}{ccXXcc}
-	{\setnote{4.1}{0.12}} & {} &
-        \useimage{17} &
-        \useimage{6} &
-    {} & {\setnote{4.1}{0.12}} \\
+	{\setnote{4.1}{0.12}} & {}                    &
+	\useimage{17}         &
+	\useimage{6}          &
+	{}                    & {\setnote{4.1}{0.12}}   \\
 \end{tabu}
 % 2 small
 \begin{tabu}{ccXXcc}
-	{\setnote{4.2}{0.15}} & {} &
-        \useimagealt{5} &
-        \useimagealt{2} &
-    {} & {\setnote{4.2}{0.15}} \\
+	{\setnote{4.2}{0.15}} & {}                    &
+	\useimagealt{5}       &
+	\useimagealt{2}       &
+	{}                    & {\setnote{4.2}{0.15}}   \\
 \end{tabu}
 
 \parskip=2pt
 % 3 big
 \begin{tabu}{ccXXXcc}
-	{\setnote{4.3}{0.2}} & {} &
-        \useimage{17} &
-        \useimage{18} &
-        \useimage{4} &
-    {} & {\setnote{4.3}{0.2}} \\
+	{\setnote{4.3}{0.2}} & {}                   &
+	\useimage{17}        &
+	\useimage{18}        &
+	\useimage{4}         &
+	{}                   & {\setnote{4.3}{0.2}}   \\
 \end{tabu}
 % 3 small
 \begin{tabu}{ccXXXcc}
-	{\setnote{4.4}{0.25}} & {} &
-        \useimagealt{16} &
-        \useimagealt{15} &
-        \useimagealt{14} &
-    {} & {\setnote{4.4}{0.25}} \\
+	{\setnote{4.4}{0.25}} & {}                    &
+	\useimagealt{16}      &
+	\useimagealt{15}      &
+	\useimagealt{14}      &
+	{}                    & {\setnote{4.4}{0.25}}   \\
 \end{tabu}
 
 \parskip=3pt
 % 4 big
 \begin{tabu}{ccXXXXcc}
-	{\setnote{4.5}{0.3}} & {} &
-        \useimage{3} &
-        \useimage{13} &
-        \useimage{6} &
-        \useimage{7} &
-    {} & {\setnote{4.5}{0.3}} \\
+	{\setnote{4.5}{0.3}} & {}                   &
+	\useimage{3}         &
+	\useimage{13}        &
+	\useimage{6}         &
+	\useimage{7}         &
+	{}                   & {\setnote{4.5}{0.3}}   \\
 \end{tabu}
 % 4 small
 \begin{tabu}{ccXXXXcc}
-	{\setnote{4.6}{0.4}} & {} &
-        \useimagealt{9} &
-        \useimagealt{14} &
-        \useimagealt{13} &
-        \useimagealt{16} &
-    {} & {\setnote{4.6}{0.4}} \\
+	{\setnote{4.6}{0.4}} & {}                   &
+	\useimagealt{9}      &
+	\useimagealt{14}     &
+	\useimagealt{13}     &
+	\useimagealt{16}     &
+	{}                   & {\setnote{4.6}{0.4}}   \\
 \end{tabu}
 
 \parskip=4pt
 % 5 big
 \begin{tabu}{ccXXXXXcc}
-	{\setnote{4.7}{0.5}} & {} &
-        \useimage{2} &
-        \useimage{3} &
-        \useimage{1} &
-        \useimage{10} &
-        \useimage{15} &
-    {} & {\setnote{4.7}{0.5}} \\
+	{\setnote{4.7}{0.5}} & {}                   &
+	\useimage{2}         &
+	\useimage{3}         &
+	\useimage{1}         &
+	\useimage{10}        &
+	\useimage{15}        &
+	{}                   & {\setnote{4.7}{0.5}}   \\
 \end{tabu}
 
 \parskip=5pt
 % 6 big
 \begin{tabu}{ccXXXXXXcc}
-	{\setnote{4.8}{0.6}} & {} &
-        \useimage{16} &
-        \useimage{7} &
-        \useimage{11} &
-        \useimage{14} &
-        \useimage{15} &
-        \useimage{18} &
-    {} & {\setnote{4.8}{0.6}} \\
+	{\setnote{4.8}{0.6}} & {}                   &
+	\useimage{16}        &
+	\useimage{7}         &
+	\useimage{11}        &
+	\useimage{14}        &
+	\useimage{15}        &
+	\useimage{18}        &
+	{}                   & {\setnote{4.8}{0.6}}   \\
 \end{tabu}
 
 \parskip=6pt
 % 7 big
 \begin{tabu}{ccXXXXXXXcc}
-	{\setnote{4.9}{0.8}} & {} &
-        \useimage{10} &
-        \useimage{12} &
-        \useimage{13} &
-        \useimage{5} &
-        \useimage{8} &
-        \useimage{4} &
-        \useimage{3} &
-    {} & {\setnote{4.9}{0.8}} \\
+	{\setnote{4.9}{0.8}} & {}                   &
+	\useimage{10}        &
+	\useimage{12}        &
+	\useimage{13}        &
+	\useimage{5}         &
+	\useimage{8}         &
+	\useimage{4}         &
+	\useimage{3}         &
+	{}                   & {\setnote{4.9}{0.8}}   \\
 \end{tabu}
 
 \parskip=7pt
 % 8 big
 \begin{tabu}{ccXXXXXXXXcc}
-	{\setnote{5.0}{1.0}} & {} &
-        \useimage{5} &
-        \useimage{6} &
-        \useimage{7} &
-        \useimage{8} &
-        \useimage{9} &
-        \useimage{12} &
-        \useimage{11} &
-        \useimage{10} &
-    {} & {\setnote{5.0}{1.0}} \\
+	{\setnote{5.0}{1.0}} & {}                   &
+	\useimage{5}         &
+	\useimage{6}         &
+	\useimage{7}         &
+	\useimage{8}         &
+	\useimage{9}         &
+	\useimage{12}        &
+	\useimage{11}        &
+	\useimage{10}        &
+	{}                   & {\setnote{5.0}{1.0}}   \\
 \end{tabu}
 % 8 small
 \begin{tabu}{ccXXXXXXXXcc}
-	{\setnote{5.1}{1.2}} & {} &
-        \useimagealt{11} &
-        \useimagealt{12} &
-        \useimagealt{13} &
-        \useimagealt{14} &
-        \useimagealt{1} &
-        \useimagealt{2} &
-        \useimagealt{3} &
-        \useimagealt{4} &
-    {} & {\setnote{5.1}{1.2}} \\
+	{\setnote{5.1}{1.2}} & {}                   &
+	\useimagealt{11}     &
+	\useimagealt{12}     &
+	\useimagealt{13}     &
+	\useimagealt{14}     &
+	\useimagealt{1}      &
+	\useimagealt{2}      &
+	\useimagealt{3}      &
+	\useimagealt{4}      &
+	{}                   & {\setnote{5.1}{1.2}}   \\
 \end{tabu}
 
 \parskip=8pt
 % 9 small
 \begin{tabu}{ccXXXXXXXXXcc}
-	{\setnote{5.2}{1.5}} & {} &
-        \useimagealt{10} &
-        \useimagealt{6} &
-        \useimagealt{7} &
-        \useimagealt{8} &
-        \useimagealt{9} &
-        \useimagealt{18} &
-        \useimagealt{17} &
-        \useimagealt{11} &
-        \useimagealt{12} &
-    {} & {\setnote{5.2}{1.5}} \\
+	{\setnote{5.2}{1.5}} & {}                   &
+	\useimagealt{10}     &
+	\useimagealt{6}      &
+	\useimagealt{7}      &
+	\useimagealt{8}      &
+	\useimagealt{9}      &
+	\useimagealt{18}     &
+	\useimagealt{17}     &
+	\useimagealt{11}     &
+	\useimagealt{12}     &
+	{}                   & {\setnote{5.2}{1.5}}   \\
 \end{tabu}
 
 
-\vspace{30pt}
-\hrule
-\vspace{30pt}
-
+\vfill
 
 
 
 \sffamily
-\normalsize
+\bfseries\Large
 
-% \guillemotleft{} The Kotomatsu Eye Exam Sheet \guillemotright{}
-{\bfseries\Large The Kotomatsu Eye Exam Sheet}\vspace{11pt}
+\MakeUppercase{The Kotomatsu Eye Exam Sheet}
+\vskip 11pt
 
-Copyright \copyright{} 2014-2022 Neruthes. All rights reserved.
+\normalsize\mdseries
+Copyright \copyright{} 2014-2023 Neruthes. All rights reserved.
 
 Made with Love and \LaTeX{} on Gentoo Linux.
+
+https://neruthes.xyz/
 
 
 \end{document}
