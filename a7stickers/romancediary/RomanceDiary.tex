@@ -1,0 +1,47 @@
+\documentclass[10pt]{article}
+\usepackage{calc}
+\usepackage[paperwidth=105mm,paperheight=74.25mm,tmargin=8mm,bmargin=9.2mm,hmargin=10mm]{geometry}
+\usepackage{xcolor,graphicx,eso-pic,fontspec}
+\definecolor{warmsun}{HTML}{FFF1C6}
+\color{warmsun}
+
+% \setmainfont{GFS Didot}
+\setmainfont[AutoFakeBold={3.5}]{New Heterodox Mono}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+\linespread{1.0}
+\pagestyle{empty}
+
+
+\newcommand{\makemyicon}[1]{\includegraphics[width=7mm]{a7stickers/romancediary/png3/#1.svg.png}} % ./png{2,3}
+\newcommand{\placeholderdatemark}[0]{\texttt{\textcolor{red}{2025.01.01}}}
+
+
+
+
+\begin{document}
+\leavevmode\vfill
+
+
+
+\makemyicon{bi-feather}\hfill%
+\makemyicon{gg-sand-clock}\hfill%
+\makemyicon{icon-park-outline-peach}\hfill%
+\makemyicon{ion-hammer}\hfill%
+\makemyicon{material-symbols-dark-mode-rounded}\hfill%
+\makemyicon{solar-cup-bold}\hfill%
+\makemyicon{tdesign-ice-cream-filled}
+
+
+
+\AddToShipoutPictureBG{
+    \put(0mm,0mm){\includegraphics[width=\paperwidth]{a7stickers/romancediary/romdbg1.png}}
+}
+\end{document}
+
+
+
+% How to build this document:
+%   bash a7stickers/romancediary/build.sh
+%   ntex a7stickers/romancediary/RomanceDiary.tex

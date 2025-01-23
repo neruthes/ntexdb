@@ -1,0 +1,574 @@
+<svg viewBox="-1000 -707 2000 1404" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+    <linearGradient id="gradient_whitefall" gradientTransform="rotate(90)">
+        <stop offset="51%" stop-color="white" />
+        <stop offset="77%" stop-color="white" stop-opacity="0.05" />
+    </linearGradient>
+    <path id="libra_c_89e968097189" d="M 140 0 c 0 33 -50 66 -140 66 c -90 0 -140 -33 -140 -66"
+        stroke="#EEBB55" stroke-width="12" opacity="0"
+        stroke-linejoin="round" stroke-linecap="round" />
+    <filter id="blurMe">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="37" />
+    </filter>
+    <rect id="contentboxsizer" x="-874" y="-581"
+    width="1748" height="1162"  />
+    <mask id="contentboxmask">
+        <use href="#contentboxsizer" fill="white" />
+    </mask>
+    <ellipse id="bgtexture-underoval1" cx="0" cy="660" rx="950" ry="660" stroke="#708280" stroke-width="4"  />
+    <mask id="mask_gradient_whitefall">
+        <rect x="-1000" y="-1000" width="2000" height="2000" fill="black" />
+        <rect x="-1000" y="-1000" width="2000" height="2000" fill="url(#gradient_whitefall)" />
+    </mask>
+<polygon   stroke-width="3"     id="mini_reusable_star_c1"     stroke-linejoin="round"     fill="#FFF1C6"     stroke="#142c44"   points="0 15 16.46 22.65 14.27 4.64 26.63 -8.65 8.82 -12.14 0 -28 -8.82 -12.14 -26.63 -8.65 -14.27 4.64 -16.46 22.65" />
+</defs>
+
+
+<rect x="-1000" y="-707" width="2000" height="1404" fill="#FAFAFA" opacity="0.01" />
+<rect x="-1000" y="-707" width="2000" height="1404" fill="none" mask="url(#contentboxmask)" />
+
+
+
+
+
+<g mask="url(#contentboxmask)">
+    <use href="#contentboxsizer" fill="#798f89" stroke="none" />
+    <use transform="translate(0,-360) rotate(0)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(2)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(4)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(6)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(8)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(10)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(12)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(14)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(16)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(18)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(20)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(22)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(24)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(26)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(28)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(30)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(32)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(34)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(36)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(38)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(40)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(42)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(44)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(46)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(48)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(50)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(52)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(54)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(56)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(58)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(60)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(62)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(64)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(66)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(68)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(70)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(72)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(74)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(76)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(78)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(80)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(82)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(84)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(86)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(88)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(90)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(92)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(94)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(96)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(98)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(100)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(102)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(104)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(106)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(108)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(110)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(112)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(114)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(116)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(118)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(120)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(122)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(124)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(126)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(128)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(130)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(132)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(134)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(136)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(138)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(140)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(142)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(144)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(146)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(148)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(150)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(152)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(154)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(156)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(158)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(160)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(162)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(164)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(166)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(168)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(170)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(172)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(174)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(176)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(178)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(180)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(182)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(184)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(186)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(188)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(190)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(192)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(194)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(196)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(198)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(200)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(202)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(204)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(206)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(208)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(210)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(212)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(214)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(216)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(218)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(220)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(222)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(224)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(226)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(228)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(230)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(232)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(234)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(236)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(238)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(240)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(242)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(244)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(246)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(248)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(250)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(252)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(254)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(256)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(258)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(260)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(262)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(264)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(266)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(268)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(270)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(272)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(274)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(276)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(278)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(280)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(282)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(284)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(286)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(288)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(290)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(292)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(294)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(296)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(298)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(300)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(302)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(304)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(306)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(308)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(310)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(312)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(314)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(316)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(318)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(320)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(322)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(324)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(326)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(328)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(330)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(332)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(334)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(336)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(338)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(340)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(342)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(344)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(346)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(348)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(350)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(352)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(354)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(356)" href="#bgtexture-underoval1" />
+<use transform="translate(0,-360) rotate(358)" href="#bgtexture-underoval1" />
+<g mask="url(#mask_gradient_whitefall)"><path transform="translate(0,-360) rotate(0)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,157.2 m  0,60.00 l  0,111.1 m  0,60.00 l  0,67.42 m  0,60.00 l  0,309.2 m  0,60.00 l  0,133.4 m  0,60.00 l  0,102.6 m  0,60.00 l  0,106.6 m  0,60.00 l  0,150.9"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(5)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,70.07 m  0,60.00 l  0,182.8 m  0,60.00 l  0,294.9 m  0,60.00 l  0,193.0 m  0,60.00 l  0,65.25 m  0,60.00 l  0,145.7 m  0,60.00 l  0,345.4 m  0,60.00 l  0,111.4"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(10)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,88.24 m  0,60.00 l  0,142.2 m  0,60.00 l  0,120.4 m  0,60.00 l  0,285.9 m  0,60.00 l  0,300.3 m  0,60.00 l  0,235.8 m  0,60.00 l  0,209.1 m  0,60.00 l  0,237.3"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(15)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,230.6 m  0,60.00 l  0,115.5 m  0,60.00 l  0,330.5 m  0,60.00 l  0,67.34 m  0,60.00 l  0,139.3 m  0,60.00 l  0,294.8 m  0,60.00 l  0,239.9 m  0,60.00 l  0,226.9"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(20)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,88.96 m  0,60.00 l  0,338.0 m  0,60.00 l  0,179.5 m  0,60.00 l  0,71.97 m  0,60.00 l  0,235.5 m  0,60.00 l  0,184.0 m  0,60.00 l  0,98.86 m  0,60.00 l  0,242.7"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(25)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,76.62 m  0,60.00 l  0,314.5 m  0,60.00 l  0,195.6 m  0,60.00 l  0,205.5 m  0,60.00 l  0,80.23 m  0,60.00 l  0,126.3 m  0,60.00 l  0,253.3 m  0,60.00 l  0,352.7"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(30)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,344.8 m  0,60.00 l  0,280.9 m  0,60.00 l  0,186.3 m  0,60.00 l  0,265.7 m  0,60.00 l  0,265.9 m  0,60.00 l  0,129.4 m  0,60.00 l  0,358.4 m  0,60.00 l  0,190.7"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(35)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,283.1 m  0,60.00 l  0,161.4 m  0,60.00 l  0,168.9 m  0,60.00 l  0,357.0 m  0,60.00 l  0,277.5 m  0,60.00 l  0,311.3 m  0,60.00 l  0,179.4 m  0,60.00 l  0,315.5"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(40)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,111.5 m  0,60.00 l  0,344.2 m  0,60.00 l  0,165.3 m  0,60.00 l  0,175.5 m  0,60.00 l  0,179.9 m  0,60.00 l  0,275.5 m  0,60.00 l  0,310.8 m  0,60.00 l  0,345.3"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(45)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,79.19 m  0,60.00 l  0,259.4 m  0,60.00 l  0,112.9 m  0,60.00 l  0,171.3 m  0,60.00 l  0,110.5 m  0,60.00 l  0,93.96 m  0,60.00 l  0,105.8 m  0,60.00 l  0,178.7"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(50)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,178.9 m  0,60.00 l  0,68.39 m  0,60.00 l  0,195.0 m  0,60.00 l  0,89.56 m  0,60.00 l  0,334.8 m  0,60.00 l  0,199.9 m  0,60.00 l  0,284.7 m  0,60.00 l  0,278.8"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(55)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,280.9 m  0,60.00 l  0,257.0 m  0,60.00 l  0,124.7 m  0,60.00 l  0,75.45 m  0,60.00 l  0,77.61 m  0,60.00 l  0,186.4 m  0,60.00 l  0,303.1 m  0,60.00 l  0,155.0"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(60)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,325.2 m  0,60.00 l  0,182.7 m  0,60.00 l  0,120.5 m  0,60.00 l  0,67.65 m  0,60.00 l  0,79.93 m  0,60.00 l  0,262.9 m  0,60.00 l  0,84.32 m  0,60.00 l  0,158.8"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(65)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,170.9 m  0,60.00 l  0,299.1 m  0,60.00 l  0,112.9 m  0,60.00 l  0,87.81 m  0,60.00 l  0,77.88 m  0,60.00 l  0,146.1 m  0,60.00 l  0,274.8 m  0,60.00 l  0,208.1"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(70)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,331.5 m  0,60.00 l  0,181.4 m  0,60.00 l  0,80.21 m  0,60.00 l  0,172.5 m  0,60.00 l  0,314.6 m  0,60.00 l  0,169.4 m  0,60.00 l  0,102.8 m  0,60.00 l  0,186.5"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(75)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,320.7 m  0,60.00 l  0,359.1 m  0,60.00 l  0,220.1 m  0,60.00 l  0,178.4 m  0,60.00 l  0,159.7 m  0,60.00 l  0,72.91 m  0,60.00 l  0,317.0 m  0,60.00 l  0,114.2"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(80)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,160.0 m  0,60.00 l  0,189.4 m  0,60.00 l  0,158.2 m  0,60.00 l  0,135.8 m  0,60.00 l  0,99.47 m  0,60.00 l  0,87.16 m  0,60.00 l  0,345.6 m  0,60.00 l  0,143.9"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(85)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,233.4 m  0,60.00 l  0,165.9 m  0,60.00 l  0,155.1 m  0,60.00 l  0,293.0 m  0,60.00 l  0,171.1 m  0,60.00 l  0,117.4 m  0,60.00 l  0,63.31 m  0,60.00 l  0,177.7"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(90)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,332.0 m  0,60.00 l  0,356.2 m  0,60.00 l  0,272.7 m  0,60.00 l  0,251.4 m  0,60.00 l  0,246.3 m  0,60.00 l  0,337.5 m  0,60.00 l  0,324.2 m  0,60.00 l  0,65.84"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(95)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,276.1 m  0,60.00 l  0,237.3 m  0,60.00 l  0,76.95 m  0,60.00 l  0,251.6 m  0,60.00 l  0,148.9 m  0,60.00 l  0,199.4 m  0,60.00 l  0,344.4 m  0,60.00 l  0,225.6"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(100)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,211.0 m  0,60.00 l  0,100.0 m  0,60.00 l  0,273.9 m  0,60.00 l  0,337.5 m  0,60.00 l  0,331.1 m  0,60.00 l  0,250.9 m  0,60.00 l  0,162.6 m  0,60.00 l  0,259.1"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(105)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,257.9 m  0,60.00 l  0,141.1 m  0,60.00 l  0,252.7 m  0,60.00 l  0,188.8 m  0,60.00 l  0,300.7 m  0,60.00 l  0,159.7 m  0,60.00 l  0,273.2 m  0,60.00 l  0,256.3"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(110)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,132.2 m  0,60.00 l  0,335.7 m  0,60.00 l  0,241.2 m  0,60.00 l  0,175.0 m  0,60.00 l  0,294.0 m  0,60.00 l  0,208.5 m  0,60.00 l  0,325.5 m  0,60.00 l  0,179.4"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(115)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,143.4 m  0,60.00 l  0,132.8 m  0,60.00 l  0,60.45 m  0,60.00 l  0,178.5 m  0,60.00 l  0,120.6 m  0,60.00 l  0,291.6 m  0,60.00 l  0,242.5 m  0,60.00 l  0,293.7"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(120)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,209.8 m  0,60.00 l  0,175.4 m  0,60.00 l  0,309.2 m  0,60.00 l  0,98.39 m  0,60.00 l  0,134.9 m  0,60.00 l  0,210.9 m  0,60.00 l  0,98.46 m  0,60.00 l  0,353.6"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(125)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,278.1 m  0,60.00 l  0,127.0 m  0,60.00 l  0,264.8 m  0,60.00 l  0,194.6 m  0,60.00 l  0,261.6 m  0,60.00 l  0,332.8 m  0,60.00 l  0,311.6 m  0,60.00 l  0,123.6"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(130)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,345.3 m  0,60.00 l  0,323.4 m  0,60.00 l  0,272.7 m  0,60.00 l  0,351.2 m  0,60.00 l  0,186.9 m  0,60.00 l  0,311.2 m  0,60.00 l  0,88.00 m  0,60.00 l  0,262.0"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(135)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,89.51 m  0,60.00 l  0,269.2 m  0,60.00 l  0,124.8 m  0,60.00 l  0,293.3 m  0,60.00 l  0,84.22 m  0,60.00 l  0,181.6 m  0,60.00 l  0,122.2 m  0,60.00 l  0,85.51"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(140)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,215.8 m  0,60.00 l  0,353.5 m  0,60.00 l  0,109.8 m  0,60.00 l  0,335.5 m  0,60.00 l  0,151.4 m  0,60.00 l  0,234.3 m  0,60.00 l  0,313.2 m  0,60.00 l  0,176.4"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(145)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,61.80 m  0,60.00 l  0,62.98 m  0,60.00 l  0,119.5 m  0,60.00 l  0,178.0 m  0,60.00 l  0,119.0 m  0,60.00 l  0,310.6 m  0,60.00 l  0,293.9 m  0,60.00 l  0,83.16"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(150)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,147.4 m  0,60.00 l  0,142.6 m  0,60.00 l  0,246.5 m  0,60.00 l  0,336.4 m  0,60.00 l  0,127.6 m  0,60.00 l  0,145.4 m  0,60.00 l  0,85.39 m  0,60.00 l  0,158.3"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(155)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,75.63 m  0,60.00 l  0,243.3 m  0,60.00 l  0,223.4 m  0,60.00 l  0,164.4 m  0,60.00 l  0,218.1 m  0,60.00 l  0,360.0 m  0,60.00 l  0,316.6 m  0,60.00 l  0,330.9"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(160)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,98.64 m  0,60.00 l  0,244.7 m  0,60.00 l  0,309.1 m  0,60.00 l  0,356.3 m  0,60.00 l  0,253.7 m  0,60.00 l  0,285.1 m  0,60.00 l  0,287.2 m  0,60.00 l  0,260.0"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(165)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,222.0 m  0,60.00 l  0,279.1 m  0,60.00 l  0,293.9 m  0,60.00 l  0,206.6 m  0,60.00 l  0,238.1 m  0,60.00 l  0,350.2 m  0,60.00 l  0,83.51 m  0,60.00 l  0,70.55"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(170)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,171.7 m  0,60.00 l  0,83.37 m  0,60.00 l  0,295.3 m  0,60.00 l  0,203.1 m  0,60.00 l  0,192.2 m  0,60.00 l  0,144.5 m  0,60.00 l  0,215.0 m  0,60.00 l  0,170.4"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(175)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,95.37 m  0,60.00 l  0,239.6 m  0,60.00 l  0,64.97 m  0,60.00 l  0,200.3 m  0,60.00 l  0,91.95 m  0,60.00 l  0,161.6 m  0,60.00 l  0,86.07 m  0,60.00 l  0,121.5"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(180)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,215.3 m  0,60.00 l  0,203.0 m  0,60.00 l  0,70.56 m  0,60.00 l  0,315.9 m  0,60.00 l  0,345.2 m  0,60.00 l  0,315.9 m  0,60.00 l  0,354.1 m  0,60.00 l  0,318.7"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(185)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,306.4 m  0,60.00 l  0,335.6 m  0,60.00 l  0,239.5 m  0,60.00 l  0,308.0 m  0,60.00 l  0,221.3 m  0,60.00 l  0,333.9 m  0,60.00 l  0,110.3 m  0,60.00 l  0,65.67"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(190)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,317.0 m  0,60.00 l  0,312.4 m  0,60.00 l  0,296.5 m  0,60.00 l  0,278.9 m  0,60.00 l  0,280.4 m  0,60.00 l  0,235.9 m  0,60.00 l  0,229.0 m  0,60.00 l  0,337.3"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(195)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,241.6 m  0,60.00 l  0,90.40 m  0,60.00 l  0,245.7 m  0,60.00 l  0,280.1 m  0,60.00 l  0,147.3 m  0,60.00 l  0,155.6 m  0,60.00 l  0,232.2 m  0,60.00 l  0,252.4"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(200)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,76.63 m  0,60.00 l  0,354.0 m  0,60.00 l  0,297.8 m  0,60.00 l  0,251.8 m  0,60.00 l  0,157.3 m  0,60.00 l  0,351.8 m  0,60.00 l  0,211.6 m  0,60.00 l  0,336.4"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(205)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,230.9 m  0,60.00 l  0,193.9 m  0,60.00 l  0,349.3 m  0,60.00 l  0,96.06 m  0,60.00 l  0,355.5 m  0,60.00 l  0,129.0 m  0,60.00 l  0,239.1 m  0,60.00 l  0,231.1"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(210)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,289.4 m  0,60.00 l  0,183.7 m  0,60.00 l  0,76.77 m  0,60.00 l  0,211.8 m  0,60.00 l  0,111.6 m  0,60.00 l  0,218.7 m  0,60.00 l  0,220.4 m  0,60.00 l  0,264.8"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(215)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,201.7 m  0,60.00 l  0,159.2 m  0,60.00 l  0,172.4 m  0,60.00 l  0,101.4 m  0,60.00 l  0,278.8 m  0,60.00 l  0,158.8 m  0,60.00 l  0,258.2 m  0,60.00 l  0,79.12"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(220)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,332.2 m  0,60.00 l  0,91.40 m  0,60.00 l  0,89.78 m  0,60.00 l  0,177.8 m  0,60.00 l  0,259.7 m  0,60.00 l  0,208.7 m  0,60.00 l  0,198.7 m  0,60.00 l  0,123.4"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(225)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,182.9 m  0,60.00 l  0,92.32 m  0,60.00 l  0,206.8 m  0,60.00 l  0,93.55 m  0,60.00 l  0,167.6 m  0,60.00 l  0,147.2 m  0,60.00 l  0,158.3 m  0,60.00 l  0,137.7"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(230)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,223.6 m  0,60.00 l  0,80.89 m  0,60.00 l  0,65.20 m  0,60.00 l  0,100.5 m  0,60.00 l  0,329.0 m  0,60.00 l  0,282.7 m  0,60.00 l  0,241.1 m  0,60.00 l  0,345.9"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(235)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,334.2 m  0,60.00 l  0,132.7 m  0,60.00 l  0,330.6 m  0,60.00 l  0,192.9 m  0,60.00 l  0,228.8 m  0,60.00 l  0,165.3 m  0,60.00 l  0,71.00 m  0,60.00 l  0,229.1"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(240)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,164.2 m  0,60.00 l  0,291.5 m  0,60.00 l  0,249.1 m  0,60.00 l  0,327.8 m  0,60.00 l  0,318.6 m  0,60.00 l  0,161.3 m  0,60.00 l  0,259.1 m  0,60.00 l  0,265.3"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(245)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,180.0 m  0,60.00 l  0,65.52 m  0,60.00 l  0,61.23 m  0,60.00 l  0,177.1 m  0,60.00 l  0,360.0 m  0,60.00 l  0,120.0 m  0,60.00 l  0,248.4 m  0,60.00 l  0,335.8"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(250)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,315.8 m  0,60.00 l  0,308.4 m  0,60.00 l  0,337.1 m  0,60.00 l  0,142.8 m  0,60.00 l  0,253.5 m  0,60.00 l  0,185.5 m  0,60.00 l  0,357.6 m  0,60.00 l  0,201.2"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(255)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,262.6 m  0,60.00 l  0,340.0 m  0,60.00 l  0,231.3 m  0,60.00 l  0,191.5 m  0,60.00 l  0,156.0 m  0,60.00 l  0,334.6 m  0,60.00 l  0,354.6 m  0,60.00 l  0,143.9"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(260)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,65.93 m  0,60.00 l  0,160.9 m  0,60.00 l  0,325.8 m  0,60.00 l  0,93.38 m  0,60.00 l  0,153.6 m  0,60.00 l  0,217.4 m  0,60.00 l  0,95.81 m  0,60.00 l  0,288.3"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(265)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,153.8 m  0,60.00 l  0,146.7 m  0,60.00 l  0,157.7 m  0,60.00 l  0,183.5 m  0,60.00 l  0,139.0 m  0,60.00 l  0,205.9 m  0,60.00 l  0,128.0 m  0,60.00 l  0,339.4"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(270)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,73.36 m  0,60.00 l  0,352.9 m  0,60.00 l  0,294.9 m  0,60.00 l  0,195.2 m  0,60.00 l  0,124.2 m  0,60.00 l  0,90.93 m  0,60.00 l  0,223.5 m  0,60.00 l  0,220.8"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(275)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,260.4 m  0,60.00 l  0,84.25 m  0,60.00 l  0,254.0 m  0,60.00 l  0,103.7 m  0,60.00 l  0,180.9 m  0,60.00 l  0,335.5 m  0,60.00 l  0,187.0 m  0,60.00 l  0,252.7"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(280)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,244.7 m  0,60.00 l  0,299.9 m  0,60.00 l  0,192.8 m  0,60.00 l  0,270.1 m  0,60.00 l  0,305.7 m  0,60.00 l  0,139.6 m  0,60.00 l  0,76.71 m  0,60.00 l  0,272.2"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(285)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,300.2 m  0,60.00 l  0,350.2 m  0,60.00 l  0,357.6 m  0,60.00 l  0,72.67 m  0,60.00 l  0,337.0 m  0,60.00 l  0,78.85 m  0,60.00 l  0,174.4 m  0,60.00 l  0,98.32"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(290)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,191.7 m  0,60.00 l  0,62.58 m  0,60.00 l  0,322.2 m  0,60.00 l  0,326.1 m  0,60.00 l  0,215.5 m  0,60.00 l  0,151.7 m  0,60.00 l  0,178.9 m  0,60.00 l  0,180.8"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(295)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,127.5 m  0,60.00 l  0,225.4 m  0,60.00 l  0,145.8 m  0,60.00 l  0,171.4 m  0,60.00 l  0,74.84 m  0,60.00 l  0,304.2 m  0,60.00 l  0,246.4 m  0,60.00 l  0,153.2"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(300)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,128.7 m  0,60.00 l  0,189.2 m  0,60.00 l  0,277.4 m  0,60.00 l  0,318.6 m  0,60.00 l  0,264.6 m  0,60.00 l  0,233.2 m  0,60.00 l  0,300.6 m  0,60.00 l  0,110.1"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(305)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,251.2 m  0,60.00 l  0,357.5 m  0,60.00 l  0,332.8 m  0,60.00 l  0,202.2 m  0,60.00 l  0,243.0 m  0,60.00 l  0,329.3 m  0,60.00 l  0,273.7 m  0,60.00 l  0,187.7"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(310)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,218.3 m  0,60.00 l  0,128.6 m  0,60.00 l  0,328.4 m  0,60.00 l  0,92.64 m  0,60.00 l  0,345.0 m  0,60.00 l  0,179.4 m  0,60.00 l  0,68.41 m  0,60.00 l  0,194.1"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(315)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,121.8 m  0,60.00 l  0,327.3 m  0,60.00 l  0,342.1 m  0,60.00 l  0,82.79 m  0,60.00 l  0,101.6 m  0,60.00 l  0,214.2 m  0,60.00 l  0,320.1 m  0,60.00 l  0,301.9"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(320)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,312.0 m  0,60.00 l  0,335.0 m  0,60.00 l  0,307.4 m  0,60.00 l  0,256.9 m  0,60.00 l  0,331.1 m  0,60.00 l  0,143.6 m  0,60.00 l  0,307.3 m  0,60.00 l  0,265.0"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(325)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,275.0 m  0,60.00 l  0,294.3 m  0,60.00 l  0,258.7 m  0,60.00 l  0,285.2 m  0,60.00 l  0,120.6 m  0,60.00 l  0,230.6 m  0,60.00 l  0,254.6 m  0,60.00 l  0,269.3"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(330)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,251.3 m  0,60.00 l  0,302.7 m  0,60.00 l  0,296.8 m  0,60.00 l  0,277.6 m  0,60.00 l  0,68.13 m  0,60.00 l  0,345.9 m  0,60.00 l  0,100.9 m  0,60.00 l  0,122.7"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(335)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,99.22 m  0,60.00 l  0,321.4 m  0,60.00 l  0,326.7 m  0,60.00 l  0,61.91 m  0,60.00 l  0,268.6 m  0,60.00 l  0,305.9 m  0,60.00 l  0,256.3 m  0,60.00 l  0,198.0"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(340)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,279.9 m  0,60.00 l  0,230.1 m  0,60.00 l  0,193.1 m  0,60.00 l  0,217.7 m  0,60.00 l  0,229.8 m  0,60.00 l  0,252.3 m  0,60.00 l  0,238.8 m  0,60.00 l  0,290.2"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(345)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,263.4 m  0,60.00 l  0,100.3 m  0,60.00 l  0,135.2 m  0,60.00 l  0,159.4 m  0,60.00 l  0,115.0 m  0,60.00 l  0,238.6 m  0,60.00 l  0,292.3 m  0,60.00 l  0,163.3"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(350)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,148.6 m  0,60.00 l  0,331.2 m  0,60.00 l  0,202.9 m  0,60.00 l  0,232.2 m  0,60.00 l  0,141.8 m  0,60.00 l  0,107.7 m  0,60.00 l  0,269.0 m  0,60.00 l  0,118.1"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+<path transform="translate(0,-360) rotate(355)" d="M 0,40  m 0,147
+            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
+            m 0,29  l  0,60.00 l  0,101.7 m  0,60.00 l  0,92.01 m  0,60.00 l  0,150.7 m  0,60.00 l  0,148.3 m  0,60.00 l  0,61.21 m  0,60.00 l  0,101.4 m  0,60.00 l  0,283.2 m  0,60.00 l  0,111.8"
+            stroke="#EEBB55" stroke-width="10" stroke-linecap="round" />
+</g>
+<use href="#mini_reusable_star_c1" transform="translate(489.99999999999994,-360)" />
+<use href="#mini_reusable_star_c1" transform="translate(452.7009709305305,-226.06079867221857)" />
+<use href="#mini_reusable_star_c1" transform="translate(346.4823227814083,-112.51262658470839)" />
+<use href="#mini_reusable_star_c1" transform="translate(187.514881858894,-36.64216362104963)" />
+<use href="#mini_reusable_star_c1" transform="translate(3.0003846579110155e-14,-10)" />
+<use href="#mini_reusable_star_c1" transform="translate(-187.51488185889394,-36.64216362104963)" />
+<use href="#mini_reusable_star_c1" transform="translate(-346.48232278140824,-112.51262658470836)" />
+<use href="#mini_reusable_star_c1" transform="translate(-452.7009709305305,-226.06079867221854)" />
+<use href="#mini_reusable_star_c1" transform="translate(-489.99999999999994,-359.99999999999994)" />
+<use href="#mini_reusable_star_c1" transform="translate(-452.70097093053056,-493.93920132778135)" />
+<use href="#mini_reusable_star_c1" transform="translate(-346.48232278140836,-607.4873734152916)" />
+<use href="#mini_reusable_star_c1" transform="translate(-187.51488185889428,-683.3578363789502)" />
+<use href="#mini_reusable_star_c1" transform="translate(-9.001153973733045e-14,-710)" />
+<use href="#mini_reusable_star_c1" transform="translate(187.51488185889409,-683.3578363789503)" />
+<use href="#mini_reusable_star_c1" transform="translate(346.4823227814082,-607.4873734152917)" />
+<use href="#mini_reusable_star_c1" transform="translate(452.70097093053033,-493.93920132778163)" />
+<use href="#mini_reusable_star_c1" transform="translate(730.4888768443259,-256.21194868741975)" />
+<use href="#mini_reusable_star_c1" transform="translate(619.2785672429357,-64.43663603357163)" />
+<use href="#mini_reusable_star_c1" transform="translate(413.78870955299976,82.34183374495404)" />
+<use href="#mini_reusable_star_c1" transform="translate(145.30327183761239,161.77776917451854)" />
+<use href="#mini_reusable_star_c1" transform="translate(-145.30327183761227,161.77776917451854)" />
+<use href="#mini_reusable_star_c1" transform="translate(-413.78870955299953,82.3418337449541)" />
+<use href="#mini_reusable_star_c1" transform="translate(-619.2785672429357,-64.43663603357163)" />
+<use href="#mini_reusable_star_c1" transform="translate(-730.4888768443259,-256.2119486874196)" />
+<use href="#mini_reusable_star_c1" transform="translate(-730.4888768443259,-463.7880513125803)" />
+<use href="#mini_reusable_star_c1" transform="translate(-619.2785672429358,-655.5633639664283)" />
+<use href="#mini_reusable_star_c1" transform="translate(-413.7887095529997,-802.3418337449541)" />
+<use href="#mini_reusable_star_c1" transform="translate(-145.3032718376126,-881.7777691745185)" />
+<use href="#mini_reusable_star_c1" transform="translate(145.30327183761233,-881.7777691745185)" />
+<use href="#mini_reusable_star_c1" transform="translate(413.7887095529995,-802.3418337449541)" />
+<use href="#mini_reusable_star_c1" transform="translate(619.2785672429357,-655.5633639664284)" />
+<use href="#mini_reusable_star_c1" transform="translate(730.4888768443259,-463.7880513125805)" />
+<polygon   stroke-width="21"     opacity="1"     fill="none"     stroke="#142c44"     transform="translate(0,-360)"   points="0 300 79.6 192.17 212.13 212.13 192.17 79.6 300 0 192.17 -79.6 212.13 -212.13 79.6 -192.17 0 -300 -79.6 -192.17 -212.13 -212.13 -192.17 -79.6 -300 0 -192.17 79.6 -212.13 212.13 -79.6 192.17" /><polygon   stroke-width="17"     opacity="1"     fill="none"     stroke="#FFF1C6"     transform="translate(0,-360)"   points="0 294 77.3 186.62 207.89 207.89 186.62 77.3 294 0 186.62 -77.3 207.89 -207.89 77.3 -186.62 0 -294 -77.3 -186.62 -207.89 -207.89 -186.62 -77.3 -294 0 -186.62 77.3 -207.89 207.89 -77.3 186.62" /><ellipse filter="url(#blurMe)" id="u192361323" cx="600" cy="0" rx="240" ry="290" fill="#FFF1C6" opacity="0.75" />
+<g transform="scale(-1,1)"><use href="#u192361323" /></g>
+
+<!-- Libra -->
+<g>
+    <path d="M 600,278 m -135,0 l 270,0     M 600,-294 l 0,-50.0 m -20,50 l 40,0" stroke="#142c44" stroke-width="7" opacity="1" stroke-linejoin="round" stroke-linecap="round" />
+    <path d="M -600,278 m -135,0 l 270,0    M -600,-294 l 0,-50.0 m -20,50 l 40,0" stroke="#142c44" stroke-width="7" opacity="1" stroke-linejoin="round" stroke-linecap="round" />
+
+    <rect x="-630" y="-390" width="1260" height="60" fill="#FFF1C6" stroke="#142c44" stroke-width="7" stroke-linejoin="round" />
+</g>
+<polygon   stroke-width="10"     stroke-linejoin="round"     fill="#FFF1C6"     stroke="#EEBB55"     transform="translate(0,-360)"   points="0 71 115.26 115.26 71 0 115.26 -115.26 0 -71 -115.26 -115.26 -71 0 -115.26 115.26" /><polygon   stroke-width="10"     stroke-linejoin="round"     fill="#FFF1C6"     stroke="#EEBB55"     transform="translate(0,-360)"   points="0 163 50.2 50.2 163 0 50.2 -50.2 0 -163 -50.2 -50.2 -163 0 -50.2 50.2" /><text y="91.5" fill="#142c44" stroke="#142c44" stroke-width="4"  x="0"  stroke-linejoin="round"
+        text-anchor="middle" font-family="Inter Tight SemiBold"
+        font-size="63" transform="scale(1,1.3)"  >MOMENT</text>
+<text y="90" fill="#FFF1C6" stroke="#FFF1C6" stroke-width="0"  x="0"  stroke-linejoin="round"
+        text-anchor="middle" font-family="Inter Tight SemiBold"
+        font-size="63" transform="scale(1,1.3)"  >MOMENT</text>
+<text y="150.5" fill="#142c44" stroke="#142c44" stroke-width="4"  x="0"  stroke-linejoin="round"
+        text-anchor="middle" font-family="Inter Tight SemiBold"
+        font-size="63" transform="scale(1,1.3)"  >OF</text>
+<text y="149" fill="#FFF1C6" stroke="#FFF1C6" stroke-width="0"  x="0"  stroke-linejoin="round"
+        text-anchor="middle" font-family="Inter Tight SemiBold"
+        font-size="63" transform="scale(1,1.3)"  >OF</text>
+<text y="209.5" fill="#142c44" stroke="#142c44" stroke-width="4"  x="0"  stroke-linejoin="round"
+        text-anchor="middle" font-family="Inter Tight SemiBold"
+        font-size="63" transform="scale(1,1.3)"  >ROMANCE</text>
+<text y="208" fill="#FFF1C6" stroke="#FFF1C6" stroke-width="0"  x="0"  stroke-linejoin="round"
+        text-anchor="middle" font-family="Inter Tight SemiBold"
+        font-size="63" transform="scale(1,1.3)"  >ROMANCE</text>
+
+</g>
+
+
+
+
+
+<use href="#contentboxsizer" fill="none" stroke="#142c44" stroke-width="14" stroke-linejoin="round" />
+
+</svg>
