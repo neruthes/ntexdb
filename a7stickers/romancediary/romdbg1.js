@@ -84,7 +84,7 @@ let entropy_pool_ptr = 0;
             return str1 + (lm_toggle ? ' m ' : ' l ') + str2;
         });
         const line_extra_steps = ` m 0,125
-            ${itr % 2 === 1 ? '' : 'l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25'}
+            ${itr % 2 === 0 ? '' : 'l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25'}
             M 0,294 `;
         const opacity = 1.0 - entropy_pool[itr * 4] * 0.25;
         tmpstr += `<path transform="translate(0,-360) rotate(${rotation_deg})" d="M 0,40 ${line_extra_steps} l ${points}"
@@ -204,10 +204,10 @@ SVG_CONTENT_INNER += `
 SVG_CONTENT_INNER += svgplotlib.drawstar({
     // This is the dark outline
     long: subsize_long - 36,
-    short: subsize_short - 36,
+    short: subsize_short - 31,
     vert: 16,
     attrs: {
-        'stroke-linejoin': 'round',
+        // 'stroke-linejoin': 'round',
         'fill': COLOR_SUPER_COLD,
         'stroke': COLOR_SUPER_COLD,
         'stroke-width': '22',
@@ -220,7 +220,7 @@ SVG_CONTENT_INNER += svgplotlib.drawstar({
     long: subsize_short - 55,
     vert: 8,
     attrs: {
-        'stroke-linejoin': 'round',
+        // 'stroke-linejoin': 'round',
         'fill': COLOR_2,
         'stroke': COLOR_1,
         'stroke-width': '10',
@@ -233,7 +233,7 @@ SVG_CONTENT_INNER += svgplotlib.drawstar({
     short: subsize_short - 55,
     vert: 8,
     attrs: {
-        'stroke-linejoin': 'round',
+        // 'stroke-linejoin': 'round',
         'fill': COLOR_2,
         'stroke': COLOR_1,
         'stroke-width': '10',
@@ -245,19 +245,36 @@ SVG_CONTENT_INNER += svgplotlib.drawstar({
 
 
 
-// Overlay text
+// Central big text (paused)
 ['MOMENT', 'OF', 'ROMANCE'].forEach(function (str, index) {
     let shared_attrs = ` x="0"  stroke-linejoin="round"
         text-anchor="middle" font-family="Inter Tight SemiBold"
         font-size="63" transform="scale(1,1.3)" `;
-    SVG_CONTENT_INNER += `<text y="${index * 59 + 91.5}" fill="${COLOR_SUPER_COLD}" stroke="${COLOR_SUPER_COLD}" stroke-width="4" ${shared_attrs} >${str}</text>\n`;
-    SVG_CONTENT_INNER += `<text y="${index * 59 + 90}" fill="${COLOR_2}" stroke="${COLOR_2}" stroke-width="0" ${shared_attrs} >${str}</text>\n`;
+    // SVG_CONTENT_INNER += `<text y="${index * 59 + 91.5}" fill="${COLOR_SUPER_COLD}" stroke="${COLOR_SUPER_COLD}" stroke-width="4" ${shared_attrs} >${str}</text>\n`;
+    // SVG_CONTENT_INNER += `<text y="${index * 59 + 90}" fill="${COLOR_2}" stroke="${COLOR_2}" stroke-width="0" ${shared_attrs} >${str}</text>\n`;
 });
+
+
+// Bottom small text
 SVG_CONTENT_INNER += `<text
         x="0" y="568" stroke-linejoin="round"
-        text-anchor="middle" font-family="Inter Tight SemiBold" letter-spacing="2.25" opacity="0.7"
-        font-size="33" fill="${COLOR_SUPER_COLD}" stroke="${COLOR_SUPER_COLD}" stroke-width="0" transform="scale(1,1)"
->${(new Array(4).fill(`MOMENT OF ROMANCE`)).join(' * ')}</text>\n`;
+        text-anchor="middle" font-family="Inter Tight SemiBold" letter-spacing="0" opacity="0.5"
+        font-size="32.5" fill="${COLOR_SUPER_COLD}" stroke="${COLOR_SUPER_COLD}" stroke-width="0" transform="scale(1,1)"
+>${
+    // (new Array(4).fill(`MOMENT OF ROMANCE`)
+    (new Array(3).fill(`Verweile doch du bist so schön`.toUpperCase())
+).join(' * ')}</text>\n`;
+
+
+
+// Libra golden text
+for (let polarity = -1; polarity <= 1; polarity += 2) {
+    SVG_CONTENT_INNER += `<text
+        x="${polarity * 614}" y="-346" stroke-linejoin="round"
+        text-anchor="${polarity < 0 ? 'begin' : 'end'}" font-family="Inter Tight Black"
+        font-size="36" fill="${COLOR_1}" stroke="${COLOR_1}" stroke-width="0" transform="scale(1,1)"
+    >MOMENT OF ROMANCE</text>\n`;
+};
 
 
 
@@ -306,7 +323,7 @@ let OUTPUT_TEMPLATE = `<svg viewBox="-1000 -707 2000 1404" fill="none" xmlns="ht
 
 
 
-<use href="#contentboxsizer" fill="none" stroke="${COLOR_SUPER_COLD}" stroke-width="14" stroke-linejoin="round" />
+<use href="#contentboxsizer" fill="none" stroke="${COLOR_SUPER_COLD}" stroke-width="14"  />
 
 </svg>`;
 
