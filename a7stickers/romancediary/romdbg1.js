@@ -62,6 +62,7 @@ for (let itr = 0; itr < total_count; itr++) {
 
 
 let entropy_pool = JSON.parse(fs.readFileSync('a7stickers/romancediary/entropy_pool.json').toString());
+let entropy_pool_ptr = 0;
 
 // Main background texture: light beams
 (function () {
@@ -71,7 +72,8 @@ let entropy_pool = JSON.parse(fs.readFileSync('a7stickers/romancediary/entropy_p
         let rotation_deg = itr * (360 / total_count);
         let rand_arr = [];
         for (let i = 0; i < 16; i++) {
-            rand_arr.push(my_rng_1.genrand_real1())
+            rand_arr.push(entropy_pool[entropy_pool_ptr % entropy_pool.length]);
+            entropy_pool_ptr += 1
         };
         let lm_toggle = true;
         let points = rand_arr.map(function (d) {
@@ -81,11 +83,12 @@ let entropy_pool = JSON.parse(fs.readFileSync('a7stickers/romancediary/entropy_p
             lm_toggle = !lm_toggle;
             return str1 + (lm_toggle ? ' m ' : ' l ') + str2;
         });
-        const line_extra_steps = ` m 0,147
-            l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25
-            m 0,29 `;
+        const line_extra_steps = ` m 0,125
+            ${itr % 2 === 1 ? '' : 'l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25'}
+            M 0,294 `;
+        const opacity = 1.0 - entropy_pool[itr * 4] * 0.25;
         tmpstr += `<path transform="translate(0,-360) rotate(${rotation_deg})" d="M 0,40 ${line_extra_steps} l ${points}"
-            stroke="${COLOR_1}" stroke-width="10" stroke-linecap="round" />\n`;
+            stroke="${COLOR_1}" stroke-width="11" stroke-linecap="round" opacity="${opacity}" />\n`;
     };
     SVG_CONTENT_DEFS += `<mask id="mask_gradient_whitefall">
         <rect x="-1000" y="-1000" width="2000" height="2000" fill="black" />
@@ -119,8 +122,8 @@ const mini_stars_count_per_ring = 16;
 for (let itr = 0; itr < mini_stars_count_per_ring + 0; itr += 1) {
     let deg = itr / mini_stars_count_per_ring * 360;
     let angle_rad = Math.PI * 2 * (deg / 360);
-    const length = 350;
-    let xx = Math.cos(angle_rad) * length * 1.4;
+    const length = 362;
+    let xx = Math.cos(angle_rad) * length * 1.3;
     let yy = Math.sin(angle_rad) * length - 360;
     SVG_CONTENT_INNER += `<use href="#mini_reusable_star_c1" transform="translate(${xx},${yy})" />\n`;
 }
@@ -199,6 +202,19 @@ SVG_CONTENT_INNER += `
 
 // Sun over Libra
 SVG_CONTENT_INNER += svgplotlib.drawstar({
+    // This is the dark outline
+    long: subsize_long - 36,
+    short: subsize_short - 36,
+    vert: 16,
+    attrs: {
+        'stroke-linejoin': 'round',
+        'fill': COLOR_SUPER_COLD,
+        'stroke': COLOR_SUPER_COLD,
+        'stroke-width': '22',
+        'transform': `translate(0,-360)`
+    }
+});
+SVG_CONTENT_INNER += svgplotlib.drawstar({
     // This is a 4-corner star
     short: subsize_long - 41,
     long: subsize_short - 55,
@@ -237,6 +253,11 @@ SVG_CONTENT_INNER += svgplotlib.drawstar({
     SVG_CONTENT_INNER += `<text y="${index * 59 + 91.5}" fill="${COLOR_SUPER_COLD}" stroke="${COLOR_SUPER_COLD}" stroke-width="4" ${shared_attrs} >${str}</text>\n`;
     SVG_CONTENT_INNER += `<text y="${index * 59 + 90}" fill="${COLOR_2}" stroke="${COLOR_2}" stroke-width="0" ${shared_attrs} >${str}</text>\n`;
 });
+SVG_CONTENT_INNER += `<text
+        x="0" y="568" stroke-linejoin="round"
+        text-anchor="middle" font-family="Inter Tight SemiBold" letter-spacing="2.25" opacity="0.7"
+        font-size="33" fill="${COLOR_SUPER_COLD}" stroke="${COLOR_SUPER_COLD}" stroke-width="0" transform="scale(1,1)"
+>${(new Array(4).fill(`MOMENT OF ROMANCE`)).join(' * ')}</text>\n`;
 
 
 
