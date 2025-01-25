@@ -86,9 +86,11 @@ let entropy_pool_ptr = 0;
         const line_extra_steps = ` m 0,125
             ${itr % 2 === 0 ? '' : 'l0,0.1 m0,25  l0,0.1 m0,25  l0,0.1 m0,25'}
             M 0,294 `;
-        const opacity = 1.0 - entropy_pool[itr * 4] * 0.25;
+        // const opacity = 1.0 - entropy_pool[itr * 4] * 0.25;
+        const opacity = 1.0;
+        let stroke_width = Math.min(14, 17 - entropy_pool[itr * 4+1] * 7);
         tmpstr += `<path transform="translate(0,-360) rotate(${rotation_deg})" d="M 0,40 ${line_extra_steps} l ${points}"
-            stroke="${COLOR_1}" stroke-width="11" stroke-linecap="round" opacity="${opacity}" />\n`;
+            stroke="${COLOR_1}" stroke-width="${stroke_width}" stroke-linecap="round" opacity="${opacity}" />\n`;
     };
     SVG_CONTENT_DEFS += `<mask id="mask_gradient_whitefall">
         <rect x="-1000" y="-1000" width="2000" height="2000" fill="black" />
