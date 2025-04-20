@@ -1,0 +1,132 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{calc}
+\usepackage[vmargin=0mm,hmargin=9mm]{geometry}
+\usepackage{fontspec,tabularx,tabu,xcolor,graphicx,eso-pic,colortbl,shadowtext}
+
+\setmainfont{Instrument Serif}
+\setromanfont{Instrument Serif}
+\setsansfont{Roboto}
+\setmonofont{ocrb10}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\pagestyle{empty}
+\frenchspacing
+
+\makeatletter
+\newcommand{\atauthor}[0]{\@author}
+\makeatother
+
+
+
+
+\AddToShipoutPictureBG{
+    \put(4mm,4mm){\includegraphics[width=\paperwidth-8mm]{office/dpp-1.tex.bg2.png}}
+    \put(4mm,0.50\paperheight+4mm){\includegraphics[width=\paperwidth-8mm]{office/dpp-1.tex.bg2.png}}
+}
+
+
+\newcommand{\atentryamountwidthplaceholder}[0]{\hphantom{\LARGE\ttfamily0}\vphantom{\Huge\ttfamily0}}
+
+\newcommand{\makesinglepiece}[1]{%
+    % argv: is_for_beneficiary
+    \parbox[b][0.25\textheight-1pt][t]{0.999\textwidth}{%
+        \sffamily%
+        \vspace{22pt}%
+        \shadowoffset{1.5pt}%
+        \shadowcolor{green!1!white}%
+        \hspace{-3.5pt}{\LARGE\bfseries\rmfamily\shadowtext{DELAYED PAYMENT PROMISE}}%
+        \hfill%
+        {\color{blue!70!green}\ttfamily\small No.\snprefix-\arabic{itemsn}}%
+        \par\vskip 6pt
+
+        
+        \hfill
+        \begingroup
+        \tabcolsep=2.5pt
+        \color{black!30}
+        \ttfamily\small
+        \begin{tabu}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+            \hline
+            \atentryamountwidthplaceholder&
+            \textcolor{black}{,}&
+            \atentryamountwidthplaceholder&
+            \atentryamountwidthplaceholder&
+            \atentryamountwidthplaceholder&
+            \textcolor{black}{,}&
+            \atentryamountwidthplaceholder&
+            \atentryamountwidthplaceholder&
+            \atentryamountwidthplaceholder&
+            \textcolor{black}{.}&
+            \atentryamountwidthplaceholder&
+            \atentryamountwidthplaceholder
+            \\ \hline
+        \end{tabu}%
+        \endgroup%
+
+        \vspace{-31pt}
+
+        \begingroup
+        \tabcolsep=0pt
+        % \tabulinesep=14pt
+        \renewcommand{\arraystretch}[0]{2.75}
+        \footnotesize
+        \begin{tabularx}{\linewidth}{XX}
+            \arrayrulecolor{black!30}
+            PAY AMOUNT & {} \\ \cline{1-1}
+            \strut BENEFICIARY & \strut PAY METHOD \\ \hline
+            \strut MATURITY DATE & \strut ISSUE DATE \\
+            \hline
+            \strut ISSUER\hskip 3em\textbf{\atauthor} & {\strut ISSUER SIGNATURE}  \\
+            \hline
+            % \cline{1-1}
+        \end{tabularx}
+        \endgroup
+
+        \vfill
+        \footnotesize
+        \color{black!70}
+        {(#1)}
+        \hfill\itshape Financial instrument for personal use. Valid after signed by issuer.%
+        \par
+        \vskip 20pt
+        \color{black}
+    }%
+}
+
+\newcommand{\makefullpage}[0]{%
+    \makesinglepiece{BENEFICIARY COPY}\vfill%
+    % \hrule\vfill%
+    \makesinglepiece{ISSUER COPY}\vfill%
+    \stepcounter{itemsn}%
+    \makesinglepiece{BENEFICIARY COPY}\vfill%
+    % \hrule\vfill%
+    \makesinglepiece{ISSUER COPY}%
+    \stepcounter{itemsn}%
+}
+
+
+
+
+
+
+% Task configuration
+\author{NERUTHES}
+\newcommand{\snprefix}[0]{2025}
+\newcounter{itemsn}
+\setcounter{itemsn}{100000}
+
+
+
+\begin{document}
+\makefullpage%
+
+
+\end{document}
+
+
+
+
+
+% magick /home/neruthes/EWS/nekostein/meta/nekostein-vi/_dist/wwwmisc/patterns/p02.js.png -crop 2404x1672+$((2500-2404/2))+$((2500-1672/2)) +repage -channel A -evaluate multiply 0.85 office/dpp-1.tex.bg2.png
+
+
