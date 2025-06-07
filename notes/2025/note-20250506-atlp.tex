@@ -1,0 +1,95 @@
+\documentclass[a4paper,11pt]{article}
+\input{/home/neruthes/DEV/ntexdb/notes/.head.tex}
+\fontsizepteleven
+% \fontsizeptwelve
+\docsetup{Autonomous Timeline Protocol}{Neruthes}{2025-05-06 (Manuscript WIP)}
+\linespread{1.05}
+
+
+
+
+
+
+
+\begin{document}
+
+\fulldoctitle
+
+
+
+\section*{Abstract}
+The author attempted to make a static website generator that produces ActivityPub-compatible profile and feed
+with the intention to allow federated subscription for users on Mastodon instances.
+However, the attempt was unsuccessful for various causes.
+
+As as result, the author hereby proposes an alternative approach to the new era of timeline-based social feed.
+The protocol may be addressed as ``Autonomous Timeline Protocol'' (ATLP).
+
+
+\section{Principles}
+The protocol should...
+\begin{enumerate}
+    \item Be compatible with existing reader apps;
+    \item Be easy to interact with from mobile clients;
+    \item Be easy to publish content as static websites;
+    \item Allow easy social spreading of feed items; and
+    \item Be easy to migrate data from site to site.
+\end{enumerate}
+
+
+
+\section{Components}
+The protocol consists of several components.
+
+\begin{description}
+    \item[Content Management Layer] Organize one's own content in a git repo like most static website generators.
+    \item[Online Presence Layer] Cloudflare Pages, GitHub Pages, Vercel, etc.
+        Includes human-friendly web frontend for browsers and formatted data for machines.
+    \item[Client App Layer] A place to subscribe, relate, etc.
+\end{description}
+
+
+\subsection{Content Management Layer}
+// TODO
+
+\subsection{Online Presence Layer}
+We want an extension of RSS. Namely, <link> tags with custom values on the ``rel'' attribute.
+
+We call them subfeeds. Subfeeds are optional.
+To have an ATLP main feed without any subfeed, you would effectively have a traditional RSS feed.
+
+\begin{description}
+    \item[rel=``retweets''] URL of dynamically generated list of recent retweets.
+    \item[rel=``likes''] URL of dynamically generated list of recent likes.
+    \item[rel=``inbox-public''] URL of received pings in the inbox.
+\end{description}
+
+
+\subsection{Client App Layer}
+
+The generating and uploading of the dynamically generated data files may be left for specific client app implementations.
+For example, a client app may allow the user to input a Cloudflare token so it pushes these alternative RSS files to an R2 object.
+
+
+\section{Inbox Features}
+Instance sites may optionally support inbox features besides the publishing.
+
+\subsection{Comment Notification}
+Like how pingback worked in ancient times,
+the site manifest may declare inbox.notif=smtp and inbox.notifEndpoint=bot@example.com
+to indicate an email address which accepts post-reply item URLs.
+
+Behind the address, there may be a Cloudflare email worker who inserts to the optional inbox-public subfeed.
+
+
+
+
+
+
+
+\end{document}
+
+
+
+% https://pub-714f8d634e8f451d9f2fe91a4debfa23.r2.dev/ntexdb/fc8eee09aa4b118f50aa8ac7/note-20240625-oamarketing.tex
+% https://pub-714f8d634e8f451d9f2fe91a4debfa23.r2.dev/ntexdb/ff8eb804647bf6b0a38b71f8/note-20240625-oamarketing.pdf
