@@ -1,0 +1,26 @@
+\documentclass[10pt]{article}
+\usepackage{calc}
+\usepackage[paperwidth=74.25mm,paperheight=105mm,hmargin=11mm,tmargin=4.2mm,bmargin=19mm]{geometry}
+\usepackage{fontspec,xeCJK,xcolor,graphicx,eso-pic}
+
+
+
+\setmainfont{Geist}
+\frenchspacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\pagestyle{empty}
+
+
+\AddToShipoutPictureBG{%
+    \put(0mm,0mm){\includegraphics[width=74.25mm]{a7stickers/gift-io/svg/giftiobg-v2.js.svg.png}}%
+}
+
+
+
+\newcommand{\makebody}[1]{%
+    % argv: body content text
+    \leavevmode
+    \vfill%
+    \small#1%
+}

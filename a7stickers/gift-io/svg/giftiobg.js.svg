@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-707 -1000 1414 2000">
+    <!-- Background -->
+    <rect x="-707" y="-1000" width="1414" height="2000" fill="#BBBBBB11" stroke-width="0" stroke="blue" opacity="0" />
+
+    <defs>        
+        
+    </defs>
+
+    <g transform="translate(0,40)">
+    <path id="deco_columns_right" d="
+    M -1,-850
+    L 557,-850
+    M 557,-850  l 0,1510
+    M 517,-260  l 0,920
+    M 477,-260  l 0,920
+    M 437,-260  l 0,920
+    M 397,-260  l 0,920
+    
+    M 397,-260
+    
+    q 0 -397 -397 -397 l -1,0
+
+    M 587,850 l -220,0 0,-190 220,0 z
+" stroke-width="6" stroke="#232735" fill="none" /><use href="#deco_columns_right" transform="scale(-1,1)" /><rect x="-587" y="-910"
+width="1174" height="200"
+stroke-width="6" stroke="#232735" fill="white" />
+    </g>
+    
+    
+</svg>
